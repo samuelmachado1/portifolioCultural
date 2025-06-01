@@ -4,6 +4,10 @@ Uma landing page inovadora em formato de jogo de tabuleiro que conta a trajetór
 
 ![Portfolio Preview](https://via.placeholder.com/800x400/667eea/ffffff?text=Samuel+Estrella+Portfolio)
 
+## 🚀 MVP Base Funcional
+
+Este repositório contém a implementação base funcional do portfólio, com todos os componentes principais desenvolvidos e testados.
+
 ## ✨ Características
 
 - 🎮 **Interface Gamificada**: Tabuleiro interativo com trilha animada
