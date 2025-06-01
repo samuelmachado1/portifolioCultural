@@ -1,0 +1,96 @@
+
+.timeline-card-container {
+  display: flex;
+  flex-direction: row; /* Cards em linha */
+  overflow-x: auto;    /* Permite scroll horizontal */
+  overflow-y: hidden;  /* Previne scroll vertical no container */
+  padding: 20px;
+  gap: 20px;           /* Espaçamento entre os cards */
+  width: 100%;
+  max-width: 90vw;     /* Limita a largura para forçar scroll em telas grandes */
+  box-sizing: border-box;
+  position: relative;  /* Para z-index se necessário sobre o background */
+  z-index: 2;
+  /* Força o scroll horizontal garantindo que os cards não quebrem linha */
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  /* Scroll mais suave */
+  scroll-behavior: smooth;
+  /* Adiciona sombras nas bordas para indicar que há mais conteúdo */
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(250,243,224,0.8) 5%, rgba(250,243,224,0.8) 95%, transparent 100%);
+}
+
+.timeline-card {
+  background-color: #ffffff; /* Fundo branco para o card */
+  border: 1px solid #cccccc;  /* Borda cinza clara */
+  border-radius: 12px;        /* Bordas mais arredondadas */
+  padding: 20px;              /* Padding aumentado */
+  min-width: 280px;           /* Largura mínima aumentada para forçar scroll */
+  max-width: 320px;           /* Largura máxima aumentada */
+  width: 300px;               /* Largura fixa para garantir consistência */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra mais pronunciada */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;                  /* Gap aumentado */
+  flex-shrink: 0;             /* Impede que os cards encolham */
+  white-space: normal;        /* Permite quebra de linha dentro do card */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animação suave */
+  cursor: pointer;            /* Indica que é clicável */
+}
+
+/* Efeito hover para os cards */
+.timeline-card:hover {
+  transform: translateY(-4px); /* Eleva ligeiramente o card */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2); /* Sombra mais forte no hover */
+}
+
+.timeline-card-title {
+  font-size: 1.3em;          /* Aumentado */
+  font-weight: 700;          /* Mais bold */
+  color: #2c3e50;            /* Cor mais escura e elegante */
+  margin: 0;
+  line-height: 1.3;
+}
+
+.timeline-card-date {
+  font-size: 0.95em;         /* Ligeiramente maior */
+  color: #7f8c8d;            /* Cor mais suave */
+  margin: 0;
+  font-weight: 500;          /* Peso médio */
+  text-transform: uppercase; /* Maiúsculas para dar destaque */
+  letter-spacing: 0.5px;     /* Espaçamento entre letras */
+}
+
+.timeline-card-description {
+  font-size: 1em;
+  color: #34495e;            /* Cor mais rica */
+  margin: 0;
+  line-height: 1.5;          /* Melhor legibilidade */
+  text-align: justify;       /* Justificado para melhor aparência */
+}
+
+/* Estilização da barra de rolagem (melhorada para ser mais visível) */
+.timeline-card-container::-webkit-scrollbar {
+  height: 12px; /* Aumentada para ser mais visível */
+}
+
+.timeline-card-container::-webkit-scrollbar-track {
+  background: #e8e8e8;
+  border-radius: 6px;
+  margin: 0 20px; /* Margem nas bordas para não colar nas extremidades */
+}
+
+.timeline-card-container::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 6px;
+  border: 2px solid #e8e8e8; /* Borda para destacar do track */
+}
+
+.timeline-card-container::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+.timeline-card-container::-webkit-scrollbar-thumb:active {
+  background: #333333;
+}
