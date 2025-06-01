@@ -285,14 +285,99 @@
   box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
 }
 
+/* Achievements */
+.modal__achievements {
+  margin-bottom: 2rem;
+}
+
+.modal__achievements h4 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.modal__achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.05) 100%);
+  border: 2px solid rgba(76, 175, 80, 0.2);
+  border-radius: 14px;
+  color: #2d3748;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__achievement-item:hover {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(139, 195, 74, 0.1) 100%);
+  border-color: rgba(76, 175, 80, 0.3);
+  transform: translateX(8px);
+}
+
+.modal__achievement-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Skills */
+.modal__skills {
+  margin-bottom: 2rem;
+}
+
+.modal__skills h4 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.modal__skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.modal__skill {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.9) 0%, rgba(41, 128, 185, 0.9) 100%);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal__skill:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+  background: linear-gradient(135deg, rgba(52, 152, 219, 1) 0%, rgba(41, 128, 185, 1) 100%);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .modal-backdrop {
     padding: 1rem;
+    /* Melhora performance em mobile */
+    -webkit-overflow-scrolling: touch;
   }
   
   .modal {
     max-height: 90vh;
+    /* Otimização para mobile */
+    transform: translateZ(0);
   }
   
   .modal__header {
@@ -304,6 +389,9 @@
   
   .modal__content {
     padding: 1rem 1.5rem 1.5rem 1.5rem;
+    /* Melhora a experiência de scroll em mobile */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   .modal__title {

@@ -1,3 +1,92 @@
+/* Animações e Transições Melhoradas */
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Animações de entrada sequencial */
+@keyframes slideInSequential {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(10px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardGlow {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(108, 99, 255, 0.25);
+  }
+}
+
+@keyframes iconSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
 
 .timeline-card-container {
   display: flex;
@@ -37,12 +126,44 @@
   white-space: normal;        /* Permite quebra de linha dentro do card */
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animação suave */
   cursor: pointer;            /* Indica que é clicável */
+  animation: slideInFromBottom 0.4s ease-out; /* Animação ao aparecer */
 }
 
 /* Efeito hover para os cards */
 .timeline-card:hover {
-  transform: translateY(-4px); /* Eleva ligeiramente o card */
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2); /* Sombra mais forte no hover */
+  transform: translateY(-8px) scale(1.02); /* Eleva mais e adiciona escala */
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25); /* Sombra mais forte no hover */
+  animation: floatUp 0.3s ease-out;
+}
+
+/* Animação staggered para múltiplos cards */
+.timeline-card:nth-child(1) { animation-delay: 0.1s; }
+.timeline-card:nth-child(2) { animation-delay: 0.2s; }
+.timeline-card:nth-child(3) { animation-delay: 0.3s; }
+.timeline-card:nth-child(4) { animation-delay: 0.4s; }
+.timeline-card:nth-child(5) { animation-delay: 0.5s; }
+.timeline-card:nth-child(6) { animation-delay: 0.6s; }
+.timeline-card:nth-child(7) { animation-delay: 0.7s; }
+.timeline-card:nth-child(8) { animation-delay: 0.8s; }
+.timeline-card:nth-child(9) { animation-delay: 0.9s; }
+.timeline-card:nth-child(10) { animation-delay: 1.0s; }
+
+/* Efeito shimmer ao carregar */
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+  animation-delay: 1s;
 }
 
 .timeline-card-title {
@@ -70,6 +191,76 @@
   text-align: justify;       /* Justificado para melhor aparência */
 }
 
+/* Header do card */
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.timeline-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  color: white;
+  flex-shrink: 0;
+}
+
+.timeline-card-type {
+  font-size: 0.8em;
+  color: #7f8c8d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Tags do card */
+.timeline-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.timeline-card-tag {
+  background: rgba(116, 185, 255, 0.1);
+  color: #74b9ff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7em;
+  font-weight: 500;
+  border: 1px solid rgba(116, 185, 255, 0.2);
+}
+
+.timeline-card-tag-more {
+  background: rgba(127, 140, 141, 0.1);
+  color: #7f8c8d;
+  border-color: rgba(127, 140, 141, 0.2);
+}
+
+/* Indicador de clique */
+.timeline-card-click-indicator {
+  margin-top: auto;
+  padding: 8px;
+  background: rgba(116, 185, 255, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #74b9ff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border: 1px solid rgba(116, 185, 255, 0.2);
+}
+
+.timeline-card:hover .timeline-card-click-indicator {
+  opacity: 1;
+}
+
 /* Estilização da barra de rolagem (melhorada para ser mais visível) */
 .timeline-card-container::-webkit-scrollbar {
   height: 12px; /* Aumentada para ser mais visível */
@@ -93,4 +284,115 @@
 
 .timeline-card-container::-webkit-scrollbar-thumb:active {
   background: #333333;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .timeline-card-container {
+    padding: 10px;
+    gap: 15px;
+    max-width: 95vw;
+  }
+  
+  .timeline-card {
+    min-width: 250px;
+    max-width: 280px;
+    width: 270px;
+    padding: 15px;
+    gap: 10px;
+    /* Otimização de animações para mobile */
+    animation-duration: 0.6s !important;
+  }
+  
+  /* Reduz motion para dispositivos que preferem menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-card {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+  
+  .timeline-card-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1em;
+  }
+  
+  .timeline-card-type {
+    font-size: 0.75em;
+  }
+  
+  .timeline-card-title {
+    font-size: 1.1em;
+    line-height: 1.2;
+  }
+  
+  .timeline-card-date {
+    font-size: 0.85em;
+  }
+  
+  .timeline-card-description {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+  
+  .timeline-card-tag {
+    font-size: 0.65em;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-header {
+    margin: 20px 0 15px 0;
+    padding: 0 15px;
+  }
+  
+  .timeline-title {
+    font-size: 1.8em;
+  }
+  
+  .timeline-subtitle {
+    font-size: 1em;
+  }
+  
+  .timeline-card-container {
+    padding: 15px 10px;
+    gap: 12px;
+  }
+  
+  .timeline-card {
+    min-width: 200px;
+    max-width: 240px;
+    width: 220px;
+    padding: 12px;
+  }
+  
+  .timeline-card-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 1em;
+  }
+  
+  .timeline-card-type {
+    font-size: 0.7em;
+  }
+  
+  .timeline-card-title {
+    font-size: 1em;
+  }
+  
+  .timeline-card-date {
+    font-size: 0.8em;
+  }
+  
+  .timeline-card-description {
+    font-size: 0.85em;
+  }
+  
+  .timeline-card-click-indicator {
+    font-size: 0.75em;
+    padding: 6px;
+  }
 }

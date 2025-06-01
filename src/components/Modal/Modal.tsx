@@ -71,6 +71,33 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, portfolioData, onCl
             <p>{house.data.fullDescription || house.data.description}</p>
           </div>
 
+          {house.data.achievements && house.data.achievements.length > 0 && (
+            <div className="modal__achievements">
+              <h4>Principais Conquistas</h4>
+              <ul className="modal__achievements-list">
+                {house.data.achievements.map((achievement, index) => (
+                  <li key={index} className="modal__achievement-item">
+                    <span className="modal__achievement-icon">🏆</span>
+                    {achievement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {house.data.skills && house.data.skills.length > 0 && (
+            <div className="modal__skills">
+              <h4>Competências Desenvolvidas</h4>
+              <div className="modal__skills-list">
+                {house.data.skills.map((skill, index) => (
+                  <span key={index} className="modal__skill">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {house.data.tags && house.data.tags.length > 0 && (
             <div className="modal__tags">
               <h4>Tags</h4>

@@ -13,6 +13,8 @@ export interface ExperienceData {
   flyerUrl?: string;
   fullDescription?: string;
   tags?: string[];
+  achievements?: string[];
+  skills?: string[];
   links?: {
     website?: string;
     social?: string;

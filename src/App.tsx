@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react'
-import { portfolioData } from './data/portfolio'
-import Loading from './components/UI/Loading'
-import ErrorBoundary from './components/UI/ErrorBoundary'
-import './App.css'
+import React, { Suspense } from 'react';
+import portfolioData from './data/portfolio';
+import Loading from './components/UI/Loading';
+import ErrorBoundary from './components/UI/ErrorBoundary';
+import './App.css';
 
 // Lazy load do componente principal
 const Portfolio = React.lazy(() =>
