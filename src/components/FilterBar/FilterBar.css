@@ -1,12 +1,12 @@
-/* Filter Bar Styles */
+/* Filter Bar Styles - Compacto */
 .filter-bar {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 20px 0;
-  padding: 20px;
+  gap: 8px;           /* Gap reduzido */
+  margin: 10px 0;     /* Margem reduzida */
+  padding: 12px;      /* Padding reduzido */
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
+  border-radius: 8px; /* Border radius menor */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
@@ -14,34 +14,34 @@
 .filter-label {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 1.1em;
+  gap: 6px;           /* Gap reduzido */
+  font-size: 0.95em;  /* Tamanho reduzido */
   font-weight: 600;
   color: #2c3e50;
 }
 
 .filter-icon {
-  font-size: 1.2em;
+  font-size: 1em;     /* Tamanho reduzido */
 }
 
 .filter-buttons {
   display: flex;
-  gap: 8px;
+  gap: 6px;           /* Gap reduzido */
   flex-wrap: wrap;
 }
 
 .filter-button {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 16px;
+  gap: 4px;           /* Gap reduzido */
+  padding: 6px 12px;  /* Padding reduzido */
   border: 2px solid #e0e6ed;
-  border-radius: 20px;
+  border-radius: 16px; /* Border radius menor */
   background: white;
   color: #7f8c8d;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 0.9em;
+  font-size: 0.8em;   /* Tamanho reduzido */
   font-weight: 500;
   position: relative;
   overflow: hidden;

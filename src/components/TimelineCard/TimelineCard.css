@@ -1,8 +1,25 @@
 /* Animações e Transições Melhoradas */
 @keyframes slideInFromBottom {
   0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    opacity:.timeline-card-container {
+  display: flex;
+  flex-direction: row; /* Cards em linha */
+  overflow-x: auto;    /* Reativar scroll horizontal para múltiplos cards */
+  overflow-y: hidden;  /* Previne scroll vertical no container */
+  padding: 10px;
+  gap: 12px;           /* Gap menor para acomodar mais cards */
+  width: 100%;
+  max-width: 100%;     /* Usa toda a largura disponível */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  flex-wrap: nowrap;   /* Não quebra linha */
+  /* Scroll mais suave */
+  scroll-behavior: smooth;
+  /* Scroll estilizado */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.3) transparent;
+}: translateY(30px) scale(0.95);
   }
   100% {
     opacity: 1;
@@ -92,8 +109,8 @@
   display: flex;
   flex-direction: row; /* Cards em linha */
   overflow: hidden;    /* Remove scroll completamente */
-  padding: 10px;
-  gap: 15px;           /* Espaçamento menor entre os cards */
+  padding: 5px;        /* Padding ainda menor */
+  gap: 10px;           /* Espaçamento ainda menor entre os cards */
   width: 100%;
   max-width: 100%;     /* Usa toda a largura disponível */
   box-sizing: border-box;
@@ -110,12 +127,12 @@
   background-color: #ffffff; /* Fundo branco para o card */
   border: 1px solid #cccccc;  /* Borda cinza clara */
   border-radius: 12px;        /* Bordas mais arredondadas */
-  padding: 15px;              /* Padding reduzido */
-  min-width: 220px;           /* Largura mínima reduzida */
-  max-width: 280px;           /* Largura máxima reduzida */
-  width: 250px;               /* Largura fixa menor para caber melhor */
+  padding: 12px;              /* Padding ainda menor */
+  min-width: 200px;           /* Largura mínima ainda menor */
+  max-width: 240px;           /* Largura máxima ainda menor */
+  width: 220px;               /* Largura fixa ainda menor para caber melhor */
   height: auto;               /* Altura automática */
-  max-height: 300px;          /* Altura máxima para controlar tamanho */
+  max-height: 240px;          /* Altura máxima ainda menor */
   box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra mais pronunciada */
   display: flex;
   flex-direction: column;
@@ -165,40 +182,40 @@
 }
 
 .timeline-card-title {
-  font-size: 1.3em;          /* Aumentado */
+  font-size: 1.1em;          /* Tamanho reduzido */
   font-weight: 700;          /* Mais bold */
   color: #2c3e50;            /* Cor mais escura e elegante */
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.2;          /* Line height menor */
 }
 
 .timeline-card-date {
-  font-size: 0.95em;         /* Ligeiramente maior */
+  font-size: 0.8em;          /* Tamanho reduzido */
   color: #7f8c8d;            /* Cor mais suave */
   margin: 0;
   font-weight: 500;          /* Peso médio */
   text-transform: uppercase; /* Maiúsculas para dar destaque */
-  letter-spacing: 0.5px;     /* Espaçamento entre letras */
+  letter-spacing: 0.3px;     /* Espaçamento reduzido */
 }
 
 .timeline-card-description {
-  font-size: 1em;
+  font-size: 0.85em;         /* Tamanho reduzido */
   color: #34495e;            /* Cor mais rica */
   margin: 0;
-  line-height: 1.5;          /* Melhor legibilidade */
-  text-align: justify;       /* Justificado para melhor aparência */
+  line-height: 1.4;          /* Line height reduzido */
+  text-align: left;          /* Alinhamento à esquerda para economizar espaço */
 }
 
 /* Header do card */
 .timeline-card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 6px;              /* Gap reduzido */
+  margin-bottom: 6px;    /* Margem reduzida */
 }
 
 .timeline-card-icon {
-  width: 36px;
+  width: 28px;           /* Tamanho reduzido */
   height: 36px;
   border-radius: 50%;
   display: flex;

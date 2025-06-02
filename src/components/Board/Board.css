@@ -210,22 +210,22 @@
 /* Estilos para o header da timeline */
 .timeline-header {
   text-align: center;
-  margin: 20px 0 15px 0; /* Margem reduzida */
+  margin: 10px 0 10px 0; /* Margem ainda menor */
   z-index: 3;
   position: relative;
 }
 
 .timeline-title {
-  font-size: 1.8em; /* Tamanho reduzido */
+  font-size: 1.6em; /* Tamanho ainda menor */
   font-weight: 700;
   color: #2c3e50;
-  margin: 0 0 5px 0; /* Margem reduzida */
+  margin: 0 0 3px 0; /* Margem ainda menor */
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   font-family: 'Georgia', serif;
 }
 
 .timeline-subtitle {
-  font-size: 0.9em; /* Tamanho reduzido */
+  font-size: 0.8em; /* Tamanho ainda menor */
   color: #7f8c8d;
   margin: 0;
   font-weight: 400;
@@ -354,16 +354,16 @@
   }
 }
 
-/* Timeline Stats - Compacto */
+/* Timeline Stats - Ainda mais compacto para caber na tela */
 .timeline-stats {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin: 15px 0 10px 0; /* Margem reduzida */
-  padding: 12px;         /* Padding reduzido */
+  gap: 15px;
+  margin: 8px 0 5px 0;   /* Margem ainda menor */
+  padding: 8px;          /* Padding ainda menor */
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;    /* Border radius menor */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;    /* Border radius menor */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
 
@@ -371,23 +371,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;              /* Gap reduzido */
-  min-width: 60px;       /* Largura mínima reduzida */
+  gap: 1px;              /* Gap mínimo */
+  min-width: 50px;       /* Largura mínima ainda menor */
 }
 
 .stat-number {
-  font-size: 1.4em;      /* Tamanho reduzido */
+  font-size: 1.2em;      /* Tamanho ainda menor */
   font-weight: 700;
   color: #74b9ff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .stat-label {
-  font-size: 0.8em;      /* Tamanho reduzido */
+  font-size: 0.7em;      /* Tamanho ainda menor */
   color: #7f8c8d;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 /* Button states */
