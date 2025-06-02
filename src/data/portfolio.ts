@@ -26,7 +26,7 @@ const portfolioData = {
       position: { x: 5, y: 50 },
       data: {
         title: "Início da Carreira",
-        date: "2018",
+        date: "Janeiro 2018",
         description: "Primeiros passos na produção cultural",
         fullDescription:
           "Marco inicial da jornada profissional na área cultural, desenvolvendo os primeiros conhecimentos em gestão de projetos artísticos e produção de eventos.",
@@ -54,7 +54,7 @@ const portfolioData = {
       position: { x: 15, y: 40 },
       data: {
         title: "Festival de Música Independente",
-        date: "2019",
+        date: "Março 2019",
         description: "Produção executiva de festival com 15 bandas locais",
         fullDescription:
           "Responsável pela produção executiva completa de um festival de música independente, coordenando desde a curadoria musical até a logística do evento, resultando em público de 2.000 pessoas.",
@@ -84,7 +84,7 @@ const portfolioData = {
       position: { x: 25, y: 60 },
       data: {
         title: "Curso de Gestão Cultural",
-        date: "2019-2020",
+        date: "Setembro 2019",
         description: "Especialização em gestão de projetos culturais",
         fullDescription:
           "Curso de especialização focado em gestão de projetos culturais, políticas públicas para cultura e empreendedorismo criativo. Incluiu estágio prático em centro cultural.",
@@ -114,7 +114,7 @@ const portfolioData = {
       position: { x: 35, y: 45 },
       data: {
         title: "Plataforma Digital de Artistas",
-        date: "2020-2021",
+        date: "Janeiro 2020",
         description:
           "Criação de plataforma para divulgação de artistas emergentes",
         fullDescription:
@@ -145,7 +145,7 @@ const portfolioData = {
       position: { x: 45, y: 55 },
       data: {
         title: "Prêmio Inovação Cultural",
-        date: "2021",
+        date: "Junho 2021",
         description: "Reconhecimento por projeto inovador na área cultural",
         fullDescription:
           "Recebimento do Prêmio Inovação Cultural da Secretaria de Cultura do Estado por projeto que integra tecnologia e arte, promovendo acesso democratizado à cultura.",
@@ -175,7 +175,7 @@ const portfolioData = {
       position: { x: 55, y: 40 },
       data: {
         title: "Consultoria Cultural",
-        date: "2021-2023",
+        date: "Agosto 2021",
         description: "Consultoria para empresas e instituições culturais",
         fullDescription:
           "Prestação de consultoria especializada para empresas que desejam investir em cultura e para instituições culturais que buscam modernização e sustentabilidade financeira.",
@@ -205,7 +205,7 @@ const portfolioData = {
       position: { x: 65, y: 50 },
       data: {
         title: "Rede Internacional de Cultura",
-        date: "2023",
+        date: "Abril 2023",
         description: "Participação em rede internacional de gestores culturais",
         fullDescription:
           "Integração à rede internacional de gestores culturais, participando de intercâmbios, conferências e projetos colaborativos entre Brasil, Argentina e Portugal.",
@@ -235,7 +235,7 @@ const portfolioData = {
       position: { x: 75, y: 45 },
       data: {
         title: "Empresa Própria - Estrella Cultural",
-        date: "2024",
+        date: "Março 2024",
         description: "Fundação da própria empresa de gestão cultural",
         fullDescription:
           "Criação da Estrella Cultural, empresa especializada em gestão de projetos artísticos, produção de eventos e consultoria para o setor cultural, consolidando toda a experiência adquirida.",
@@ -265,7 +265,7 @@ const portfolioData = {
       position: { x: 15, y: 40 },
       data: {
         title: "Fundação da Banda Calango Rasta",
-        date: "2011",
+        date: "Maio 2011",
         description: "Fundador, compositor e vocalista da banda Calango Rasta",
         fullDescription:
           "Fundei a banda Calango Rasta, atuando como compositor e vocalista. A banda teve seu primeiro single lançado em 2012 pela produtora Unidade 76, marcando minha entrada definitiva no cenário musical profissional.",
@@ -295,7 +295,7 @@ const portfolioData = {
       position: { x: 25, y: 55 },
       data: {
         title: "Calangos Sound System",
-        date: "2012",
+        date: "Setembro 2012",
         description:
           "Criação da produtora própria e primeiro evento independente",
         fullDescription:
@@ -326,7 +326,7 @@ const portfolioData = {
       position: { x: 35, y: 30 },
       data: {
         title: "Registro na OMB",
-        date: "2009",
+        date: "Outubro 2009",
         description: "Músico registrado na Ordem dos Músicos do Brasil",
         fullDescription:
           "Registro oficial como músico na Ordem dos Músicos do Brasil - OMB/DF, formalizando minha atuação profissional na música e ampliando horizontes em produções artísticas.",
@@ -356,7 +356,7 @@ const portfolioData = {
       position: { x: 45, y: 60 },
       data: {
         title: "Gerente Regional de Cultura",
-        date: "2020-2023",
+        date: "Fevereiro 2020",
         description: "Gerente Regional de Cultura em São Sebastião",
         fullDescription:
           "Atuação como Gerente Regional de Cultura em São Sebastião, coordenando políticas culturais regionais, desenvolvendo projetos e promovendo a cultura local com foco na valorização de artistas e manifestações culturais da região.",
@@ -391,7 +391,7 @@ const portfolioData = {
       position: { x: 55, y: 35 },
       data: {
         title: "Vice Presidente do CRC/DF",
-        date: "2019-2023",
+        date: "Março 2019",
         description:
           "Vice Presidente do Conselho Regional de Cultura de São Sebastião",
         fullDescription:
@@ -422,7 +422,7 @@ const portfolioData = {
       position: { x: 75, y: 55 },
       data: {
         title: "Presidente do CRC/DF",
-        date: "2024-2025",
+        date: "Janeiro 2024",
         description:
           "Presidente do Conselho Regional de Cultura de São Sebastião",
         fullDescription:
@@ -453,7 +453,7 @@ const portfolioData = {
       position: { x: 65, y: 50 },
       data: {
         title: "Membro da Câmara Técnica CODESE/DF",
-        date: "2020-2023",
+        date: "Maio 2020",
         description: "Membro da Câmara Técnica de Cultura do CODESE/DF",
         fullDescription:
           "Participação como membro da Câmara Técnica de Cultura do Conselho de Desenvolvimento Econômico, Sustentável e Estratégico do Distrito Federal - CODESE/DF, contribuindo para políticas de desenvolvimento cultural sustentável.",
@@ -483,7 +483,7 @@ const portfolioData = {
       position: { x: 75, y: 40 },
       data: {
         title: "Finalista Prêmio Profissionais da Música",
-        date: "2019",
+        date: "Setembro 2019",
         description: "Finalista na categoria Produção Executiva",
         fullDescription:
           "Reconhecimento como finalista no Prêmio Profissionais da Música na categoria Produção Executiva, destacando a qualidade e relevância do trabalho desenvolvido na área de produção musical e cultural.",
@@ -513,7 +513,7 @@ const portfolioData = {
       position: { x: 85, y: 55 },
       data: {
         title: "Moção de Louvor - CLDF",
-        date: "2019",
+        date: "Novembro 2019",
         description: "Moção de louvor na Câmara Legislativa do DF",
         fullDescription:
           "Recebimento de Moção de Louvor na Câmara Legislativa do Distrito Federal pelas contribuições significativas em projetos culturais, reconhecendo o impacto positivo das ações desenvolvidas para a comunidade.",
@@ -548,7 +548,7 @@ const portfolioData = {
       position: { x: 95, y: 30 },
       data: {
         title: "Premiação EDITAL LECRIA",
-        date: "2017",
+        date: "Agosto 2017",
         description: "Premiação no Laboratório de Empreendimentos Criativos",
         fullDescription:
           "Conquista de premiação no EDITAL LECRIA - Laboratório de Empreendimentos Criativos, reconhecendo a inovação e qualidade em projetos de empreendedorismo cultural e economia criativa.",
@@ -583,7 +583,7 @@ const portfolioData = {
       position: { x: 105, y: 45 },
       data: {
         title: "1º Lugar Edital FAC/DF",
-        date: "2017",
+        date: "Dezembro 2017",
         description: "Primeiro lugar no Edital Áreas Culturais do FAC/DF",
         fullDescription:
           "Conquista do primeiro lugar no Edital Áreas Culturais do Fundo de Apoio à Cultura - FAC/DF, demonstrando excelência na elaboração de projetos culturais e reconhecimento oficial da qualidade das propostas.",
@@ -613,7 +613,7 @@ const portfolioData = {
       position: { x: 115, y: 60 },
       data: {
         title: "Homenageado Festival Cerrado Reggae",
-        date: "2020",
+        date: "Outubro 2020",
         description: "Homenagem no I Festival Cerrado Reggae",
         fullDescription:
           "Reconhecimento como homenageado no I Festival Cerrado Reggae, celebrando a contribuição significativa para o desenvolvimento e fortalecimento da cena reggae no Distrito Federal e região do Cerrado.",
@@ -649,7 +649,7 @@ const portfolioData = {
       position: { x: 125, y: 35 },
       data: {
         title: "Projeto Reggae na Praça",
-        date: "2014-2023",
+        date: "Junho 2014",
         description:
           "Criação e produção do projeto Reggae na Praça com 15+ edições",
         fullDescription:

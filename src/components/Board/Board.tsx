@@ -27,12 +27,36 @@ export const Board: React.FC<BoardProps> = ({
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  // Filtrar houses baseado no filtro ativo
+  // Função para extrair o ano mais recente de uma data
+  const extractLatestYear = (dateString: string): number => {
+    if (!dateString) return 0;
+
+    // Novo formato: "Mês Ano" (ex: "Janeiro 2018", "Março 2019")
+    // Extrair todos os anos da string
+    const yearMatches = dateString.match(/\d{4}/g);
+    if (!yearMatches) return 0;
+
+    // Retornar o maior ano encontrado (mais recente)
+    return Math.max(...yearMatches.map(year => parseInt(year)));
+  };
+
+  // Filtrar e ordenar houses baseado no filtro ativo
   const filteredHouses = useMemo(() => {
-    if (activeFilter === 'all') {
-      return houses;
+    let filtered = houses;
+
+    // Aplicar filtro por tipo se necessário
+    if (activeFilter !== 'all') {
+      filtered = houses.filter(house => house.type === activeFilter);
     }
-    return houses.filter(house => house.type === activeFilter);
+
+    // Ordenar cronologicamente (mais recentes primeiro)
+    return filtered.sort((a, b) => {
+      const yearA = extractLatestYear(a.data?.date || '');
+      const yearB = extractLatestYear(b.data?.date || '');
+
+      // Ordenação decrescente (anos mais recentes primeiro)
+      return yearB - yearA;
+    });
   }, [houses, activeFilter]);
 
   // Calcular contagens para cada filtro
