@@ -8,7 +8,7 @@ interface TimelineCardProps {
   index?: number; // Índice para animação sequencial
 }
 
-export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick, index = 0 }) => {
+export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick }) => {
   // Verifica se house.data existe antes de desestruturar
   if (!house.data) {
     return null; // Ou <></> se preferir um fragmento vazio, ou um placeholder
@@ -48,12 +48,7 @@ export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick, inde
     <div
       className="timeline-card"
       onClick={handleClick}
-      style={{
-        animationDelay: `${index * 0.15}s`,
-        animation: 'slideInSequential 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
-        opacity: 0, // Inicia invisível para a animação
-        transform: 'translateY(20px) scale(0.95)' // Estado inicial
-      }}
+
     >
       {/* Header do card com ícone e tipo */}
       <div className="timeline-card-header">

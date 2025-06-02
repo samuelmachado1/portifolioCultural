@@ -131,20 +131,20 @@
   gap: 12px;                  /* Gap aumentado */
   flex-shrink: 0;             /* Impede que os cards encolham */
   white-space: normal;        /* Permite quebra de linha dentro do card */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animação suave */
+  /* transition: transform 0.2s ease, box-shadow 0.2s ease; Animação suave */
   cursor: pointer;            /* Indica que é clicável */
-  animation: slideInFromBottom 0.4s ease-out; /* Animação ao aparecer */
+  /* animation: slideInFromBottom 0.4s ease-out; Animação ao aparecer */
 }
 
 /* Efeito hover para os cards */
 .timeline-card:hover {
-  transform: translateY(-8px) scale(1.02); /* Eleva mais e adiciona escala */
+  /* transform: translateY(-8px) scale(1.02); Eleva mais e adiciona escala */
   box-shadow: 0 12px 32px rgba(0,0,0,0.25); /* Sombra mais forte no hover */
-  animation: floatUp 0.3s ease-out;
+  /* animation: floatUp 0.3s ease-out; */
 }
 
 /* Animação staggered para múltiplos cards */
-.timeline-card:nth-child(1) { animation-delay: 0.1s; }
+/* .timeline-card:nth-child(1) { animation-delay: 0.1s; }
 .timeline-card:nth-child(2) { animation-delay: 0.2s; }
 .timeline-card:nth-child(3) { animation-delay: 0.3s; }
 .timeline-card:nth-child(4) { animation-delay: 0.4s; }
@@ -153,7 +153,7 @@
 .timeline-card:nth-child(7) { animation-delay: 0.7s; }
 .timeline-card:nth-child(8) { animation-delay: 0.8s; }
 .timeline-card:nth-child(9) { animation-delay: 0.9s; }
-.timeline-card:nth-child(10) { animation-delay: 1.0s; }
+.timeline-card:nth-child(10) { animation-delay: 1.0s; } */
 
 /* Efeito shimmer ao carregar */
 .timeline-card::before {
