@@ -1,25 +1,8 @@
 /* Animações e Transições Melhoradas */
 @keyframes slideInFromBottom {
   0% {
-    opacity:.timeline-card-container {
-  display: flex;
-  flex-direction: row; /* Cards em linha */
-  overflow-x: auto;    /* Reativar scroll horizontal para múltiplos cards */
-  overflow-y: hidden;  /* Previne scroll vertical no container */
-  padding: 10px;
-  gap: 12px;           /* Gap menor para acomodar mais cards */
-  width: 100%;
-  max-width: 100%;     /* Usa toda a largura disponível */
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
-  flex-wrap: nowrap;   /* Não quebra linha */
-  /* Scroll mais suave */
-  scroll-behavior: smooth;
-  /* Scroll estilizado */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.3) transparent;
-}: translateY(30px) scale(0.95);
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
   }
   100% {
     opacity: 1;
@@ -108,7 +91,8 @@
 .timeline-card-container {
   display: flex;
   flex-direction: row; /* Cards em linha */
-  overflow: hidden;    /* Remove scroll completamente */
+  overflow-x: auto;    /* Habilita scroll horizontal */
+  overflow-y: hidden;  /* Remove scroll vertical */
   padding: 5px;        /* Padding ainda menor */
   gap: 10px;           /* Espaçamento ainda menor entre os cards */
   width: 100%;
@@ -118,9 +102,17 @@
   z-index: 2;
   /* Permite que o container se ajuste ao conteúdo */
   flex-wrap: nowrap;
-  justify-content: center; /* Centraliza os cards */
+  justify-content: flex-start; /* Alinha cards à esquerda para primeiro ser visível */
   align-items: center;
-  /* Remove o background que indica scroll */
+  /* Scroll suave e oculta scrollbar */
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Oculta scrollbar no WebKit */
+.timeline-card-container::-webkit-scrollbar {
+  display: none;
 }
 
 .timeline-card {
