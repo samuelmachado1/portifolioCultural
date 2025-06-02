@@ -15,7 +15,11 @@ export interface ExperienceData {
   tags?: string[];
   achievements?: string[];
   skills?: string[];
-  links?: {
+  links?: Array<{
+    title: string;
+    url: string;
+  }>;
+  socialLinks?: {
     website?: string;
     social?: string;
     video?: string;

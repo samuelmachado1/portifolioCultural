@@ -62,10 +62,34 @@
   background-clip: text;
 }
 
-.profile-details p {
+.profile-title {
+  font-size: 1.1em;
+  font-weight: 600;
   margin: 0.5rem 0;
-  opacity: 0.9;
-  line-height: 1.6;
+  opacity: 0.95;
+  color: #f8f9fa;
+}
+
+.profile-subtitle {
+  font-size: 0.9em;
+  margin: 0.3rem 0 0.8rem 0;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.profile-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.8rem;
+}
+
+.contact-item {
+  font-size: 0.85em;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .board-container {
@@ -98,9 +122,21 @@
     font-size: 1.5rem; /* Ainda menor em mobile */
   }
   
-  .profile-details p {
-    font-size: 0.9rem; /* Texto menor */
-    margin: 0.3rem 0;
+  .profile-title {
+    font-size: 1rem;
+  }
+  
+  .profile-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .profile-contact {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  
+  .contact-item {
+    font-size: 0.75rem;
   }
   
   .portfolio-header {
@@ -124,8 +160,16 @@
     font-size: 1.3rem;
   }
   
-  .profile-details p {
-    font-size: 0.8rem;
+  .profile-title {
+    font-size: 0.9rem;
+  }
+  
+  .profile-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .contact-item {
+    font-size: 0.7rem;
   }
   
   .portfolio-header {

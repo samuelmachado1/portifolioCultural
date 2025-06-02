@@ -125,6 +125,7 @@ export const Board: React.FC<BoardProps> = ({
           totalItems={timelineItems.length}
           onIndicatorClick={handleIndicatorClick}
           visibleItems={3}
+          timelineItems={timelineItems}
         />
       )}
 

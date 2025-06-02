@@ -259,6 +259,378 @@ const portfolioData = {
         icon: "🚀",
       },
     },
+    {
+      id: "banda-calango-rasta",
+      type: "milestone",
+      position: { x: 15, y: 40 },
+      data: {
+        title: "Fundação da Banda Calango Rasta",
+        date: "2011",
+        description: "Fundador, compositor e vocalista da banda Calango Rasta",
+        fullDescription:
+          "Fundei a banda Calango Rasta, atuando como compositor e vocalista. A banda teve seu primeiro single lançado em 2012 pela produtora Unidade 76, marcando minha entrada definitiva no cenário musical profissional.",
+        tags: ["música", "reggae", "banda", "composição"],
+        achievements: [
+          "Fundação da banda Calango Rasta",
+          "Primeiro single lançado pela Unidade 76",
+          "Desenvolvimento de repertório autoral",
+          "Apresentações em diversos eventos",
+        ],
+        skills: [
+          "Composição musical",
+          "Performance vocal",
+          "Liderança de banda",
+          "Produção musical",
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "artistic",
+        icon: "🎵",
+      },
+    },
+    {
+      id: "calangos-sound-system",
+      type: "experience",
+      position: { x: 25, y: 55 },
+      data: {
+        title: "Calangos Sound System",
+        date: "2012",
+        description: "Criação da produtora própria e primeiro evento independente",
+        fullDescription:
+          "Em 2012, com a produtora própria 'Calangos Sound System', realizamos nosso primeiro evento de forma independente: o 'SOUND SYSTEM'. Este evento serviu de laboratório para o que hoje é o projeto 'REGGAE NA PRAÇA', que já teve 8 edições.",
+        tags: ["produção", "empreendedorismo", "sound system", "reggae"],
+        achievements: [
+          "Criação da produtora Calangos Sound System",
+          "Realização do primeiro evento independente",
+          "Base para o projeto Reggae na Praça",
+          "Desenvolvimento de metodologia própria",
+        ],
+        skills: [
+          "Gestão de produtora",
+          "Organização de eventos",
+          "Empreendedorismo cultural",
+          "Gestão de sound system",
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "production",
+        icon: "🎛️",
+      },
+    },
+    {
+      id: "omb-registro",
+      type: "milestone",
+      position: { x: 35, y: 30 },
+      data: {
+        title: "Registro na OMB",
+        date: "2009",
+        description: "Músico registrado na Ordem dos Músicos do Brasil",
+        fullDescription:
+          "Registro oficial como músico na Ordem dos Músicos do Brasil - OMB/DF, formalizando minha atuação profissional na música e ampliando horizontes em produções artísticas.",
+        tags: ["registro profissional", "OMB", "música", "formalização"],
+        achievements: [
+          "Registro oficial na OMB/DF",
+          "Reconhecimento profissional",
+          "Habilitação para atuação formal",
+          "Ampliação de oportunidades",
+        ],
+        skills: [
+          "Profissionalismo musical",
+          "Conhecimento técnico",
+          "Ética profissional",
+          "Networking institucional",
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "milestone",
+        icon: "📜",
+      },
+    },
+    {
+      id: "gerente-regional-cultura",
+      type: "experience",
+      position: { x: 45, y: 60 },
+      data: {
+        title: "Gerente Regional de Cultura",
+        date: "2020-2023",
+        description: "Gerente Regional de Cultura em São Sebastião",
+        fullDescription:
+          "Atuação como Gerente Regional de Cultura em São Sebastião, coordenando políticas culturais regionais, desenvolvendo projetos e promovendo a cultura local com foco na valorização de artistas e manifestações culturais da região.",
+        tags: ["gestão pública", "cultura", "São Sebastião", "políticas culturais"],
+        achievements: [
+          "Coordenação de políticas culturais regionais",
+          "Desenvolvimento de projetos comunitários",
+          "Fortalecimento da cena cultural local",
+          "Articulação com poder público",
+        ],
+        skills: [
+          "Gestão pública",
+          "Políticas culturais",
+          "Articulação institucional",
+          "Desenvolvimento regional",
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "production",
+        icon: "🏛️",
+      },
+    },
+    {
+      id: "vice-presidente-crc",
+      type: "experience",
+      position: { x: 55, y: 35 },
+      data: {
+        title: "Vice Presidente do CRC/DF",
+        date: "2019-2023",
+        description: "Vice Presidente do Conselho Regional de Cultura de São Sebastião",
+        fullDescription:
+          "Atuação como Vice Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF, participando ativamente das decisões sobre políticas culturais e representando os interesses da comunidade artística regional.",
+        tags: ["conselho", "representação", "liderança", "cultura"],
+        achievements: [
+          "Eleição para vice-presidência do CRC/DF",
+          "Representação da comunidade artística",
+          "Participação em decisões estratégicas",
+          "Advocacy para políticas culturais",
+        ],
+        skills: [
+          "Liderança institucional",
+          "Representação política",
+          "Articulação de grupos",
+          "Gestão de conselhos",
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "production",
+        icon: "🤝",
+      },
+    },
+    {
+      id: "membro-codese",
+      type: "experience",
+      position: { x: 65, y: 50 },
+      data: {
+        title: "Membro da Câmara Técnica CODESE/DF",
+        date: "2020-2023",
+        description: "Membro da Câmara Técnica de Cultura do CODESE/DF",
+        fullDescription:
+          "Participação como membro da Câmara Técnica de Cultura do Conselho de Desenvolvimento Econômico, Sustentável e Estratégico do Distrito Federal - CODESE/DF, contribuindo para políticas de desenvolvimento cultural sustentável.",
+        tags: ["desenvolvimento", "sustentabilidade", "estratégia", "DF"],
+        achievements: [
+          "Participação em câmara técnica especializada",
+          "Contribuição para políticas de desenvolvimento",
+          "Articulação entre cultura e economia",
+          "Visão estratégica para o DF",
+        ],
+        skills: [
+          "Planejamento estratégico",
+          "Desenvolvimento sustentável",
+          "Economia criativa",
+          "Análise de políticas públicas",
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "production",
+        icon: "📊",
+      },
+    },
+    {
+      id: "premio-profissionais-musica",
+      type: "milestone",
+      position: { x: 75, y: 40 },
+      data: {
+        title: "Finalista Prêmio Profissionais da Música",
+        date: "2019",
+        description: "Finalista na categoria Produção Executiva",
+        fullDescription:
+          "Reconhecimento como finalista no Prêmio Profissionais da Música na categoria Produção Executiva, destacando a qualidade e relevância do trabalho desenvolvido na área de produção musical e cultural.",
+        tags: ["prêmio", "reconhecimento", "produção executiva", "música"],
+        achievements: [
+          "Finalista em premiação nacional",
+          "Reconhecimento por pares da indústria",
+          "Destaque na produção executiva",
+          "Validação do trabalho profissional",
+        ],
+        skills: [
+          "Excelência em produção",
+          "Gestão de projetos musicais",
+          "Qualidade técnica",
+          "Inovação na produção",
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "milestone",
+        icon: "🏆",
+      },
+    },
+    {
+      id: "mocao-louvor-cldf",
+      type: "milestone",
+      position: { x: 85, y: 55 },
+      data: {
+        title: "Moção de Louvor - CLDF",
+        date: "2019",
+        description: "Moção de louvor na Câmara Legislativa do DF",
+        fullDescription:
+          "Recebimento de Moção de Louvor na Câmara Legislativa do Distrito Federal pelas contribuições significativas em projetos culturais, reconhecendo o impacto positivo das ações desenvolvidas para a comunidade.",
+        tags: ["reconhecimento", "CLDF", "contribuição social", "projetos culturais"],
+        achievements: [
+          "Moção de louvor oficial da CLDF",
+          "Reconhecimento público das contribuições",
+          "Impacto social reconhecido",
+          "Exemplo para a comunidade",
+        ],
+        skills: [
+          "Impacto social",
+          "Liderança comunitária",
+          "Transformação cultural",
+          "Responsabilidade social",
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "milestone",
+        icon: "🎖️",
+      },
+    },
+    {
+      id: "premiacao-lecria",
+      type: "milestone",
+      position: { x: 95, y: 30 },
+      data: {
+        title: "Premiação EDITAL LECRIA",
+        date: "2017",
+        description: "Premiação no Laboratório de Empreendimentos Criativos",
+        fullDescription:
+          "Conquista de premiação no EDITAL LECRIA - Laboratório de Empreendimentos Criativos, reconhecendo a inovação e qualidade em projetos de empreendedorismo cultural e economia criativa.",
+        tags: ["premiação", "empreendedorismo", "inovação", "economia criativa"],
+        achievements: [
+          "Premiação em edital competitivo",
+          "Reconhecimento da inovação",
+          "Destaque em empreendedorismo cultural",
+          "Validação de modelo de negócio",
+        ],
+        skills: [
+          "Empreendedorismo cultural",
+          "Inovação em projetos",
+          "Economia criativa",
+          "Gestão de negócios culturais",
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "milestone",
+        icon: "💡",
+      },
+    },
+    {
+      id: "fac-primeiro-lugar",
+      type: "milestone",
+      position: { x: 105, y: 45 },
+      data: {
+        title: "1º Lugar Edital FAC/DF",
+        date: "2017",
+        description: "Primeiro lugar no Edital Áreas Culturais do FAC/DF",
+        fullDescription:
+          "Conquista do primeiro lugar no Edital Áreas Culturais do Fundo de Apoio à Cultura - FAC/DF, demonstrando excelência na elaboração de projetos culturais e reconhecimento oficial da qualidade das propostas.",
+        tags: ["FAC", "primeiro lugar", "edital", "excelência"],
+        achievements: [
+          "Primeiro lugar em edital competitivo",
+          "Projeto cultural de excelência",
+          "Captação de recursos públicos",
+          "Reconhecimento institucional",
+        ],
+        skills: [
+          "Elaboração de projetos",
+          "Captação de recursos",
+          "Gestão de editais",
+          "Excelência técnica",
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "milestone",
+        icon: "🥇",
+      },
+    },
+    {
+      id: "homenagem-festival-cerrado",
+      type: "milestone",
+      position: { x: 115, y: 60 },
+      data: {
+        title: "Homenageado Festival Cerrado Reggae",
+        date: "2020",
+        description: "Homenagem no I Festival Cerrado Reggae",
+        fullDescription:
+          "Reconhecimento como homenageado no I Festival Cerrado Reggae, celebrando a contribuição significativa para o desenvolvimento e fortalecimento da cena reggae no Distrito Federal e região do Cerrado.",
+        tags: ["homenagem", "reggae", "festival", "reconhecimento"],
+        achievements: [
+          "Homenagem em festival de relevância",
+          "Reconhecimento pela comunidade reggae",
+          "Contribuição para cena musical local",
+          "Referência no movimento cultural",
+        ],
+        skills: [
+          "Liderança cultural",
+          "Desenvolvimento de cena musical",
+          "Articulação comunitária",
+          "Influência cultural",
+        ],
+        links: [
+          {
+            title: "Vídeo da Homenagem",
+            url: "https://youtu.be/cmMdYI9HBBI?t=8550",
+          },
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "milestone",
+        icon: "🎭",
+      },
+    },
+    {
+      id: "reggae-na-praca-projeto",
+      type: "experience",
+      position: { x: 125, y: 35 },
+      data: {
+        title: "Projeto Reggae na Praça",
+        date: "2014-2023",
+        description: "Criação e produção do projeto Reggae na Praça com 15+ edições",
+        fullDescription:
+          "Desenvolvimento e coordenação do projeto 'Reggae na Praça', que se tornou um dos principais eventos de reggae do DF. O projeto já realizou mais de 15 edições, promovendo a cultura reggae e oferecendo espaço para artistas locais e nacionais.",
+        tags: ["reggae", "evento", "produção", "continuidade"],
+        achievements: [
+          "Mais de 15 edições realizadas",
+          "Consolidação como evento referência",
+          "Promoção de artistas locais",
+          "Fortalecimento da cena reggae",
+        ],
+        skills: [
+          "Produção de eventos",
+          "Gestão de projeto longevo",
+          "Curadoria musical",
+          "Desenvolvimento de público",
+        ],
+        links: [
+          {
+            title: "Instagram do Projeto",
+            url: "https://www.instagram.com/reggaenapraca",
+          },
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "cultural",
+        icon: "🎪",
+      },
+    },
   ] as BoardHouse[],
 
   boardConfig: {
