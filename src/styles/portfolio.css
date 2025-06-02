@@ -71,6 +71,7 @@
 .board-container {
   flex: 1; /* Ocupa o espaço restante */
   padding: 1rem 2rem;
+  padding-bottom: 70px; /* Espaço para o PositionIndicator fixo */
   overflow: hidden; /* Previne scroll no container do board */
   display: flex;
   align-items: center;
@@ -108,6 +109,7 @@
   
   .board-container {
     padding: 0.5rem 1rem; /* Padding reduzido */
+    padding-bottom: 60px; /* Espaço para o PositionIndicator em mobile */
   }
   
   .profile-avatar {
