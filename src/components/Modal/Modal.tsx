@@ -109,15 +109,32 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, portfolioData, onCl
                 ))}
               </div>
             </div>
-          )}
-
-          {house.data.links && (
+          )}            {house.data.links && house.data.links.length > 0 && (
             <div className="modal__links">
               <h4>Links</h4>
               <div className="modal__links-list">
-                {house.data.links.website && (
+                {house.data.links.map((link, index) => (
                   <a
-                    href={house.data.links.website}
+                    key={index}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="modal__link"
+                  >
+                    🔗 {link.title}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {house.data.socialLinks && (
+            <div className="modal__links">
+              <h4>Redes Sociais</h4>
+              <div className="modal__links-list">
+                {house.data.socialLinks.website && (
+                  <a
+                    href={house.data.socialLinks.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="modal__link"
@@ -125,9 +142,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, portfolioData, onCl
                     🌐 Website
                   </a>
                 )}
-                {house.data.links.social && (
+                {house.data.socialLinks.social && (
                   <a
-                    href={house.data.links.social}
+                    href={house.data.socialLinks.social}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="modal__link"
@@ -135,9 +152,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, portfolioData, onCl
                     📱 Instagram
                   </a>
                 )}
-                {house.data.links.video && (
+                {house.data.socialLinks.video && (
                   <a
-                    href={house.data.links.video}
+                    href={house.data.socialLinks.video}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="modal__link"
@@ -145,9 +162,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, portfolioData, onCl
                     🎥 Vídeo
                   </a>
                 )}
-                {house.data.links.spotify && (
+                {house.data.socialLinks.spotify && (
                   <a
-                    href={house.data.links.spotify}
+                    href={house.data.socialLinks.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="modal__link"
@@ -155,9 +172,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, portfolioData, onCl
                     🎵 Spotify
                   </a>
                 )}
-                {house.data.links.youtube && (
+                {house.data.socialLinks.youtube && (
                   <a
-                    href={house.data.links.youtube}
+                    href={house.data.socialLinks.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="modal__link"

@@ -296,7 +296,8 @@ const portfolioData = {
       data: {
         title: "Calangos Sound System",
         date: "2012",
-        description: "Criação da produtora própria e primeiro evento independente",
+        description:
+          "Criação da produtora própria e primeiro evento independente",
         fullDescription:
           "Em 2012, com a produtora própria 'Calangos Sound System', realizamos nosso primeiro evento de forma independente: o 'SOUND SYSTEM'. Este evento serviu de laboratório para o que hoje é o projeto 'REGGAE NA PRAÇA', que já teve 8 edições.",
         tags: ["produção", "empreendedorismo", "sound system", "reggae"],
@@ -359,7 +360,12 @@ const portfolioData = {
         description: "Gerente Regional de Cultura em São Sebastião",
         fullDescription:
           "Atuação como Gerente Regional de Cultura em São Sebastião, coordenando políticas culturais regionais, desenvolvendo projetos e promovendo a cultura local com foco na valorização de artistas e manifestações culturais da região.",
-        tags: ["gestão pública", "cultura", "São Sebastião", "políticas culturais"],
+        tags: [
+          "gestão pública",
+          "cultura",
+          "São Sebastião",
+          "políticas culturais",
+        ],
         achievements: [
           "Coordenação de políticas culturais regionais",
           "Desenvolvimento de projetos comunitários",
@@ -386,12 +392,44 @@ const portfolioData = {
       data: {
         title: "Vice Presidente do CRC/DF",
         date: "2019-2023",
-        description: "Vice Presidente do Conselho Regional de Cultura de São Sebastião",
+        description:
+          "Vice Presidente do Conselho Regional de Cultura de São Sebastião",
         fullDescription:
           "Atuação como Vice Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF, participando ativamente das decisões sobre políticas culturais e representando os interesses da comunidade artística regional.",
         tags: ["conselho", "representação", "liderança", "cultura"],
         achievements: [
           "Eleição para vice-presidência do CRC/DF",
+          "Representação da comunidade artística",
+          "Participação em decisões estratégicas",
+          "Advocacy para políticas culturais",
+        ],
+        skills: [
+          "Liderança institucional",
+          "Representação política",
+          "Articulação de grupos",
+          "Gestão de conselhos",
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "production",
+        icon: "🤝",
+      },
+    },
+    {
+      id: "presidente-crc",
+      type: "experience",
+      position: { x: 75, y: 55 },
+      data: {
+        title: "Presidente do CRC/DF",
+        date: "2024-2025",
+        description:
+          "Presidente do Conselho Regional de Cultura de São Sebastião",
+        fullDescription:
+          "Atuação como Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF, participando ativamente das decisões sobre políticas culturais e representando os interesses da comunidade artística regional.",
+        tags: ["conselho", "representação", "liderança", "cultura"],
+        achievements: [
+          "Eleição para presidência do CRC/DF",
           "Representação da comunidade artística",
           "Participação em decisões estratégicas",
           "Advocacy para políticas culturais",
@@ -479,7 +517,12 @@ const portfolioData = {
         description: "Moção de louvor na Câmara Legislativa do DF",
         fullDescription:
           "Recebimento de Moção de Louvor na Câmara Legislativa do Distrito Federal pelas contribuições significativas em projetos culturais, reconhecendo o impacto positivo das ações desenvolvidas para a comunidade.",
-        tags: ["reconhecimento", "CLDF", "contribuição social", "projetos culturais"],
+        tags: [
+          "reconhecimento",
+          "CLDF",
+          "contribuição social",
+          "projetos culturais",
+        ],
         achievements: [
           "Moção de louvor oficial da CLDF",
           "Reconhecimento público das contribuições",
@@ -509,7 +552,12 @@ const portfolioData = {
         description: "Premiação no Laboratório de Empreendimentos Criativos",
         fullDescription:
           "Conquista de premiação no EDITAL LECRIA - Laboratório de Empreendimentos Criativos, reconhecendo a inovação e qualidade em projetos de empreendedorismo cultural e economia criativa.",
-        tags: ["premiação", "empreendedorismo", "inovação", "economia criativa"],
+        tags: [
+          "premiação",
+          "empreendedorismo",
+          "inovação",
+          "economia criativa",
+        ],
         achievements: [
           "Premiação em edital competitivo",
           "Reconhecimento da inovação",
@@ -602,7 +650,8 @@ const portfolioData = {
       data: {
         title: "Projeto Reggae na Praça",
         date: "2014-2023",
-        description: "Criação e produção do projeto Reggae na Praça com 15+ edições",
+        description:
+          "Criação e produção do projeto Reggae na Praça com 15+ edições",
         fullDescription:
           "Desenvolvimento e coordenação do projeto 'Reggae na Praça', que se tornou um dos principais eventos de reggae do DF. O projeto já realizou mais de 15 edições, promovendo a cultura reggae e oferecendo espaço para artistas locais e nacionais.",
         tags: ["reggae", "evento", "produção", "continuidade"],

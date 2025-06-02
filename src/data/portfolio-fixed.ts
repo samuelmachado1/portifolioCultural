@@ -105,7 +105,7 @@ export const portfolioData: PortfolioData = {
           "Arte Urbana",
           "Mobilização Social",
         ],
-        links: {
+        socialLinks: {
           social: "https://instagram.com/periferia.criativa",
         },
       },
