@@ -1,15 +1,6 @@
-/* Position Indicator Styles */
+/* Position Indicator Styles - Oculto para remover scroll */
 .position-indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin: 20px 0;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  display: none; /* Oculta o indicador de posição */
 }
 
 /* Progress Bar */
