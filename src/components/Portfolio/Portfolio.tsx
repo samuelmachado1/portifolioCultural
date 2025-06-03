@@ -124,8 +124,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
 
           <div className="contact-panel">
             <div className="panel-header">
-              <h3 className="panel-title">Entre em contato</h3>
-              <div className="panel-subtitle">Vamos criar juntos</div>
+              <h3 className="panel-title">Contatos</h3>
             </div>
 
             <div className="contact-grid">
@@ -153,7 +152,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                 </div>
               </div>
 
-              <div className="contact-row">
+              {/* <div className="contact-row">
                 <div className="contact-icon location-icon">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
@@ -163,7 +162,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                   <div className="contact-label">Localização</div>
                   <div className="contact-value">São Sebastião, DF</div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="action-buttons">
@@ -184,14 +183,14 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
         </div>
 
         {/* Indicador de scroll */}
-        <div className="scroll-indicator">
+        {/* <div className="scroll-indicator">
           <div className="scroll-text">Explore o portfólio</div>
           <div className="scroll-arrow">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>
           </div>
-        </div>
+        </div> */}
       </header>
 
       {/* Área do tabuleiro */}
