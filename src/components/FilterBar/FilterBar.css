@@ -1,47 +1,47 @@
-/* Filter Bar Styles - Compacto */
+/* Filter Bar Styles - Ultra Compacto */
 .filter-bar {
   display: flex;
   flex-direction: column;
-  gap: 8px;           /* Gap reduzido */
-  margin: 10px 0;     /* Margem reduzida */
-  padding: 12px;      /* Padding reduzido */
+  gap: 4px;           /* Gap mais reduzido */
+  margin: 6px 0;      /* Margem menor */
+  padding: 8px;       /* Padding menor */
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px; /* Border radius menor */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  border-radius: 6px; /* Border radius menor */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 .filter-label {
   display: flex;
   align-items: center;
-  gap: 6px;           /* Gap reduzido */
-  font-size: 0.95em;  /* Tamanho reduzido */
+  gap: 4px;           /* Gap menor */
+  font-size: 0.8em;   /* Tamanho menor */
   font-weight: 600;
   color: #2c3e50;
 }
 
 .filter-icon {
-  font-size: 1em;     /* Tamanho reduzido */
+  font-size: 0.85em;  /* Tamanho menor */
 }
 
 .filter-buttons {
   display: flex;
-  gap: 6px;           /* Gap reduzido */
+  gap: 4px;           /* Gap menor */
   flex-wrap: wrap;
 }
 
 .filter-button {
   display: flex;
   align-items: center;
-  gap: 4px;           /* Gap reduzido */
-  padding: 6px 12px;  /* Padding reduzido */
-  border: 2px solid #e0e6ed;
-  border-radius: 16px; /* Border radius menor */
+  gap: 3px;           /* Gap menor */
+  padding: 4px 8px;   /* Padding menor */
+  border: 1.5px solid #e0e6ed;
+  border-radius: 12px; /* Border radius menor */
   background: white;
   color: #7f8c8d;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 0.8em;   /* Tamanho reduzido */
+  font-size: 0.7em;   /* Tamanho menor */
   font-weight: 500;
   position: relative;
   overflow: hidden;
@@ -88,7 +88,7 @@
 }
 
 .filter-button-icon {
-  font-size: 1.1em;
+  font-size: 0.9em;   /* Tamanho menor */
   transition: transform 0.3s ease;
 }
 
@@ -107,11 +107,11 @@
 .filter-button-count {
   background: rgba(127, 140, 141, 0.2);
   color: #7f8c8d;
-  padding: 2px 6px;
-  border-radius: 10px;
-  font-size: 0.8em;
+  padding: 1px 4px;   /* Padding menor */
+  border-radius: 8px; /* Border radius menor */
+  font-size: 0.65em;  /* Tamanho menor */
   font-weight: 700;
-  min-width: 18px;
+  min-width: 14px;    /* Largura menor */
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -134,32 +134,32 @@
 /* Responsive */
 @media (max-width: 768px) {
   .filter-bar {
-    margin: 15px 0;
-    padding: 15px;
+    margin: 8px 0;      /* Menor */
+    padding: 10px;      /* Menor */
   }
 
   .filter-label {
-    font-size: 1em;
+    font-size: 0.85em;  /* Menor */
   }
 
   .filter-buttons {
-    gap: 6px;
+    gap: 4px;           /* Menor */
   }
 
   .filter-button {
-    padding: 8px 12px;
-    font-size: 0.85em;
+    padding: 5px 8px;   /* Menor */
+    font-size: 0.75em;  /* Menor */
   }
 
   .filter-button-icon {
-    font-size: 1em;
+    font-size: 0.85em;  /* Menor */
   }
 }
 
 @media (max-width: 480px) {
   .filter-bar {
     flex-direction: column;
-    padding: 12px;
+    padding: 8px;       /* Menor */
   }
 
   .filter-buttons {
@@ -167,12 +167,12 @@
   }
 
   .filter-button {
-    padding: 6px 10px;
-    font-size: 0.8em;
+    padding: 4px 6px;   /* Menor */
+    font-size: 0.7em;   /* Menor */
   }
 
   .filter-button-count {
-    font-size: 0.75em;
-    min-width: 16px;
+    font-size: 0.6em;   /* Menor */
+    min-width: 12px;    /* Menor */
   }
 }

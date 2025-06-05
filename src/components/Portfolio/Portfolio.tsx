@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Board } from '../Board/Board';
 import { Modal } from '../Modal/Modal';
+import { FilterBar } from '../FilterBar/FilterBar';
 import { usePortfolio } from '../../hooks/usePortfolio';
 import type { PortfolioData } from '../../types/portfolio';
 import { personalInfo } from '../../data/personal-info';
@@ -21,7 +22,48 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   } = usePortfolio(data.houses);
 
   const [displayedText, setDisplayedText] = useState('');
+  const [activeFilter, setActiveFilter] = useState<string>('all');
   const fullText = 'Gestor Cultural & Artista';
+
+  // Função para extrair o ano mais recente de uma data
+  const extractLatestYear = (dateString: string): number => {
+    if (!dateString) return 0;
+    const yearMatches = dateString.match(/\d{4}/g);
+    if (!yearMatches) return 0;
+    return Math.max(...yearMatches.map(year => parseInt(year, 10)));
+  };
+
+  // Filtrar e ordenar casas por data
+  const filteredHouses = useMemo(() => {
+    let filtered = houses.filter(house => {
+      if (activeFilter === 'all') return true;
+      return house.type === activeFilter;
+    });
+
+    // Ordenar por data (mais recente primeiro)
+    return filtered.sort((a, b) => {
+      const dateA = a.data?.date || '';
+      const dateB = b.data?.date || '';
+      const yearA = extractLatestYear(dateA);
+      const yearB = extractLatestYear(dateB);
+      return yearB - yearA;
+    });
+  }, [houses, activeFilter]);
+
+  // Calcular contagens para cada filtro
+  const itemCounts = useMemo(() => {
+    const counts: { [key: string]: number } = {
+      all: houses.length,
+    };
+    houses.forEach(house => {
+      counts[house.type] = (counts[house.type] || 0) + 1;
+    });
+    return counts;
+  }, [houses]);
+
+  const handleFilterChange = (filter: string) => {
+    setActiveFilter(filter);
+  };
 
   useEffect(() => {
     // Delay para começar a animação após o nome aparecer
@@ -151,6 +193,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                   <div className="contact-value">{personalInfo.contact.phone}</div>
                 </div>
               </div>
+              {/* FilterBar integrada no header */}
 
               {/* <div className="contact-row">
                 <div className="contact-icon location-icon">
@@ -181,6 +224,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             </div>
           </div>
         </div>
+        <div className="header-filter-bar">
+          <FilterBar
+            activeFilter={activeFilter}
+            onFilterChange={handleFilterChange}
+            itemCounts={itemCounts}
+          />
+        </div>
 
         {/* Indicador de scroll */}
         {/* <div className="scroll-indicator">
@@ -196,7 +246,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
       {/* Área do tabuleiro */}
       <main className="board-container">
         <Board
-          houses={houses}
+          houses={filteredHouses}
           onHouseClick={selectHouse}
           selectedHouse={selectedHouse}
         />

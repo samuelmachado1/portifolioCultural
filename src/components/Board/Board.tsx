@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import type { BoardHouse } from '../../types/portfolio';
 import { TimelineCard } from '../TimelineCard/TimelineCard';
-import { FilterBar } from '../FilterBar/FilterBar';
 import { PositionIndicator } from '../PositionIndicator/PositionIndicator';
 import '../TimelineCard/TimelineCard.css';
 import './Board.css';
@@ -24,56 +23,10 @@ export const Board: React.FC<BoardProps> = ({
   // selectedHouse, // Comentado pois não está sendo usado ainda
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeFilter, setActiveFilter] = useState<string>('all');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  // Função para extrair o ano mais recente de uma data
-  const extractLatestYear = (dateString: string): number => {
-    if (!dateString) return 0;
-
-    // Novo formato: "Mês Ano" (ex: "Janeiro 2018", "Março 2019")
-    // Extrair todos os anos da string
-    const yearMatches = dateString.match(/\d{4}/g);
-    if (!yearMatches) return 0;
-
-    // Retornar o maior ano encontrado (mais recente)
-    return Math.max(...yearMatches.map(year => parseInt(year)));
-  };
-
-  // Filtrar e ordenar houses baseado no filtro ativo
-  const filteredHouses = useMemo(() => {
-    let filtered = houses;
-
-    // Aplicar filtro por tipo se necessário
-    if (activeFilter !== 'all') {
-      filtered = houses.filter(house => house.type === activeFilter);
-    }
-
-    // Ordenar cronologicamente (mais recentes primeiro)
-    return filtered.sort((a, b) => {
-      const yearA = extractLatestYear(a.data?.date || '');
-      const yearB = extractLatestYear(b.data?.date || '');
-
-      // Ordenação decrescente (anos mais recentes primeiro)
-      return yearB - yearA;
-    });
-  }, [houses, activeFilter]);
-
-  // Calcular contagens para cada filtro
-  const itemCounts = useMemo(() => {
-    const counts: { [key: string]: number } = {
-      all: houses.length,
-    };
-
-    houses.forEach(house => {
-      counts[house.type] = (counts[house.type] || 0) + 1;
-    });
-
-    return counts;
-  }, [houses]);
-
-  // Pegar os primeiros 10 itens para garantir scroll horizontal
-  const timelineItems = filteredHouses.slice(0, 10);
+  // As casas já vêm filtradas do Portfolio
+  const timelineItems = houses.slice(0, 10);
 
   // Detectar mudança de posição no scroll
   useEffect(() => {
@@ -105,15 +58,6 @@ export const Board: React.FC<BoardProps> = ({
     }
   };
 
-  const handleFilterChange = (filter: string) => {
-    setActiveFilter(filter);
-    setCurrentIndex(0);
-    // Reset scroll position when filter changes
-    if (containerRef.current) {
-      containerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-    }
-  };
-
   const handleIndicatorClick = (index: number) => {
     setCurrentIndex(index);
     if (containerRef.current) {
@@ -134,13 +78,6 @@ export const Board: React.FC<BoardProps> = ({
         <h2 className="timeline-title">Trajetória Profissional</h2>
         <p className="timeline-subtitle">Navegue pela linha do tempo para conhecer a jornada de Samuel Estrella</p>
       </div>
-
-      {/* Sistema de Filtros */}
-      <FilterBar
-        activeFilter={activeFilter}
-        onFilterChange={handleFilterChange}
-        itemCounts={itemCounts}
-      />
 
       {/* Indicadores de Posição */}
       {timelineItems.length > 1 && (
