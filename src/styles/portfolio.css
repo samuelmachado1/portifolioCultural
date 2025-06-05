@@ -660,106 +660,82 @@
   justify-content: center;
 }
 
-/* ===== FILTER BAR NO HEADER - INTEGRAÇÃO PREMIUM ===== */
-.header-filter-bar {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem 1rem 2rem;
-  display: flex;
-  justify-content: center;
-  z-index: 10;
-  animation: filterBarSlideIn 1.8s ease-out 0.5s both;
-  justify-content: center;
+/* ===== FILTER BAR INTEGRADA NO PAINEL DE CONTATOS ===== */
+.contact-filter-section {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes filterBarSlideIn {
-  0% { 
-    opacity: 0; 
-    transform: translateY(-20px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-/* Sobrescrever estilos da FilterBar para o contexto do header */
-.header-filter-bar .filter-bar {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.12) 0%, 
-    rgba(255, 255, 255, 0.08) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 12px 16px;
+.contact-filter-section .filter-bar {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 8px 10px;
   margin: 0;
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(15px);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  min-width: 400px;
 }
 
-.header-filter-bar .filter-bar:hover {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.15) 0%, 
-    rgba(255, 255, 255, 0.1) 100%);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+.contact-filter-section .filter-bar:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
   box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 6px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.header-filter-bar .filter-label {
+.contact-filter-section .filter-label {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.header-filter-bar .filter-icon {
+.contact-filter-section .filter-icon {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
-.header-filter-bar .filter-buttons {
-  gap: 6px;
+.contact-filter-section .filter-buttons {
+  gap: 4px;
 }
 
-.header-filter-bar .filter-button {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.contact-filter-section .filter-button {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.8);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.6rem;
   font-weight: 600;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.header-filter-bar .filter-button::before {
+.contact-filter-section .filter-button::before {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.08),
     transparent
   );
 }
 
-.header-filter-bar .filter-button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
+.contact-filter-section .filter-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 1);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-.header-filter-bar .filter-button.active {
+.contact-filter-section .filter-button.active {
   background: linear-gradient(135deg, 
     rgba(139, 92, 246, 0.8) 0%, 
     rgba(59, 130, 246, 0.8) 100%);
@@ -767,22 +743,22 @@
   color: white;
   transform: translateY(-1px);
   box-shadow: 
-    0 8px 25px rgba(139, 92, 246, 0.3),
-    0 0 20px rgba(139, 92, 246, 0.2);
+    0 6px 18px rgba(139, 92, 246, 0.25),
+    0 0 15px rgba(139, 92, 246, 0.15);
 }
 
-.header-filter-bar .filter-button.active:hover {
+.contact-filter-section .filter-button.active:hover {
   background: linear-gradient(135deg, 
     rgba(139, 92, 246, 0.9) 0%, 
     rgba(59, 130, 246, 0.9) 100%);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 
-    0 12px 30px rgba(139, 92, 246, 0.4),
-    0 0 25px rgba(139, 92, 246, 0.3);
+    0 8px 22px rgba(139, 92, 246, 0.3),
+    0 0 20px rgba(139, 92, 246, 0.2);
 }
 
-.header-filter-bar .filter-button-icon {
-  font-size: 0.85rem;
+.contact-filter-section .filter-button-icon {
+  font-size: 0.75rem;
 }
 
 /* ===== RESPONSIVIDADE COMPLETA ===== */

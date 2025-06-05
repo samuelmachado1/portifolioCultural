@@ -222,14 +222,16 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                 </svg>
               </button>
             </div>
+
+            {/* FilterBar integrada no painel de contatos */}
+            <div className="contact-filter-section">
+              <FilterBar
+                activeFilter={activeFilter}
+                onFilterChange={handleFilterChange}
+                itemCounts={itemCounts}
+              />
+            </div>
           </div>
-        </div>
-        <div className="header-filter-bar">
-          <FilterBar
-            activeFilter={activeFilter}
-            onFilterChange={handleFilterChange}
-            itemCounts={itemCounts}
-          />
         </div>
 
         {/* Indicador de scroll */}
