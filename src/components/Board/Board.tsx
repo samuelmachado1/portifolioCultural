@@ -37,7 +37,7 @@ export const Board: React.FC<BoardProps> = ({
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = 305; // largura do card (285px) + gap (20px)
+      const cardWidth = 320; // nova largura do card (300px) + gap (20px)
       const newIndex = Math.round(scrollLeft / cardWidth);
       setCurrentIndex(Math.min(newIndex, timelineItems.length - 1));
     };
@@ -110,14 +110,14 @@ export const Board: React.FC<BoardProps> = ({
 
   const scrollLeft = () => {
     if (containerRef.current) {
-      const cardWidth = 305;
+      const cardWidth = 320; // nova largura
       containerRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
-      const cardWidth = 305;
+      const cardWidth = 320; // nova largura
       containerRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
   };
@@ -125,7 +125,7 @@ export const Board: React.FC<BoardProps> = ({
   const handleIndicatorClick = (index: number) => {
     setCurrentIndex(index);
     if (containerRef.current) {
-      const cardWidth = 305;
+      const cardWidth = 320; // nova largura
       containerRef.current.scrollTo({
         left: index * cardWidth,
         behavior: 'smooth'

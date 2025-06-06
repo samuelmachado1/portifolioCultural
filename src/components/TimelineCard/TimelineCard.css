@@ -90,30 +90,28 @@
 
 .timeline-card-container {
   display: flex;
-  flex-direction: row; /* Cards em linha */
-  overflow-x: auto;    /* Habilita scroll horizontal */
-  overflow-y: hidden;  /* Remove scroll vertical */
-  padding: 5px;        /* Padding ainda menor */
-  gap: 10px;           /* Espaçamento ainda menor entre os cards */
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 10px;       /* Padding maior para cards maiores */
+  gap: 20px;                /* Gap maior entre cards */
   width: 100%;
-  max-width: 100%;     /* Usa toda a largura disponível */
+  max-width: 100%;
   box-sizing: border-box;
-  position: relative;  /* Para z-index se necessário sobre o background */
+  position: relative;
   z-index: 2;
-  /* Permite que o container se ajuste ao conteúdo */
   flex-wrap: nowrap;
-  justify-content: flex-start; /* Alinha cards à esquerda para primeiro ser visível */
-  align-items: center;
-  /* Scroll suave e oculta scrollbar */
+  justify-content: flex-start;
+  align-items: stretch;     /* Cards com altura uniforme */
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-  cursor: grab; /* Cursor de arrastar */
-  user-select: none; /* Previne seleção de texto durante arrastar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
 }
 
 .timeline-card-container:active {
-  cursor: grabbing; /* Cursor durante arrastar */
+  cursor: grabbing;
 }
 
 /* Oculta scrollbar no WebKit */
@@ -122,31 +120,36 @@
 }
 
 .timeline-card {
-  background-color: #ffffff; /* Fundo branco para o card */
-  border: 1px solid #cccccc;  /* Borda cinza clara */
-  border-radius: 12px;        /* Bordas mais arredondadas */
-  padding: 12px;              /* Padding ainda menor */
-  min-width: 200px;           /* Largura mínima ainda menor */
-  max-width: 240px;           /* Largura máxima ainda menor */
-  width: 220px;               /* Largura fixa ainda menor para caber melhor */
-  height: auto;               /* Altura automática */
-  max-height: 240px;          /* Altura máxima ainda menor */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra mais pronunciada */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 20px;
+  min-width: 280px;           /* Largura mínima maior */
+  max-width: 320px;           /* Largura máxima maior */
+  width: 300px;               /* Largura fixa maior para usar melhor o espaço */
+  min-height: 280px;          /* Altura mínima para consistência */
+  max-height: 350px;          /* Altura máxima maior */
+  box-shadow: 
+    0 4px 20px rgba(0,0,0,0.08),
+    0 1px 3px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  gap: 12px;                  /* Gap aumentado */
-  flex-shrink: 0;             /* Impede que os cards encolham */
-  white-space: normal;        /* Permite quebra de linha dentro do card */
-  /* transition: transform 0.2s ease, box-shadow 0.2s ease; Animação suave */
-  cursor: pointer;            /* Indica que é clicável */
-  /* animation: slideInFromBottom 0.4s ease-out; Animação ao aparecer */
+  gap: 16px;                  /* Gap maior para melhor espaçamento */
+  flex-shrink: 0;
+  cursor: pointer;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Efeito hover para os cards */
 .timeline-card:hover {
-  /* transform: translateY(-8px) scale(1.02); Eleva mais e adiciona escala */
-  box-shadow: 0 12px 32px rgba(0,0,0,0.25); /* Sombra mais forte no hover */
-  /* animation: floatUp 0.3s ease-out; */
+  transform: translateY(-6px);
+  box-shadow: 
+    0 12px 40px rgba(0,0,0,0.15),
+    0 4px 6px rgba(0,0,0,0.1);
+  border-color: #d0d0d0;
 }
 
 /* Animação staggered para múltiplos cards */
@@ -180,94 +183,130 @@
 }
 
 .timeline-card-title {
-  font-size: 1.1em;          /* Tamanho reduzido */
-  font-weight: 700;          /* Mais bold */
-  color: #2c3e50;            /* Cor mais escura e elegante */
+  font-size: 1.25rem;        /* Fonte significativamente maior */
+  font-weight: 700;
+  color: #1e293b;            /* Cor mais forte */
   margin: 0;
-  line-height: 1.2;          /* Line height menor */
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* Máximo 2 linhas para título */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .timeline-card-date {
-  font-size: 0.8em;          /* Tamanho reduzido */
-  color: #7f8c8d;            /* Cor mais suave */
+  font-size: 0.875rem;       /* Fonte maior */
+  color: #64748b;            /* Cor mais moderna */
   margin: 0;
-  font-weight: 500;          /* Peso médio */
-  text-transform: uppercase; /* Maiúsculas para dar destaque */
-  letter-spacing: 0.3px;     /* Espaçamento reduzido */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .timeline-card-description {
-  font-size: 0.85em;         /* Tamanho reduzido */
-  color: #34495e;            /* Cor mais rica */
+  font-size: 0.95rem;        /* Fonte maior */
+  color: #475569;            /* Cor mais legível */
   margin: 0;
-  line-height: 1.4;          /* Line height reduzido */
-  text-align: left;          /* Alinhamento à esquerda para economizar espaço */
+  line-height: 1.5;          /* Line height maior para legibilidade */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;     /* Máximo 4 linhas */
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;                   /* Ocupa espaço disponível */
 }
 
 /* Header do card */
 .timeline-card-header {
   display: flex;
   align-items: center;
-  gap: 6px;              /* Gap reduzido */
-  margin-bottom: 6px;    /* Margem reduzida */
+  gap: 12px;
+  margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline-card-icon {
-  width: 28px;           /* Tamanho reduzido */
-  height: 36px;
-  border-radius: 50%;
+  width: 48px;               /* Ícone maior */
+  height: 48px;              /* Ícone maior */
+  border-radius: 12px;       /* Bordas mais suaves */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  font-size: 1.8rem;         /* Emoji maior */
   color: white;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .timeline-card-type {
-  font-size: 0.8em;
-  color: #7f8c8d;
+  font-size: 0.875rem;       /* Fonte maior */
+  color: #64748b;            /* Cor mais moderna */
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  flex: 1;
+  line-height: 1.2;
 }
 
 /* Tags do card */
 .timeline-card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
+  gap: 8px;
+  margin-top: auto;          /* Empurra para baixo */
+  padding-top: 12px;         /* Espaçamento do conteúdo acima */
+  border-top: 1px solid #f1f5f9; /* Linha sutil de separação */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline-card-tag {
-  background: rgba(116, 185, 255, 0.1);
-  color: #74b9ff;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.7em;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 6px 12px;         /* Padding maior */
+  border-radius: 20px;       /* Mais arredondado */
+  font-size: 0.75rem;        /* Fonte maior */
   font-weight: 500;
-  border: 1px solid rgba(116, 185, 255, 0.2);
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.timeline-card-tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .timeline-card-tag-more {
-  background: rgba(127, 140, 141, 0.1);
-  color: #7f8c8d;
-  border-color: rgba(127, 140, 141, 0.2);
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  color: white;
 }
 
 /* Indicador de clique */
 .timeline-card-click-indicator {
   margin-top: auto;
-  padding: 8px;
-  background: rgba(116, 185, 255, 0.1);
-  border-radius: 8px;
+  padding: 10px 16px;       /* Padding maior */
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 12px;
   text-align: center;
-  font-size: 0.8em;
-  color: #74b9ff;
+  font-size: 0.875rem;      /* Fonte maior */
+  color: #475569;
   opacity: 0;
-  transition: opacity 0.2s ease;
-  border: 1px solid rgba(116, 185, 255, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  font-weight: 500;
+  box-sizing: border-box;
 }
 
 .timeline-card:hover .timeline-card-click-indicator {
@@ -443,4 +482,171 @@
     font-size: 0.75em;
   }
 }
+
+/* ===== RESPONSIVIDADE DOS CARDS ===== */
+
+/* Tablets grandes */
+@media (max-width: 1200px) {
+  .timeline-card {
+    width: 280px;
+    min-width: 260px;
+    max-width: 300px;
+    padding: 18px;
+  }
+  
+  .timeline-card-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+  }
+  
+  .timeline-card-title {
+    font-size: 1.125rem;
+  }
+  
+  .timeline-card-description {
+    font-size: 0.875rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 968px) {
+  .timeline-card {
+    width: 260px;
+    min-width: 240px;
+    max-width: 280px;
+    padding: 16px;
+    gap: 14px;
+  }
+  
+  .timeline-card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+  
+  .timeline-card-title {
+    font-size: 1rem;
+  }
+  
+  .timeline-card-description {
+    font-size: 0.825rem;
+  }
+  
+  .timeline-card-container {
+    padding: 16px 8px;
+    gap: 16px;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+  .timeline-card {
+    width: 240px;
+    min-width: 220px;
+    max-width: 260px;
+    padding: 14px;
+    gap: 12px;
+    min-height: 260px;
+    max-height: 320px;
+  }
+  
+  .timeline-card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+  
+  .timeline-card-title {
+    font-size: 0.95rem;
+  }
+  
+  .timeline-card-description {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  
+  .timeline-card-container {
+    padding: 12px 6px;
+    gap: 12px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .timeline-card {
+    width: 220px;
+    min-width: 200px;
+    max-width: 240px;
+    padding: 12px;
+    gap: 10px;
+    min-height: 240px;
+    max-height: 300px;
+  }
+  
+  .timeline-card-header {
+    gap: 8px;
+  }
+  
+  .timeline-card-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  
+  .timeline-card-type {
+    font-size: 0.75rem;
+  }
+  
+  .timeline-card-title {
+    font-size: 0.875rem;
+  }
+  
+  .timeline-card-date {
+    font-size: 0.75rem;
+  }
+  
+  .timeline-card-description {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  
+  .timeline-card-tag {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+  
+  .timeline-card-container {
+    padding: 10px 4px;
+    gap: 10px;
+  }
+}
+
+/* Mobile muito pequeno */
+@media (max-width: 360px) {
+  .timeline-card {
+    width: 200px;
+    min-width: 180px;
+    max-width: 220px;
+    padding: 10px;
+    gap: 8px;
+    min-height: 220px;
+    max-height: 280px;
+  }
+  
+  .timeline-card-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  
+  .timeline-card-title {
+    font-size: 0.8rem;
+  }
+  
+  .timeline-card-description {
+    font-size: 0.7rem;
+  }
 }
