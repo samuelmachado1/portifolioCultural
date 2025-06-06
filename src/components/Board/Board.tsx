@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import type { BoardHouse } from '../../types/portfolio';
 import { TimelineCard } from '../TimelineCard/TimelineCard';
 import { PositionIndicator } from '../PositionIndicator/PositionIndicator';
@@ -24,6 +24,8 @@ export const Board: React.FC<BoardProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [dragStart, setDragStart] = useState<{ x: number; scrollLeft: number }>({ x: 0, scrollLeft: 0 });
 
   // As casas já vêm filtradas do Portfolio
   const timelineItems = houses.slice(0, 10);
@@ -43,6 +45,68 @@ export const Board: React.FC<BoardProps> = ({
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
   }, [timelineItems.length]);
+
+  // Funcionalidade de arrastar para scroll
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    setIsDragging(true);
+    setDragStart({
+      x: e.pageX,
+      scrollLeft: container.scrollLeft
+    });
+    container.style.cursor = 'grabbing';
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !containerRef.current) return;
+
+    e.preventDefault();
+    const container = containerRef.current;
+    const x = e.pageX;
+    const walk = (x - dragStart.x) * 2; // Multiplicador para sensibilidade
+    container.scrollLeft = dragStart.scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    if (containerRef.current) {
+      containerRef.current.style.cursor = 'grab';
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    if (containerRef.current) {
+      containerRef.current.style.cursor = 'grab';
+    }
+  };
+
+  // Touch events para dispositivos móveis
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    setIsDragging(true);
+    setDragStart({
+      x: e.touches[0].pageX,
+      scrollLeft: container.scrollLeft
+    });
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !containerRef.current) return;
+
+    const container = containerRef.current;
+    const x = e.touches[0].pageX;
+    const walk = (x - dragStart.x) * 2;
+    container.scrollLeft = dragStart.scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
 
   const scrollLeft = () => {
     if (containerRef.current) {
@@ -76,7 +140,7 @@ export const Board: React.FC<BoardProps> = ({
       {/* Título da seção */}
       <div className="timeline-header">
         <h2 className="timeline-title">Trajetória Profissional</h2>
-        <p className="timeline-subtitle">Navegue pela linha do tempo para conhecer a jornada de Samuel Estrella</p>
+        {/* <p className="timeline-subtitle">Navegue pela linha do tempo para conhecer a jornada de Samuel Estrella</p> */}
       </div>
 
       {/* Indicadores de Posição */}
@@ -85,7 +149,7 @@ export const Board: React.FC<BoardProps> = ({
           currentIndex={currentIndex}
           totalItems={timelineItems.length}
           onIndicatorClick={handleIndicatorClick}
-          visibleItems={3}
+          visibleItems={1}
           timelineItems={timelineItems}
         />
       )}
@@ -101,7 +165,18 @@ export const Board: React.FC<BoardProps> = ({
           ←
         </button>
 
-        <div className="timeline-card-container" ref={containerRef}>
+        <div
+          className="timeline-card-container"
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+        >
           {timelineItems.map((house, index) => (
             <TimelineCard
               key={house.id}

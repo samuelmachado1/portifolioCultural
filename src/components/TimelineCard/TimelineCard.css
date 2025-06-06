@@ -108,6 +108,12 @@
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+  cursor: grab; /* Cursor de arrastar */
+  user-select: none; /* Previne seleção de texto durante arrastar */
+}
+
+.timeline-card-container:active {
+  cursor: grabbing; /* Cursor durante arrastar */
 }
 
 /* Oculta scrollbar no WebKit */
