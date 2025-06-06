@@ -123,7 +123,7 @@ export const Board: React.FC<BoardProps> = ({
       </div>
 
       {/* Estatísticas rápidas */}
-      <div className="timeline-stats">
+      {/* <div className="timeline-stats">
         <div className="stat-item">
           <span className="stat-number">{timelineItems.length}</span>
           <span className="stat-label">Experiências</span>
@@ -136,7 +136,7 @@ export const Board: React.FC<BoardProps> = ({
           <span className="stat-number">{Math.round(((currentIndex + 1) / timelineItems.length) * 100)}%</span>
           <span className="stat-label">Progresso</span>
         </div>
-      </div>
+      </div> */}
 
     </div>
   );

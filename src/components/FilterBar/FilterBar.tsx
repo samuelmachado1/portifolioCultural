@@ -16,7 +16,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     { key: 'all', label: 'Todos', icon: '🎯' },
     { key: 'milestone', label: 'Marcos', icon: '🏆' },
     { key: 'experience', label: 'Experiências', icon: '💼' },
-    { key: 'education', label: 'Educação', icon: '🎓' },
+    // { key: 'education', label: 'Educação', icon: '🎓' },
   ];
 
   return (

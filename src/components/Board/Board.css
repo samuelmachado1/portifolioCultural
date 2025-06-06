@@ -2,7 +2,7 @@
 .board {
   width: 100%;
   height: 100%; /* Adapta à altura do container pai */
-  position: relative;
+  position: absolute;
   overflow: hidden; /* Remove scroll do board */
   background-color: #faf3e0; /* Cor base de "papel antigo" - tom bege/dourado claro */
   display: flex;
@@ -210,7 +210,7 @@
 /* Estilos para o header da timeline */
 .timeline-header {
   text-align: center;
-  margin: 10px 0 10px 0; /* Margem ainda menor */
+  margin: 10px 0 0px 0; /* Margem ainda menor */
   z-index: 3;
   position: relative;
 }
