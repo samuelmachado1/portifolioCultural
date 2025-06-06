@@ -2,13 +2,14 @@
 .board {
   width: 100%;
   height: 100%; /* Adapta à altura do container pai */
-  position: absolute;
-  overflow: hidden; /* Remove scroll do board */
+  position: relative; /* Mudado de absolute para relative para fluxo normal */
+  overflow: visible; /* Permite scroll quando necessário */
   background-color: #faf3e0; /* Cor base de "papel antigo" - tom bege/dourado claro */
   display: flex;
   flex-direction: column; /* Organiza filhos do board (textura, container de cards) verticalmente */
   align-items: center; /* Centraliza o container de cards horizontalmente */
   justify-content: center; /* Centraliza verticalmente o conteúdo */
+  min-height: 400px; /* Altura mínima para garantir espaço adequado */
 }
 
 /* Textura de papel antigo refinada */

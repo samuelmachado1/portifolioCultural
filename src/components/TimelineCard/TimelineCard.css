@@ -104,19 +104,36 @@
   justify-content: flex-start;
   align-items: stretch;     /* Cards com altura uniforme */
   scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;    /* Mostra scrollbar fina */
+  scrollbar-color: rgba(0,0,0,0.3) rgba(0,0,0,0.1);
   cursor: grab;
   user-select: none;
+  min-height: 350px;        /* Altura mínima para garantir visibilidade dos cards */
 }
 
 .timeline-card-container:active {
   cursor: grabbing;
 }
 
-/* Oculta scrollbar no WebKit */
+/* Scrollbar customizada no WebKit */
 .timeline-card-container::-webkit-scrollbar {
-  display: none;
+  height: 8px;
+}
+
+.timeline-card-container::-webkit-scrollbar-track {
+  background: rgba(232, 232, 232, 0.5);
+  border-radius: 4px;
+  margin: 0 20px;
+}
+
+.timeline-card-container::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.7);
+  border-radius: 4px;
+  border: 1px solid rgba(232, 232, 232, 0.5);
+}
+
+.timeline-card-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.8);
 }
 
 .timeline-card {

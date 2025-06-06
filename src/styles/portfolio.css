@@ -1,27 +1,30 @@
 /* Estilos base do portfólio */
 .portfolio-container {
   width: 100%;
-  height: 100vh; /* Altura fixa da viewport */
+  min-height: 100vh; /* Altura mínima da viewport para permitir conteúdo adicional */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   font-family: 'Inter', Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Previne scroll no container principal */
+  overflow-y: auto; /* Permite scroll vertical */
+  overflow-x: hidden; /* Previne scroll horizontal desnecessário */
 }
 
 /* ===== HEADER PREMIUM REDESENHADO - WORLD CLASS DESIGN ===== */
 .portfolio-header {
   position: relative;
   min-height: 220px;
+  padding: 1rem; /* Adiciona padding para evitar corte de conteúdo */
   background: linear-gradient(135deg, 
     rgba(15, 23, 42, 0.95) 0%, 
     rgba(30, 41, 59, 0.90) 35%, 
     rgba(51, 65, 85, 0.85) 100%);
   backdrop-filter: blur(40px);
-  overflow: hidden;
+  overflow: visible; /* Permite que o conteúdo seja visível */
   z-index: 100;
   animation: headerFadeIn 1.2s ease-out;
+  flex-shrink: 0; /* Impede que o header seja comprimido */
 }
 
 @keyframes headerFadeIn {
@@ -659,10 +662,11 @@
   flex: 1; /* Ocupa o espaço restante */
   padding: 1rem 2rem;
   padding-bottom: 70px; /* Espaço para o PositionIndicator fixo */
-  overflow: hidden; /* Previne scroll no container do board */
+  overflow: visible; /* Permite que o conteúdo seja visível */
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 500px; /* Altura mínima para garantir espaço adequado */
 }
 
 /* ===== FILTER BAR INTEGRADA NO PAINEL DE CONTATOS ===== */
@@ -979,4 +983,48 @@
   .stat-divider {
     display: none;
   }
+}
+
+/* ===== RESPONSIVIDADE PARA SCROLL ===== */
+@media (max-height: 700px) {
+  .portfolio-header {
+    min-height: 180px; /* Reduz altura do header em telas baixas */
+  }
+  
+  .board-container {
+    padding-bottom: 50px; /* Reduz padding bottom */
+  }
+}
+
+@media (max-height: 600px) {
+  .portfolio-header {
+    min-height: 150px; /* Reduz ainda mais em telas muito baixas */
+  }
+  
+  .header-content {
+    padding: 1rem; /* Reduz padding do header */
+  }
+  
+  .board-container {
+    padding: 0.5rem 1rem;
+    padding-bottom: 30px;
+  }
+}
+
+/* ===== SCROLL SUAVE PARA TODA A PÁGINA ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== GARANTIA DE SCROLL VERTICAL ===== */
+body {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.portfolio-container {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  min-height: 100vh;
 }

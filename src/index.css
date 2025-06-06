@@ -8,16 +8,37 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+/* Configuração robusta de scroll */
+html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden; /* Previne scroll desnecessário */
+  height: auto !important;
+  min-height: 100%;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Melhora scroll em iOS */
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto !important;
+  min-height: 100vh;
+  overflow-y: auto !important;
+  overflow-x: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto !important;
+  overflow-x: hidden;
 }
