@@ -215,18 +215,6 @@
   overflow: hidden;
 }
 
-.timeline-card-date {
-  font-size: 0.875rem;       /* Fonte maior */
-  color: #64748b;            /* Cor mais moderna */
-  margin: 0;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .timeline-card-description {
   font-size: 0.95rem;        /* Fonte maior */
   color: #475569;            /* Cor mais legível */
@@ -247,7 +235,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;       /* Margem maior para separar bem do título */
   width: 100%;
   box-sizing: border-box;
 }
@@ -265,14 +253,33 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.timeline-card-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;                  /* Pequeno espaçamento entre tipo e data */
+  min-width: 0;              /* Permite quebra de texto se necessário */
+}
+
 .timeline-card-type {
   font-size: 0.875rem;       /* Fonte maior */
   color: #64748b;            /* Cor mais moderna */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  flex: 1;
   line-height: 1.2;
+  margin: 0;
+}
+
+.timeline-card-date {
+  font-size: 0.75rem;        /* Fonte um pouco menor que o tipo */
+  color: #94a3b8;            /* Cor mais sutil */
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Tags do card */
@@ -568,10 +575,23 @@
     max-height: 320px;
   }
   
+  .timeline-card-header {
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+  
   .timeline-card-icon {
     width: 36px;
     height: 36px;
     font-size: 1.2rem;
+  }
+  
+  .timeline-card-type {
+    font-size: 0.75rem;
+  }
+  
+  .timeline-card-date {
+    font-size: 0.65rem;
   }
   
   .timeline-card-title {
@@ -604,6 +624,7 @@
   
   .timeline-card-header {
     gap: 8px;
+    margin-bottom: 10px;
   }
   
   .timeline-card-icon {
@@ -613,15 +634,15 @@
   }
   
   .timeline-card-type {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .timeline-card-date {
+    font-size: 0.6rem;
   }
   
   .timeline-card-title {
     font-size: 0.875rem;
-  }
-  
-  .timeline-card-date {
-    font-size: 0.75rem;
   }
   
   .timeline-card-description {
@@ -653,10 +674,23 @@
     max-height: 280px;
   }
   
+  .timeline-card-header {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  
   .timeline-card-icon {
     width: 28px;
     height: 28px;
     font-size: 0.9rem;
+  }
+  
+  .timeline-card-type {
+    font-size: 0.65rem;
+  }
+  
+  .timeline-card-date {
+    font-size: 0.55rem;
   }
   
   .timeline-card-title {

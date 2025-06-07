@@ -58,13 +58,15 @@ export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick }) =>
         >
           {getTypeIcon(house.type)}
         </div>
-        <div className="timeline-card-type">
-          {house.style.theme.charAt(0).toUpperCase() + house.style.theme.slice(1)}
+        <div className="timeline-card-meta">
+          <div className="timeline-card-type">
+            {house.style.theme.charAt(0).toUpperCase() + house.style.theme.slice(1)}
+          </div>
+          {date && <div className="timeline-card-date">{date}</div>}
         </div>
       </div>
 
       <h3 className="timeline-card-title">{title}</h3>
-      {date && <p className="timeline-card-date">{date}</p>}
       {description && <p className="timeline-card-description">{description}</p>}
 
       {/* Tags se existirem */}
