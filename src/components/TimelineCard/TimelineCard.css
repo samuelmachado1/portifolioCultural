@@ -215,6 +215,16 @@
   overflow: hidden;
 }
 
+/* Container de conteúdo principal */
+.timeline-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;                   /* Ocupa espaço disponível */
+  min-height: 0;             /* Permite flexbox funcionar corretamente */
+  overflow: hidden;          /* Evita overflow do container */
+}
+
 .timeline-card-description {
   font-size: 0.95rem;        /* Fonte maior */
   color: #475569;            /* Cor mais legível */
@@ -223,11 +233,11 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   display: -webkit-box;
-  -webkit-line-clamp: 4;     /* Máximo 4 linhas */
-  line-clamp: 4;
+  -webkit-line-clamp: 3;     /* Reduzido para 3 linhas para dar espaço às tags */
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  flex: 1;                   /* Ocupa espaço disponível */
+  flex-shrink: 1;            /* Permite encolher se necessário */
 }
 
 /* Header do card */
@@ -287,11 +297,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: auto;          /* Empurra para baixo */
-  padding-top: 12px;         /* Espaçamento do conteúdo acima */
+  margin-top: 8px;           /* Margem fixa em vez de auto */
+  padding-top: 8px;          /* Padding menor */
   border-top: 1px solid #f1f5f9; /* Linha sutil de separação */
   max-width: 100%;
   box-sizing: border-box;
+  flex-shrink: 0;            /* Não encolhe - sempre mostra as tags */
 }
 
 .timeline-card-tag {
@@ -319,18 +330,19 @@
 
 /* Indicador de clique */
 .timeline-card-click-indicator {
-  margin-top: auto;
-  padding: 10px 16px;       /* Padding maior */
+  margin-top: auto;          /* Agora o indicador vai para o fundo */
+  padding: 8px 14px;         /* Padding um pouco menor */
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   border-radius: 12px;
   text-align: center;
-  font-size: 0.875rem;      /* Fonte maior */
+  font-size: 0.8rem;         /* Fonte um pouco menor */
   color: #475569;
   opacity: 0;
   transition: all 0.3s ease;
   border: 1px solid #e2e8f0;
   font-weight: 500;
   box-sizing: border-box;
+  flex-shrink: 0;            /* Não encolhe */
 }
 
 .timeline-card:hover .timeline-card-click-indicator {
@@ -580,6 +592,10 @@
     gap: 10px;
   }
   
+  .timeline-card-content {
+    gap: 10px;
+  }
+  
   .timeline-card-icon {
     width: 36px;
     height: 36px;
@@ -600,8 +616,13 @@
   
   .timeline-card-description {
     font-size: 0.8rem;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 2;    /* Menos linhas em mobile */
+    line-clamp: 2;
+  }
+  
+  .timeline-card-tags {
+    margin-top: 6px;
+    padding-top: 6px;
   }
   
   .timeline-card-container {
@@ -627,6 +648,10 @@
     margin-bottom: 10px;
   }
   
+  .timeline-card-content {
+    gap: 8px;
+  }
+  
   .timeline-card-icon {
     width: 32px;
     height: 32px;
@@ -647,8 +672,14 @@
   
   .timeline-card-description {
     font-size: 0.75rem;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 2;    /* Apenas 2 linhas em mobile */
+    line-clamp: 2;
+  }
+  
+  .timeline-card-tags {
+    margin-top: 4px;
+    padding-top: 4px;
+    gap: 6px;
   }
   
   .timeline-card-tag {
@@ -679,6 +710,10 @@
     margin-bottom: 8px;
   }
   
+  .timeline-card-content {
+    gap: 6px;
+  }
+  
   .timeline-card-icon {
     width: 28px;
     height: 28px;
@@ -699,5 +734,18 @@
   
   .timeline-card-description {
     font-size: 0.7rem;
+    -webkit-line-clamp: 2;    /* Máximo 2 linhas */
+    line-clamp: 2;
+  }
+  
+  .timeline-card-tags {
+    margin-top: 4px;
+    padding-top: 4px;
+    gap: 4px;
+  }
+  
+  .timeline-card-tag {
+    font-size: 0.6rem;
+    padding: 3px 6px;
   }
 }

@@ -67,23 +67,27 @@ export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick }) =>
       </div>
 
       <h3 className="timeline-card-title">{title}</h3>
-      {description && <p className="timeline-card-description">{description}</p>}
+      
+      {/* Conteúdo principal do card */}
+      <div className="timeline-card-content">
+        {description && <p className="timeline-card-description">{description}</p>}
 
-      {/* Tags se existirem */}
-      {tags && tags.length > 0 && (
-        <div className="timeline-card-tags">
-          {tags.slice(0, 3).map((tag, index) => (
-            <span key={index} className="timeline-card-tag">
-              {tag}
-            </span>
-          ))}
-          {tags.length > 3 && (
-            <span className="timeline-card-tag timeline-card-tag-more">
-              +{tags.length - 3}
-            </span>
-          )}
-        </div>
-      )}
+        {/* Tags se existirem */}
+        {tags && tags.length > 0 && (
+          <div className="timeline-card-tags">
+            {tags.slice(0, 3).map((tag, index) => (
+              <span key={index} className="timeline-card-tag">
+                {tag}
+              </span>
+            ))}
+            {tags.length > 3 && (
+              <span className="timeline-card-tag timeline-card-tag-more">
+                +{tags.length - 3}
+              </span>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* Indicador de clique */}
       <div className="timeline-card-click-indicator">
