@@ -21,31 +21,41 @@ const portfolioData = {
 
   houses: [
     {
-      id: "inicio-carreira",
-      type: "milestone",
-      position: { x: 5, y: 50 },
+      id: "reggae-na-praca-10-anos",
+      type: "experience",
+      position: { x: 90, y: 35 }, // AJUSTAR: posição no timeline
       data: {
-        title: "Início da Carreira",
-        date: "Janeiro 2018",
-        description: "Primeiros passos na produção cultural",
+        title: "Reggae na Praça 10 Anos", //
+        date: "Março 2025", //
+        description:
+          "Produção geral da edição comemorativa de 10 anos do maior e mais tradicional festival de Reggae do Distrito Federal, em São Sebastião.", //
         fullDescription:
-          "Marco inicial da jornada profissional na área cultural, desenvolvendo os primeiros conhecimentos em gestão de projetos artísticos e produção de eventos.",
-        tags: ["início", "cultura", "aprendizado"],
+          "Como produtor geral, fui responsável pela concepção, planejamento, captação de recursos e execução da 10ª edição do festival 'Reggae na Praça'. O evento, financiado com recursos da Secretaria de Cultura e Economia Criativa do DF (SECEC/DF), celebra uma década de história, sendo uma marca registrada na cidade desde 2018. A edição contou com a apresentação de grandes nomes nacionais como Marina Peralta e Dada Yute, além de valorizar a cena local com diversos artistas do DF. A estrutura foi planejada para um público de até 2.400 pessoas, com palco, backstage, praça de alimentação e uma tenda de autoestima chamada 'Reggaestima'.", //
+        tags: ["festival", "reggae", "cultura-df"],
         achievements: [
-          "Primeira participação em projeto cultural",
-          "Desenvolvimento de rede de contatos inicial",
-          "Aprendizado de fundamentos da produção",
+          "Aprovação e financiamento via edital da Secretaria de Cultura e Economia Criativa do DF", //
+          "Curadoria com artistas de expressão nacional como Dada Yute, Marina Peralta e Digital Dubs", //
+          "Expectativa de público entre 800 e 2.400 pessoas", //
+          "Planejamento de comunicação massiva com outdoor, carro de som e R$1.200 em mídia paga", //
         ],
         skills: [
-          "Gestão básica de projetos",
-          "Comunicação interpessoal",
-          "Organização de eventos",
+          "Produção de Grandes Eventos",
+          "Captação de Recursos (FAC)", //
+          "Curadoria Artística", //
+          "Gestão Cultural", //
+        ],
+        links: [
+          // OPCIONAL: links relacionados
+          {
+            title: "Site Oficial do Festival",
+            url: "https://reggaenapraca.com.br", //
+          },
         ],
       },
       style: {
-        size: "medium",
-        theme: "milestone",
-        icon: "🌟",
+        size: "large",
+        theme: "cultural",
+        icon: "🎵",
       },
     },
     {
@@ -235,7 +245,7 @@ const portfolioData = {
       position: { x: 75, y: 45 },
       data: {
         title: "Empresa Própria - Estrella Cultural",
-        date: "Março 2024",
+        date: "Março 2020",
         description: "Fundação da própria empresa de gestão cultural",
         fullDescription:
           "Criação da Estrella Cultural, empresa especializada em gestão de projetos artísticos, produção de eventos e consultoria para o setor cultural, consolidando toda a experiência adquirida.",

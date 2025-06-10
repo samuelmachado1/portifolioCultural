@@ -39,7 +39,7 @@ export const personalInfo: PersonalInfo = {
   contact: {
     phone: "61 9 8239-1310",
     email: "samuelmachado1@gmail.com",
-    address: "Quadra 24 Casa 10 – Bairro São José – São Sebastião – DF",
+    address: "Praça do Reggae – São Sebastião – DF",
     social: {
       facebook: "facebook.com/samuelestrellareggae",
     },
@@ -93,10 +93,10 @@ export const education: Education[] = [
 
 export const mainPositions: string[] = [
   "Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF 2024-2025",
-  "Gerente Regional de Cultura em São Sebastião",
+  "Gerente Regional de Cultura em São Sebastião - GeCult 2018 - 2019",
   "Músico registrado na OMB desde 2009",
-  "Músico fundador da banda Calango Rasta - Desde 2011",
-  "Vice Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF",
+  "Músico fundador da banda Calango Rasta - 2011",
+  "Vice Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF 2017-2018",
   "Membro da Câmara Técnica de Cultura do Conselho de Desenvolvimento Econômico, Sustentável e Estratégico do Distrito Federal - CODESE/DF",
 ];
 

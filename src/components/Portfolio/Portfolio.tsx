@@ -210,17 +210,17 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
 
             <div className="action-buttons">
               <button className="btn-primary" onClick={handleContactProject}>
-                <span>Iniciar projeto</span>
+                <span>Fale comigo</span>
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                 </svg>
               </button>
-              <button className="btn-secondary" onClick={handleDownloadCV}>
+              {/* <button className="btn-secondary" onClick={handleDownloadCV}>
                 <span>Download CV</span>
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                 </svg>
-              </button>
+              </button> */}
             </div>
 
             {/* FilterBar integrada no painel de contatos */}

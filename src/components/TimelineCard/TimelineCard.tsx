@@ -67,7 +67,7 @@ export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick }) =>
       </div>
 
       <h3 className="timeline-card-title">{title}</h3>
-      
+
       {/* Conteúdo principal do card */}
       <div className="timeline-card-content">
         {description && <p className="timeline-card-description">{description}</p>}
