@@ -6,6 +6,7 @@ import { usePortfolio } from '../../hooks/usePortfolio';
 import type { PortfolioData } from '../../types/portfolio';
 import { personalInfo } from '../../data/personal-info';
 import samuelAvatar from '../../assets/SamuelEstrella.jpg';
+import calangosLogo from '../../assets/calangos-sounds-logo.png';
 import '../../styles/portfolio.css';
 
 interface PortfolioProps {
@@ -139,7 +140,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                   <div className="status-dot"></div>
                 </div>
                 <div className="role-badge">
-                  <span className="role-icon">🎭</span>
+                  <img src={calangosLogo} alt="Calangos Sounds" className="role-icon" />
                 </div>
               </div>
             </div>

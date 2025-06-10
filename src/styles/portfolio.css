@@ -297,7 +297,7 @@
   right: -8px;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9));
+  background: #d1c8ea;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
@@ -308,8 +308,50 @@
 }
 
 .role-icon {
-  font-size: 20px;
+  width: 48px;
   filter: grayscale(0) brightness(1.2);
+}
+
+/* ===== RESPONSIVIDADE PARA STATUS E ROLE BADGE ===== */
+@media (max-width: 768px) {
+  /* Ocultar status-dot em mobile */
+  .status-indicator {
+    display: none;
+  }
+  
+  /* Reposicionar role-badge para o lugar do status-dot */
+  .role-badge {
+    top: auto;
+    bottom: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(59, 130, 246, 0.9));
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+  }
+  
+  .role-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Role badge ainda menor para telas pequenas */
+  .role-badge {
+    width: 28px;
+    height: 28px;
+    bottom: 6px;
+    right: 6px;
+  }
+  
+  .role-icon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* ===== INFORMAÇÕES DO PERFIL ===== */

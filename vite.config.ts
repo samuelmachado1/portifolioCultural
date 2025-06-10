@@ -4,11 +4,11 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: mode === 'production' ? '/portifolioCultural/' : '/',
+  base: mode === "production" ? "/portifolioCultural/" : "/",
   build: {
     outDir: "dist",
     assetsDir: "assets",
-    sourcemap: mode !== 'production',
+    sourcemap: mode !== "production",
     rollupOptions: {
       output: {
         manualChunks: {
@@ -27,6 +27,6 @@ export default defineConfig(({ mode }) => ({
     host: true,
   },
   define: {
-    'process.env.NODE_ENV': JSON.stringify(mode),
+    "process.env.NODE_ENV": JSON.stringify(mode),
   },
 }));
