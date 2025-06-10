@@ -4,18 +4,9 @@ import type { BoardHouse } from "../types/portfolio";
 export const usePortfolio = (initialHouses: BoardHouse[]) => {
   const [selectedHouse, setSelectedHouse] = useState<BoardHouse | null>(null);
   const [houses] = useState<BoardHouse[]>(initialHouses);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const selectHouse = useCallback((house: BoardHouse) => {
     setSelectedHouse(house);
-    if (house.type === "experience") {
-      setIsModalOpen(true);
-    }
-  }, []);
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
-    setSelectedHouse(null);
   }, []);
 
   const getHousesByType = useCallback(
@@ -28,9 +19,7 @@ export const usePortfolio = (initialHouses: BoardHouse[]) => {
   return {
     houses,
     selectedHouse,
-    isModalOpen,
     selectHouse,
-    closeModal,
     getHousesByType,
   };
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Board } from '../Board/Board';
-import { Modal } from '../Modal/Modal';
 import { FilterBar } from '../FilterBar/FilterBar';
 import { usePortfolio } from '../../hooks/usePortfolio';
 import type { PortfolioData } from '../../types/portfolio';
@@ -17,9 +16,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   const {
     houses,
     selectedHouse,
-    isModalOpen,
-    selectHouse,
-    closeModal
+    selectHouse
   } = usePortfolio(data.houses);
 
   const [displayedText, setDisplayedText] = useState('');
@@ -49,7 +46,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
 
   // Filtrar e ordenar casas por data
   const filteredHouses = useMemo(() => {
-    let filtered = houses.filter(house => {
+    const filtered = houses.filter(house => {
       if (activeFilter === 'all') return true;
       return house.type === activeFilter;
     });
@@ -272,14 +269,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           selectedHouse={selectedHouse}
         />
       </main>
-
-      {/* Modal para detalhes das experiências */}
-      <Modal
-        isOpen={isModalOpen}
-        house={selectedHouse}
-        portfolioData={data}
-        onClose={closeModal}
-      />
     </div>
   );
 };

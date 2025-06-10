@@ -1,7 +1,0 @@
-/* Estilos específicos da aplicação */
-.App {
-  width: 100%;
-  min-height: 100vh; /* Mudado para min-height para permitir crescimento */
-  margin: 0;
-  padding: 0;
-}
