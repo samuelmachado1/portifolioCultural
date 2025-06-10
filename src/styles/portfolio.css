@@ -324,33 +324,18 @@
     top: auto;
     bottom: 8px;
     right: 8px;
-    width: 40px; /* Aumentado de 32px para 40px */
-    height: 40px; /* Aumentado de 32px para 40px */
+    width: 32px;
+    height: 32px;
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(59, 130, 246, 0.9));
     border: 2px solid #ffffff;
     box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
   }
   
   .role-icon {
-    width: 26px; /* Aumentado de 20px para 26px */
-    height: 26px; /* Aumentado de 20px para 26px */
+    width: 20px;
+    height: 20px;
     object-fit: contain;
     border-radius: 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Role badge para telas pequenas */
-  .role-badge {
-    width: 36px; /* Aumentado de 28px para 36px */
-    height: 36px; /* Aumentado de 28px para 36px */
-    bottom: 6px;
-    right: 6px;
-  }
-  
-  .role-icon {
-    width: 22px; /* Aumentado proporcionalmente */
-    height: 22px; /* Aumentado proporcionalmente */
   }
 }
 
