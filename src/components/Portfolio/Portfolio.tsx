@@ -23,7 +23,20 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
 
   const [displayedText, setDisplayedText] = useState('');
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [isMobile, setIsMobile] = useState(false);
   const fullText = 'Gestor Cultural & Artista';
+
+  // Detectar mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Função para extrair o ano mais recente de uma data
   const extractLatestYear = (dateString: string): number => {
@@ -223,14 +236,16 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
               </button> */}
             </div>
 
-            {/* FilterBar integrada no painel de contatos */}
-            <div className="contact-filter-section">
-              <FilterBar
-                activeFilter={activeFilter}
-                onFilterChange={handleFilterChange}
-                itemCounts={itemCounts}
-              />
-            </div>
+            {/* FilterBar integrada no painel de contatos - apenas em desktop */}
+            {!isMobile && (
+              <div className="contact-filter-section">
+                <FilterBar
+                  activeFilter={activeFilter}
+                  onFilterChange={handleFilterChange}
+                  itemCounts={itemCounts}
+                />
+              </div>
+            )}
           </div>
         </div>
 

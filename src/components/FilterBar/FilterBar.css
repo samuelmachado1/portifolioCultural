@@ -134,25 +134,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .filter-bar {
-    margin: 8px 0;      /* Menor */
-    padding: 10px;      /* Menor */
-  }
-
-  .filter-label {
-    font-size: 0.85em;  /* Menor */
-  }
-
-  .filter-buttons {
-    gap: 4px;           /* Menor */
-  }
-
-  .filter-button {
-    padding: 5px 8px;   /* Menor */
-    font-size: 0.75em;  /* Menor */
-  }
-
-  .filter-button-icon {
-    font-size: 0.85em;  /* Menor */
+    display: none !important; /* Oculta completamente em tablet/mobile */
   }
 }
 

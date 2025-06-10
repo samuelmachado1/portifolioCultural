@@ -885,9 +885,29 @@
   }
 }
 
-@media (max-width: 480px) {
+/* RESPONSIVIDADE MOBILE */
+@media (max-width: 768px) {
+  .contact-filter-section {
+    display: none !important; /* Ocultar filtros completamente em mobile */
+  }
+  
+  .portfolio-header {
+    min-height: 160px; /* Reduzir altura em mobile */
+    padding: 0.75rem;
+  }
+  
   .header-content {
+    flex-direction: column; /* Stack em mobile */
+    align-items: center;
+    gap: 1rem; /* Gap menor para mobile */
     padding: 1.5rem 1rem;
+  }
+  
+  .main-profile {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
   }
   
   .avatar-container {
@@ -896,29 +916,26 @@
   }
   
   .primary-name {
-    font-size: 2rem;
-    line-height: 0.9;
+    font-size: 2.2rem;
+    text-align: center;
   }
   
   .primary-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .title-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
   
   .stats-row {
-    gap: 1rem;
+    gap: 1.2rem;
+    justify-content: center;
     flex-wrap: wrap;
   }
   
-  .stat-item {
-    min-width: 60px;
-  }
-  
   .stat-number {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
   .stat-label {
@@ -926,62 +943,156 @@
   }
   
   .contact-panel {
-    width: auto; /* Largura flexível em telas muito pequenas */
-    padding: 0.6rem;
+    width: 100%; /* Largura total em mobile */
+    max-width: 280px; /* Máximo menor para mobile */
+    padding: 0.8rem;
+    gap: 0.6rem; /* Gap menor */
   }
   
-  .panel-title {
-    font-size: 0.55rem; /* Fonte ligeiramente maior que antes */
+  .contact-grid {
+    gap: 0.4rem; /* Gap menor entre contatos */
   }
   
   .contact-row {
-    padding: 0.35rem; /* Padding ligeiramente maior */
+    padding: 0.4rem; /* Padding menor */
   }
   
   .contact-icon {
-    width: 18px; /* Ícones ligeiramente maiores */
-    height: 18px;
+    width: 24px;
+    height: 24px;
   }
   
   .contact-icon svg {
-    width: 9px; /* SVGs ligeiramente maiores */
-    height: 9px;
+    width: 14px;
+    height: 14px;
   }
   
   .contact-value {
-    font-size: 0.45rem; /* Fonte ligeiramente maior */
+    font-size: 0.65rem;
   }
   
   .contact-label {
-    font-size: 0.4rem; /* Fonte ligeiramente maior */
+    font-size: 0.55rem;
   }
   
   .btn-primary,
   .btn-secondary {
-    padding: 0.45rem 0.5rem; /* Padding menor para telas pequenas */
-    font-size: 0.4rem; /* Fonte menor */
-    min-height: 26px; /* Altura menor */
+    padding: 0.6rem 0.8rem;
+    font-size: 0.7rem;
+    min-height: 36px;
   }
   
-  .btn-primary svg,
-  .btn-secondary svg {
-    width: 8px; /* Ícones menores em telas pequenas */
-    height: 8px;
+  .board-container {
+    padding: 0.5rem 1rem;
+    padding-bottom: 60px;
+  }
+  
+  .floating-particles {
+    display: none; /* Remove partículas em mobile */
   }
 }
 
-/* Responsive adicional para muito pequeno */
-@media (max-width: 380px) {
+/* Mobile extra pequeno */
+@media (max-width: 480px) {
+  .portfolio-header {
+    min-height: 140px;
+    padding: 0.5rem;
+  }
+  
+  .header-content {
+    padding: 1rem 0.75rem;
+    gap: 0.8rem;
+  }
+  
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+  
   .primary-name {
     font-size: 1.8rem;
+  }
+  
+  .primary-title {
+    font-size: 1rem;
+  }
+  
+  .title-subtitle {
+    font-size: 0.8rem;
   }
   
   .stats-row {
     gap: 0.8rem;
   }
   
-  .stat-divider {
-    display: none;
+  .stat-number {
+    font-size: 1.1rem;
+  }
+  
+  .stat-label {
+    font-size: 0.6rem;
+  }
+  
+  .contact-panel {
+    max-width: 260px;
+    padding: 0.6rem;
+  }
+  
+  .contact-row {
+    padding: 0.3rem;
+  }
+  
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .contact-value {
+    font-size: 0.6rem;
+  }
+  
+  .contact-label {
+    font-size: 0.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.65rem;
+    min-height: 32px;
+  }
+  
+  .board-container {
+    padding: 0.25rem 0.5rem;
+    padding-bottom: 50px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .portfolio-header {
+    min-height: 120px;
+  }
+  
+  .header-content {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .main-profile {
+    flex-direction: row;
+    gap: 1.5rem;
+    text-align: left;
+  }
+  
+  .contact-panel {
+    max-width: 240px;
   }
 }
 
