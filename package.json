@@ -4,7 +4,14 @@
   "version": "1.0.0",
   "description": "Portfólio interativo em formato de jogo de tabuleiro para o produtor cultural Samuel Estrella",
   "author": "Samuel Estrella <samuel@estrella.com.br>",
-  "keywords": ["portfolio", "react", "typescript", "cultural-production", "interactive", "board-game"],
+  "keywords": [
+    "portfolio",
+    "react",
+    "typescript",
+    "cultural-production",
+    "interactive",
+    "board-game"
+  ],
   "homepage": "https://samuelmachado1.github.io/portifolioCultural",
   "repository": {
     "type": "git",
@@ -15,7 +22,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:vercel": "npm run build",
-    "build:netlify": "npm run build", 
+    "build:netlify": "npm run build",
     "build:gh-pages": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
