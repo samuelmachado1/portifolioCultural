@@ -59,33 +59,41 @@ const portfolioData = {
       },
     },
     {
-      id: "festival-independente",
+      id: "reggae-o-bosque-2022",
       type: "experience",
-      position: { x: 15, y: 40 },
+      position: { x: 70, y: 40 }, // AJUSTAR: posição no timeline
       data: {
-        title: "Festival de Música Independente",
-        date: "Março 2019",
-        description: "Produção executiva de festival com 15 bandas locais",
+        title: "Reggae o Bosque", //
+        date: "Maio 2022", //
+        description:
+          "Produção e apresentação musical como Calangos Sounds no festival Reggae o Bosque, um evento gratuito em Candangolândia.",
         fullDescription:
-          "Responsável pela produção executiva completa de um festival de música independente, coordenando desde a curadoria musical até a logística do evento, resultando em público de 2.000 pessoas.",
-        tags: ["festival", "música", "produção executiva"],
+          "Participei da produção do festival 'Reggae o Bosque' e também me apresentei como Calangos Sounds. O evento foi uma iniciativa do Coletivo Reggae DF, realizado de forma gratuita no dia 1º de maio de 2022, na Praça do Bosque em Candangolândia. Voltado para toda a família e ao ar livre, o festival contou com uma estrutura completa de bar, praça de alimentação e banheiros. O line-up foi extenso, com bandas como Banda Zoka, Marrul e um show especial 'Brasil Riddim'. Minha apresentação como Calangos Sounds ocorreu às 16:45 e, posteriormente, às 21:45 em uma colaboração com outros artistas para o encerramento.",
+        tags: ["festival", "reggae", "produção musical"],
         achievements: [
-          "Coordenação de 15 bandas e artistas",
-          "Gestão de orçamento de R$ 80.000",
-          "Público de 2.000 pessoas",
-          "Parceria com 8 patrocinadores locais",
+          "Realização de um evento gratuito e ao ar livre para toda a família ",
+          "Apresentação como Calangos Sounds em dois momentos distintos do festival ",
+          "Curadoria de um line-up com mais de 10 bandas e artistas da cena reggae ",
+          "Produção de um evento com estrutura de bar, praça de alimentação e banheiros ",
         ],
         skills: [
-          "Produção de eventos",
-          "Curadoria musical",
-          "Gestão financeira",
-          "Negociação comercial",
+          "Produção de Eventos Culturais",
+          "Apresentação Musical (Selecta)",
+          "Curadoria Artística",
+          "Articulação de Coletivos Culturais",
+        ],
+        links: [
+          // OPCIONAL: links relacionados
+          {
+            title: "Canal Calango Rasta no YouTube",
+            url: "youtube.com/calangorasta", //
+          },
         ],
       },
       style: {
-        size: "large",
-        theme: "cultural",
-        icon: "🎵",
+        size: "large", // "small" | "medium" | "large"
+        theme: "cultural", // Ver seção de temas abaixo
+        icon: "🎵", // Emoji representativo
       },
     },
     {
