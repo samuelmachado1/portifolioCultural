@@ -282,7 +282,7 @@ export const portfolioData: PortfolioData = {
             url: "https://instagram.com/pluralperiferico",
           },
           {
-            title: "Website", 
+            title: "Website",
             url: "https://pluralperiferico.org.br",
           },
         ],
