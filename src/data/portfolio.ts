@@ -3,17 +3,16 @@ import type { BoardHouse } from "../types/portfolio";
 const portfolioData = {
   profile: {
     name: "Samuel Estrella",
-    title: "Produtor Cultural & Gestor de Projetos Artísticos",
-    bio: "Especialista em gestão de projetos artísticos, eventos musicais e desenvolvimento de talentos emergentes. Experiência consolidada em produção executiva e curadoria cultural.",
+    title: "Produção Cultural & Gestão de Projetos",
+    bio: "Especialista em gestão de projetos culturais, políticas públicas para cultura e captação de recursos públicos. Experiência consolidada em produção executiva e curadoria de evemtos.",
     contact: {
-      email: "samuel.estrella@outlook.com",
-      phone: "+55 (11) 99847-3621",
-      whatsapp: "+55 (11) 99847-3621",
+      email: "samuelmachado1@gmail.com",
+      phone: "+55 (61) 98239-1310",
+      whatsapp: "+55 (61) 98239-1310",
       social: {
         linkedin: "https://linkedin.com/in/samuel-estrella",
-        instagram: "https://instagram.com/samuelestrellasp",
-        youtube: "https://youtube.com/@samuelestrellamusic",
-        spotify: "https://open.spotify.com/artist/samuelestrellaofficial",
+        instagram: "https://instagram.com/techarastabr",
+        youtube: "https://youtube.com/samuelestrella",
       },
     },
     avatar: "/src/assets/SamuelEstrella.jpg",

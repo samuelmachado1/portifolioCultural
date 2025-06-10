@@ -22,9 +22,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [isMobile, setIsMobile] = useState(false);
-  const fullText = 'Gestor Cultural & Artista';
+  const fullText = 'Arte, Cultura e Tecnologia';
 
-  // Detectar mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -36,7 +35,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Função para extrair o ano mais recente de uma data
+
   const extractLatestYear = (dateString: string): number => {
     if (!dateString) return 0;
     const yearMatches = dateString.match(/\d{4}/g);
@@ -44,14 +43,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     return Math.max(...yearMatches.map(year => parseInt(year, 10)));
   };
 
-  // Filtrar e ordenar casas por data
   const filteredHouses = useMemo(() => {
     const filtered = houses.filter(house => {
       if (activeFilter === 'all') return true;
       return house.type === activeFilter;
     });
 
-    // Ordenar por data (mais recente primeiro)
     return filtered.sort((a, b) => {
       const dateA = a.data?.date || '';
       const dateB = b.data?.date || '';
@@ -61,7 +58,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     });
   }, [houses, activeFilter]);
 
-  // Calcular contagens para cada filtro
   const itemCounts = useMemo(() => {
     const counts: { [key: string]: number } = {
       all: houses.length,
@@ -77,7 +73,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   };
 
   useEffect(() => {
-    // Delay para começar a animação após o nome aparecer
+
     const startDelay = setTimeout(() => {
       let index = 0;
       const timer = setInterval(() => {
@@ -90,28 +86,19 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
       }, 100);
 
       return () => clearInterval(timer);
-    }, 2500); // Começa após 2.5 segundos
+    }, 2500);
 
     return () => clearTimeout(startDelay);
   }, [fullText]);
 
-  // const handleDownloadCV = () => {
-  //   // Simula download do CV - pode ser implementado com um link real
-  //   const cvUrl = '/SamuelEstrella-Curriculo.pdf';
-  //   const link = document.createElement('a');
-  //   link.href = cvUrl;
-  //   link.download = 'Samuel_Estrella_CV.pdf';
-  //   link.click();
-  // };
+
 
   const handleContactProject = () => {
-    // Abre WhatsApp com mensagem predefinida
     const phone = personalInfo.contact.phone.replace(/\s/g, '').replace(/[()-]/g, '');
-    const message = encodeURIComponent('Olá Samuel! Gostaria de conversar sobre um projeto cultural.');
+    const message = encodeURIComponent('Olá Samuel! Encontrei seu contato aqui no https://samuelmachado1.github.io/portifolioCultural/');
     window.open(`https://wa.me/55${phone}?text=${message}`, '_blank');
   }; return (
     <div className="portfolio-container">
-      {/* Header Premium Redesenhado - Inspirado nos melhores portfólios do mundo */}
       <header className="portfolio-header">
         <div className="header-background">
           <div className="floating-particles">
@@ -158,19 +145,20 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
 
               <div className="stats-row">
                 <div className="stat-item">
-                  <div className="stat-number">{personalInfo.yearsActive}+</div>
-                  <div className="stat-label">Anos de experiência</div>
+                  <div className="stat-number">+{personalInfo.yearsActive}</div>
+                  <div className="stat-label">Anos de experiência artística</div>
                 </div>
                 <div className="stat-divider"></div>
                 <div className="stat-item">
-                  <div className="stat-number">150+</div>
-                  <div className="stat-label">Projetos realizados</div>
+                  <div className="stat-number">+{new Date().getFullYear() - 2013}</div>
+                  <div className="stat-label">Anos de experiência em Gestão de Projetos</div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">+{new Date().getFullYear() - 2015}</div>
+                  <div className="stat-label">Anos de experiência em Captação de Recursos</div>
                 </div>
                 <div className="stat-divider"></div>
-                <div className="stat-item">
-                  <div className="stat-number">8</div>
-                  <div className="stat-label">Reggae na Praça</div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -193,7 +181,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                 </div>
               </div>
 
-              {/* Telefone oculto em mobile - o botão "Fale comigo" já direciona para WhatsApp */}
               {!isMobile && (
                 <div className="contact-row phone-row">
                   <div className="contact-icon phone-icon">
@@ -207,19 +194,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                   </div>
                 </div>
               )}
-              {/* FilterBar integrada no header */}
 
-              {/* <div className="contact-row">
-                <div className="contact-icon location-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
-                </div>
-                <div className="contact-info">
-                  <div className="contact-label">Localização</div>
-                  <div className="contact-value">São Sebastião, DF</div>
-                </div>
-              </div> */}
             </div>
 
             <div className="action-buttons">
@@ -229,15 +204,9 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                   <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                 </svg>
               </button>
-              {/* <button className="btn-secondary" onClick={handleDownloadCV}>
-                <span>Download CV</span>
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-                </svg>
-              </button> */}
+
             </div>
 
-            {/* FilterBar integrada no painel de contatos - apenas em desktop */}
             {!isMobile && (
               <div className="contact-filter-section">
                 <FilterBar
@@ -250,18 +219,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Indicador de scroll */}
-        {/* <div className="scroll-indicator">
-          <div className="scroll-text">Explore o portfólio</div>
-          <div className="scroll-arrow">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-            </svg>
-          </div>
-        </div> */}
       </header>
 
-      {/* Área do tabuleiro */}
       <main className="board-container">
         <Board
           houses={filteredHouses}
