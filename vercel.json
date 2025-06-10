@@ -12,8 +12,8 @@
   ],
   "routes": [
     {
-      "src": "/portfolio/(.*)",
-      "dest": "/portfolio/$1"
+      "src": "/portifolioCultural/(.*)",
+      "dest": "/portifolioCultural/$1"
     },
     {
       "src": "/(.*)",
@@ -23,8 +23,8 @@
   "functions": {},
   "rewrites": [
     {
-      "source": "/portfolio/:path*",
-      "destination": "/portfolio/:path*"
+      "source": "/portifolioCultural/:path*",
+      "destination": "/portifolioCultural/:path*"
     }
   ],
   "headers": [

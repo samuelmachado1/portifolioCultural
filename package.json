@@ -5,10 +5,10 @@
   "description": "Portfólio interativo em formato de jogo de tabuleiro para o produtor cultural Samuel Estrella",
   "author": "Samuel Estrella <samuel@estrella.com.br>",
   "keywords": ["portfolio", "react", "typescript", "cultural-production", "interactive", "board-game"],
-  "homepage": "https://samuel-estrella.github.io/portfolio",
+  "homepage": "https://samuelmachado1.github.io/portifolioCultural",
   "repository": {
     "type": "git",
-    "url": "https://github.com/samuel-estrella/portfolio.git"
+    "url": "https://github.com/samuelmachado1/portifolioCultural.git"
   },
   "type": "module",
   "scripts": {
