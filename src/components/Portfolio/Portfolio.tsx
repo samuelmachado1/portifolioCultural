@@ -84,14 +84,14 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     return () => clearTimeout(startDelay);
   }, [fullText]);
 
-  const handleDownloadCV = () => {
-    // Simula download do CV - pode ser implementado com um link real
-    const cvUrl = '/SamuelEstrella-Curriculo.pdf';
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.download = 'Samuel_Estrella_CV.pdf';
-    link.click();
-  };
+  // const handleDownloadCV = () => {
+  //   // Simula download do CV - pode ser implementado com um link real
+  //   const cvUrl = '/SamuelEstrella-Curriculo.pdf';
+  //   const link = document.createElement('a');
+  //   link.href = cvUrl;
+  //   link.download = 'Samuel_Estrella_CV.pdf';
+  //   link.click();
+  // };
 
   const handleContactProject = () => {
     // Abre WhatsApp com mensagem predefinida

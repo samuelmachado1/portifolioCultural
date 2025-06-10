@@ -2,13 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: "/portfolio/",
+  base: mode === 'production' ? '/portfolio/' : '/',
   build: {
     outDir: "dist",
     assetsDir: "assets",
-    sourcemap: false,
+    sourcemap: mode !== 'production',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -16,6 +16,7 @@ export default defineConfig({
         },
       },
     },
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     port: 5174,
@@ -25,4 +26,7 @@ export default defineConfig({
     port: 4174,
     host: true,
   },
-});
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(mode),
+  },
+}));

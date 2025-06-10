@@ -170,10 +170,16 @@ export const portfolioData: PortfolioData = {
           "Curadoria Musical",
           "Parcerias Estratégicas",
         ],
-        links: {
-          social: "https://instagram.com/sonora.brasil",
-          website: "https://festivalonorabrasil.com.br",
-        },
+        links: [
+          {
+            title: "Instagram",
+            url: "https://instagram.com/sonora.brasil",
+          },
+          {
+            title: "Website",
+            url: "https://festivalonorabrasil.com.br",
+          },
+        ],
       },
       style: {
         size: "large",
@@ -267,10 +273,16 @@ export const portfolioData: PortfolioData = {
           "Gestão de Impacto",
           "Mobilização Comunitária",
         ],
-        links: {
-          social: "https://instagram.com/pluralperiferico",
-          website: "https://pluralperiferico.org.br",
-        },
+        links: [
+          {
+            title: "Instagram",
+            url: "https://instagram.com/pluralperiferico",
+          },
+          {
+            title: "Website", 
+            url: "https://pluralperiferico.org.br",
+          },
+        ],
       },
       style: {
         size: "large",

@@ -14,10 +14,10 @@ export const PositionIndicator: React.FC<PositionIndicatorProps> = ({
   currentIndex,
   totalItems,
   onIndicatorClick,
-  visibleItems = 3,
+  // visibleItems = 3,
   timelineItems = [],
 }) => {
-  const indicators = Array.from({ length: totalItems }, (_, index) => index);
+  // const indicators = Array.from({ length: totalItems }, (_, index) => index);
   const progress = totalItems > 0 ? ((currentIndex + 1) / totalItems) * 100 : 0;
 
   // Extrair o ano do card atual
