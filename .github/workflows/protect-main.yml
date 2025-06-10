@@ -1,0 +1,77 @@
+name: 🛡️ Branch Protection Enforcer
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  # Job que sempre falha se tentar push direto na main
+  prevent-direct-push:
+    name: 🚫 Prevent Direct Push to Main
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: ❌ Block Direct Push
+      run: |
+        echo "🚫 ERRO: Push direto para main não é permitido!"
+        echo ""
+        echo "📋 Fluxo correto:"
+        echo "1. Trabalhe na branch develop"
+        echo "2. Faça push para develop"
+        echo "3. Aguarde criação automática do PR"
+        echo "4. Revise e aprove o PR"
+        echo "5. Merge via interface do GitHub"
+        echo ""
+        echo "💡 Para fazer alterações:"
+        echo "git checkout develop"
+        echo "git pull origin develop"
+        echo "# faça suas alterações"
+        echo "git add ."
+        echo "git commit -m 'sua mensagem'"
+        echo "git push origin develop"
+        echo ""
+        exit 1
+
+  # Job de deploy produção (apenas após merge de PR)
+  deploy-production:
+    name: 🌟 Deploy Production
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, 'Merge pull request'))
+    environment: 
+      name: production
+      url: https://samuelmachado1.github.io/portifolioCultural/
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 📥 Install dependencies
+      run: npm ci
+      
+    - name: 🔍 Lint
+      run: npm run lint
+      
+    - name: 🏗️ Build
+      run: npm run build
+      
+    - name: 🌟 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        
+    - name: 🎉 Success Notification
+      run: |
+        echo "🎉 Deploy de produção realizado com sucesso!"
+        echo "🌐 URL: https://samuelmachado1.github.io/portifolioCultural/"
+        echo "📋 PR Merged: ${{ github.event.head_commit.message }}"
