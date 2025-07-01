@@ -26,43 +26,51 @@ const portfolioData = {
       data: {
         title: "Festival Curicaca",
         date: "Junho 2025",
-        description: "Produção executiva e apresentação musical no Festival Curicaca, promovendo a cultura reggae no Distrito Federal.",
-        fullDescription: "Participei como produtor executivo e me apresentei como Calangos Sound System no Festival Curicaca, um evento que celebra a cultura reggae e promove a integração da comunidade artística do DF. O festival contou com diversos artistas locais e nacionais, proporcionando uma plataforma para o fortalecimento da cena musical regional. Minha atuação envolveu tanto a coordenação dos aspectos técnicos e logísticos do evento quanto a performance artística, demonstrando a versatilidade e comprometimento com o desenvolvimento cultural da região.",
+        description:
+          "Painel - Empreender no que é nosso: desafios e força do território no Festival Curicaca, discutindo empreendedorismo territorial e inovação.",
+        fullDescription:
+          "Atuei como mediador no painel 'Empreender no que é nosso: desafios e força do território', durante o Festival Curicaca. A discussão explorou como transformar desafios locais em diferenciais competitivos e como a identidade territorial pode ser uma força motriz para negócios. Junto com Âmbar del Valle González Blanco, Manoel Arcanjo Magalhães e Juliana Vieira, buscamos caminhos práticos para empreendedores locais que enfrentam obstáculos específicos do território, mas que também enxergam seu potencial único. O evento aconteceu no IFB - Campus São Sebastião, com entrada gratuita, demonstrando o compromisso com o acesso democrático ao conhecimento sobre empreendedorismo e inovação territorial.",
         flyerUrl: "/assets/curicaca/flyer_curicaca.jpeg",
-        tags: ["festival", "reggae", "produção executiva", "cultura-df"],
+        tags: [
+          "empreendedorismo",
+          "mediação",
+          "inovação",
+          "território",
+          "abdi",
+        ],
         achievements: [
-          "Coordenação da produção executiva do festival",
-          "Apresentação musical como Calangos Sound System",
-          "Fortalecimento da rede de artistas locais",
-          "Promoção da cultura reggae no Distrito Federal"
+          "Mediação de painel sobre empreendedorismo territorial",
+          "Articulação com especialistas renomados da área",
+          "Promoção do debate sobre inovação local",
+          "Facilitação de discussões práticas para empreendedores",
         ],
         skills: [
-          "Produção Executiva",
-          "Performance Musical (Sound System)",
-          "Articulação de Redes Culturais",
-          "Gestão de Eventos Musicais"
+          "Mediação de Painéis",
+          "Empreendedorismo Territorial",
+          "Facilitação de Debates",
+          "Articulação Institucional",
         ],
         socialLinks: {
           video: "/assets/curicaca/videoCuricaca.mp4",
           youtube: "https://youtube.com/calangorasta",
-          website: "https://festivalcuricaca.com.br"
+          website: "https://festivalcuricaca.com.br",
         },
         links: [
           {
-            title: "Clipping do Festival",
-            url: "https://festivalcuricaca.com.br/clipping"
+            title: "Instituto Federal de Brasília - Campus São Sebastião",
+            url: "https://www.ifb.edu.br/saosebastiao",
           },
           {
-            title: "Galeria de Fotos",
-            url: "https://festivalcuricaca.com.br/galeria"
-          }
-        ]
+            title: "Sobre ABDI",
+            url: "https://www.abdi.com.br",
+          },
+        ],
       },
       style: {
         size: "large",
-        theme: "cultural",
-        icon: "🎪"
-      }
+        theme: "Mediação",
+        icon: "🎤",
+      },
     },
     {
       id: "reggae-na-praca-10-anos",

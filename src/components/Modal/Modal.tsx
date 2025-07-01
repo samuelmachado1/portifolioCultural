@@ -38,8 +38,8 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
   };
 
   return (
-    <div 
-      className="modal-backdrop" 
+    <div
+      className="modal-backdrop"
       onClick={handleBackdropClick}
       tabIndex={-1}
       role="dialog"
@@ -47,13 +47,13 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
       aria-labelledby="modal-title"
     >
       <div className="modal-content">
-        <button 
+        <button
           className="modal-close"
           onClick={onClose}
           aria-label="Fechar modal"
         >
           <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
           </svg>
         </button>
 
@@ -73,20 +73,6 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
         </div>
 
         <div className="modal-body">
-          {data.flyerUrl && (
-            <div className="modal-media">
-              <img 
-                src={data.flyerUrl} 
-                alt={`Flyer do ${data.title}`}
-                className="modal-flyer"
-              />
-            </div>
-          )}
-
-          <div className="modal-description">
-            <p>{data.fullDescription || data.description}</p>
-          </div>
-
           {data.achievements && data.achievements.length > 0 && (
             <div className="modal-section">
               <h3>Principais Conquistas</h3>
@@ -97,6 +83,41 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
               </ul>
             </div>
           )}
+
+          {(data.flyerUrl || data.socialLinks?.video) && (
+            <div className="modal-media-section">
+              <h3>Mídia do Evento</h3>
+              <div className="modal-media-container">
+                {data.flyerUrl && (
+                  <div className="modal-media-item">
+                    <img
+                      src={data.flyerUrl}
+                      alt={`Flyer do ${data.title}`}
+                      className="modal-flyer"
+                    />
+                  </div>
+                )}
+
+                {data.socialLinks?.video && (
+                  <div className="modal-media-item">
+                    <video
+                      controls
+                      className="modal-video"
+                      preload="metadata"
+                    >
+                      <source src={data.socialLinks.video} type="video/mp4" />
+                      Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          <div className="modal-description">
+            <h3>Descrição Completa</h3>
+            <p>{data.fullDescription || data.description}</p>
+          </div>
 
           {data.skills && data.skills.length > 0 && (
             <div className="modal-section">
@@ -125,7 +146,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
               <h3>Links Relacionados</h3>
               <div className="modal-links">
                 {data.links?.map((link, index) => (
-                  <a 
+                  <a
                     key={index}
                     href={link.url}
                     target="_blank"
@@ -138,24 +159,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                     {link.title}
                   </a>
                 ))}
-                
-                {data.socialLinks?.video && (
-                  <a 
-                    href={data.socialLinks.video}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="modal-link video-link"
-                    download
-                  >
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
-                    </svg>
-                    Baixar Vídeo
-                  </a>
-                )}
 
                 {data.socialLinks?.spotify && (
-                  <a 
+                  <a
                     href={data.socialLinks.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -169,7 +175,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                 )}
 
                 {data.socialLinks?.youtube && (
-                  <a 
+                  <a
                     href={data.socialLinks.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -183,7 +189,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                 )}
 
                 {data.socialLinks?.website && (
-                  <a 
+                  <a
                     href={data.socialLinks.website}
                     target="_blank"
                     rel="noopener noreferrer"
