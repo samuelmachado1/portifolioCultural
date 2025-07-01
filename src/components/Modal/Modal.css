@@ -87,7 +87,7 @@
 
 /* Modal Header */
 .modal-header {
-  padding: 30px 30px 20px;
+  padding: 30px 70px 20px 30px; 
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
@@ -130,6 +130,7 @@
 .modal-badge-container {
   display: flex;
   align-items: center;
+  margin-right: 10px; /* Adiciona margem para evitar sobreposição com o botão */
 }
 
 .modal-badge {
@@ -479,7 +480,7 @@
   }
 
   .modal-header {
-    padding: 20px 20px 15px;
+    padding: 20px 60px 15px 20px; /* Aumentado padding-right para tablet */
     flex-direction: column;
     gap: 15px;
     align-items: flex-start;
@@ -539,7 +540,7 @@
   }
 
   .modal-header {
-    padding: 15px 15px 10px;
+    padding: 15px 55px 10px 15px; /* Aumentado padding-right para mobile */
   }
 
   .modal-body {
