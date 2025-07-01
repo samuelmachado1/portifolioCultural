@@ -1250,6 +1250,7 @@
   
   .contact-label {
     font-size: 0.6rem;
+    text-align: left; /* Garantir alinhamento à esquerda */
   }
   
   .contact-value {
