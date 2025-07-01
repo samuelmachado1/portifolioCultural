@@ -1,4 +1,5 @@
 import type { BoardHouse } from "../types/portfolio";
+import { getPublicAssetPath } from "../utils/assets";
 
 const portfolioData = {
   profile: {
@@ -30,7 +31,7 @@ const portfolioData = {
           "Painel - Empreender no que é nosso: desafios e força do território no Festival Curicaca, discutindo empreendedorismo territorial e inovação.",
         fullDescription:
           "Atuei como mediador no painel 'Empreender no que é nosso: desafios e força do território', durante o Festival Curicaca. A discussão explorou como transformar desafios locais em diferenciais competitivos e como a identidade territorial pode ser uma força motriz para negócios. Junto com Âmbar del Valle González Blanco, Manoel Arcanjo Magalhães e Juliana Vieira, buscamos caminhos práticos para empreendedores locais que enfrentam obstáculos específicos do território, mas que também enxergam seu potencial único. O evento aconteceu no IFB - Campus São Sebastião, com entrada gratuita, demonstrando o compromisso com o acesso democrático ao conhecimento sobre empreendedorismo e inovação territorial.",
-        flyerUrl: "/assets/curicaca/flyer_curicaca.jpeg",
+        flyerUrl: getPublicAssetPath("assets/curicaca/flyer_curicaca.jpeg"),
         tags: [
           "empreendedorismo",
           "mediação",
@@ -51,7 +52,7 @@ const portfolioData = {
           "Articulação Institucional",
         ],
         socialLinks: {
-          video: "/assets/curicaca/videoCuricaca.mp4",
+          video: getPublicAssetPath("assets/curicaca/videoCuricaca.mp4"),
           youtube: "https://youtube.com/calangorasta",
           website: "https://festivalcuricaca.com.br",
         },
