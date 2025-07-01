@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Board } from '../Board/Board';
 import { FilterBar } from '../FilterBar/FilterBar';
+import { Modal } from '../Modal/Modal';
 import { usePortfolio } from '../../hooks/usePortfolio';
 import type { PortfolioData } from '../../types/portfolio';
 import { personalInfo } from '../../data/personal-info';
@@ -16,7 +17,9 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   const {
     houses,
     selectedHouse,
-    selectHouse
+    selectHouse,
+    closeModal,
+    isModalOpen
   } = usePortfolio(data.houses);
 
   const [displayedText, setDisplayedText] = useState('');
@@ -228,6 +231,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           selectedHouse={selectedHouse}
         />
       </main>
+
+      <Modal
+        isOpen={isModalOpen}
+        house={selectedHouse}
+        onClose={closeModal}
+      />
     </div>
   );
 };

@@ -20,6 +20,96 @@ const portfolioData = {
 
   houses: [
     {
+      id: "festival-curicaca",
+      type: "experience",
+      position: { x: 15, y: 45 },
+      data: {
+        title: "Festival Curicaca",
+        date: "Junho 2025",
+        description:
+          "Painel - Empreender no que é nosso: desafios e força do território no Festival Curicaca, discutindo empreendedorismo territorial e inovação.",
+        fullDescription:
+          "Atuei como mediador no painel 'Empreender no que é nosso: desafios e força do território', durante o Festival Curicaca. A discussão explorou como transformar desafios locais em diferenciais competitivos e como a identidade territorial pode ser uma força motriz para negócios. Junto com Âmbar del Valle González Blanco, Manoel Arcanjo Magalhães e Juliana Vieira, buscamos caminhos práticos para empreendedores locais que enfrentam obstáculos específicos do território, mas que também enxergam seu potencial único. O evento aconteceu no IFB - Campus São Sebastião, com entrada gratuita, demonstrando o compromisso com o acesso democrático ao conhecimento sobre empreendedorismo e inovação territorial.",
+        flyerUrl: "/assets/curicaca/flyer_curicaca.jpeg",
+        tags: [
+          "empreendedorismo",
+          "mediação",
+          "inovação",
+          "território",
+          "abdi",
+        ],
+        achievements: [
+          "Mediação de painel sobre empreendedorismo territorial",
+          "Articulação com especialistas renomados da área",
+          "Promoção do debate sobre inovação local",
+          "Facilitação de discussões práticas para empreendedores",
+        ],
+        skills: [
+          "Mediação de Painéis",
+          "Empreendedorismo Territorial",
+          "Facilitação de Debates",
+          "Articulação Institucional",
+        ],
+        socialLinks: {
+          video: "/assets/curicaca/videoCuricaca.mp4",
+          youtube: "https://youtube.com/calangorasta",
+          website: "https://festivalcuricaca.com.br",
+        },
+        links: [
+          {
+            title: "Instituto Federal de Brasília - Campus São Sebastião",
+            url: "https://www.ifb.edu.br/saosebastiao",
+          },
+          {
+            title: "Sobre ABDI",
+            url: "https://www.abdi.com.br",
+          },
+        ],
+        clippingLinks: [
+          {
+            title:
+              "IFB - Empreendedorismo local, IA e educação no Festival Curicaca",
+            url: "https://ifb.edu.br/saosebastiao/42791-empreendedorismo-local-inteligencia-artificial-e-educacao-serao-temas-do-festival-curicaca-no-ifb-campus-sao-sebastiao",
+          },
+          {
+            title: "ABDI - Festival Curicaca chega a São Sebastião/DF",
+            url: "https://www.abdi.com.br/festival-curicaca-chega-a-sao-sebastiao-df-nos-dias-27-e-28-6/",
+          },
+          {
+            title: "Let's Events - Festival Curicaca São Sebastião",
+            url: "https://lets.4.events/festival-curicaca-sao-sebastiao-C24825E3",
+          },
+          {
+            title: "IFB - Campus São Sebastião recebe Festival Curicaca",
+            url: "https://www.ifb.edu.br/saosebastiao/42780-ifb-campus-sao-sebastiao-recebe-festival-curicaca-nos-dias-27-e-28",
+          },
+          {
+            title:
+              "ABDI - Empreendedorismo local, IA e educação em São Sebastião",
+            url: "https://www.abdi.com.br/empreendedorismo-local-ia-e-educacao-em-sao-sebastiao-df-serao-temas-do-festival-curicaca/",
+          },
+          {
+            title: "BSB Capital - São Sebastião recebe evento de tecnologia",
+            url: "https://bsbcapital.com.br/sao-sebastiao-recebe-evento-de-tecnologia-sexta-27-e-sabado-28/",
+          },
+          {
+            title:
+              "Primeiro Jornal - Festival Curicaca debate desafios para inovação",
+            url: "https://primeirojornal.com.br/2025/06/festival-curicaca-debate-desafios-para-a-inovacao-em-sao-sebastiao/",
+          },
+          {
+            title: "LinkedIn - Post de Samuel Machado sobre o Festival",
+            url: "https://www.linkedin.com/posts/samuel-machado-347204158_festivalcuricaca-inovaaexaeto-lideranaexa-activity-7340535462085779456-jy2F",
+          },
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Mediação",
+        icon: "🎤",
+      },
+    },
+    {
       id: "reggae-na-praca-10-anos",
       type: "experience",
       position: { x: 90, y: 35 }, // AJUSTAR: posição no timeline
