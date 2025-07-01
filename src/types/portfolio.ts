@@ -19,6 +19,10 @@ export interface ExperienceData {
     title: string;
     url: string;
   }>;
+  clippingLinks?: Array<{
+    title: string;
+    url: string;
+  }>;
   socialLinks?: {
     website?: string;
     social?: string;

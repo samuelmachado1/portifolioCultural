@@ -65,6 +65,43 @@ const portfolioData = {
             url: "https://www.abdi.com.br",
           },
         ],
+        clippingLinks: [
+          {
+            title:
+              "IFB - Empreendedorismo local, IA e educação no Festival Curicaca",
+            url: "https://ifb.edu.br/saosebastiao/42791-empreendedorismo-local-inteligencia-artificial-e-educacao-serao-temas-do-festival-curicaca-no-ifb-campus-sao-sebastiao",
+          },
+          {
+            title: "ABDI - Festival Curicaca chega a São Sebastião/DF",
+            url: "https://www.abdi.com.br/festival-curicaca-chega-a-sao-sebastiao-df-nos-dias-27-e-28-6/",
+          },
+          {
+            title: "Let's Events - Festival Curicaca São Sebastião",
+            url: "https://lets.4.events/festival-curicaca-sao-sebastiao-C24825E3",
+          },
+          {
+            title: "IFB - Campus São Sebastião recebe Festival Curicaca",
+            url: "https://www.ifb.edu.br/saosebastiao/42780-ifb-campus-sao-sebastiao-recebe-festival-curicaca-nos-dias-27-e-28",
+          },
+          {
+            title:
+              "ABDI - Empreendedorismo local, IA e educação em São Sebastião",
+            url: "https://www.abdi.com.br/empreendedorismo-local-ia-e-educacao-em-sao-sebastiao-df-serao-temas-do-festival-curicaca/",
+          },
+          {
+            title: "BSB Capital - São Sebastião recebe evento de tecnologia",
+            url: "https://bsbcapital.com.br/sao-sebastiao-recebe-evento-de-tecnologia-sexta-27-e-sabado-28/",
+          },
+          {
+            title:
+              "Primeiro Jornal - Festival Curicaca debate desafios para inovação",
+            url: "https://primeirojornal.com.br/2025/06/festival-curicaca-debate-desafios-para-a-inovacao-em-sao-sebastiao/",
+          },
+          {
+            title: "LinkedIn - Post de Samuel Machado sobre o Festival",
+            url: "https://www.linkedin.com/posts/samuel-machado-347204158_festivalcuricaca-inovaaexaeto-lideranaexa-activity-7340535462085779456-jy2F",
+          },
+        ],
       },
       style: {
         size: "large",
