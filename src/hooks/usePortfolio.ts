@@ -4,9 +4,16 @@ import type { BoardHouse } from "../types/portfolio";
 export const usePortfolio = (initialHouses: BoardHouse[]) => {
   const [selectedHouse, setSelectedHouse] = useState<BoardHouse | null>(null);
   const [houses] = useState<BoardHouse[]>(initialHouses);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const selectHouse = useCallback((house: BoardHouse) => {
     setSelectedHouse(house);
+    setIsModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setSelectedHouse(null);
   }, []);
 
   const getHousesByType = useCallback(
@@ -20,6 +27,8 @@ export const usePortfolio = (initialHouses: BoardHouse[]) => {
     houses,
     selectedHouse,
     selectHouse,
+    closeModal,
+    isModalOpen,
     getHousesByType,
   };
 };

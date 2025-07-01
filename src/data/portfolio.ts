@@ -20,6 +20,51 @@ const portfolioData = {
 
   houses: [
     {
+      id: "festival-curicaca",
+      type: "experience",
+      position: { x: 15, y: 45 },
+      data: {
+        title: "Festival Curicaca",
+        date: "Junho 2025",
+        description: "Produção executiva e apresentação musical no Festival Curicaca, promovendo a cultura reggae no Distrito Federal.",
+        fullDescription: "Participei como produtor executivo e me apresentei como Calangos Sound System no Festival Curicaca, um evento que celebra a cultura reggae e promove a integração da comunidade artística do DF. O festival contou com diversos artistas locais e nacionais, proporcionando uma plataforma para o fortalecimento da cena musical regional. Minha atuação envolveu tanto a coordenação dos aspectos técnicos e logísticos do evento quanto a performance artística, demonstrando a versatilidade e comprometimento com o desenvolvimento cultural da região.",
+        flyerUrl: "/assets/curicaca/flyer_curicaca.jpeg",
+        tags: ["festival", "reggae", "produção executiva", "cultura-df"],
+        achievements: [
+          "Coordenação da produção executiva do festival",
+          "Apresentação musical como Calangos Sound System",
+          "Fortalecimento da rede de artistas locais",
+          "Promoção da cultura reggae no Distrito Federal"
+        ],
+        skills: [
+          "Produção Executiva",
+          "Performance Musical (Sound System)",
+          "Articulação de Redes Culturais",
+          "Gestão de Eventos Musicais"
+        ],
+        socialLinks: {
+          video: "/assets/curicaca/videoCuricaca.mp4",
+          youtube: "https://youtube.com/calangorasta",
+          website: "https://festivalcuricaca.com.br"
+        },
+        links: [
+          {
+            title: "Clipping do Festival",
+            url: "https://festivalcuricaca.com.br/clipping"
+          },
+          {
+            title: "Galeria de Fotos",
+            url: "https://festivalcuricaca.com.br/galeria"
+          }
+        ]
+      },
+      style: {
+        size: "large",
+        theme: "cultural",
+        icon: "🎪"
+      }
+    },
+    {
       id: "reggae-na-praca-10-anos",
       type: "experience",
       position: { x: 90, y: 35 }, // AJUSTAR: posição no timeline
