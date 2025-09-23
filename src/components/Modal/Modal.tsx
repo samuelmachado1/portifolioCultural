@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { BoardHouse } from '../../types/portfolio';
+import { ImageModal } from '../ImageModal/ImageModal';
 import './Modal.css';
 
 interface ModalProps {
@@ -9,6 +10,9 @@ interface ModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
+  const [imageModalOpen, setImageModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({ src: '', alt: '' });
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -26,6 +30,16 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
+
+  const handleImageClick = (src: string, alt: string) => {
+    setSelectedImage({ src, alt });
+    setImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setImageModalOpen(false);
+    setSelectedImage({ src: '', alt: '' });
+  };
 
   if (!isOpen || !house?.data) return null;
 
@@ -110,6 +124,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                       src={data.flyerUrl}
                       alt={`Flyer do ${data.title}`}
                       className="modal-flyer"
+                      onClick={() => handleImageClick(data.flyerUrl!, `Flyer do ${data.title}`)}
                     />
                   </div>
                 )}
@@ -140,6 +155,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                       src={photo}
                       alt={`Foto ${index + 1} do ${data.title}`}
                       className="event-photo"
+                      onClick={() => handleImageClick(photo, `Foto ${index + 1} do ${data.title}`)}
                     />
                   </div>
                 ))}
@@ -341,6 +357,13 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
           )}
         </div>
       </div>
+
+      <ImageModal
+        isOpen={imageModalOpen}
+        imageSrc={selectedImage.src}
+        imageAlt={selectedImage.alt}
+        onClose={closeImageModal}
+      />
     </div>
   );
 };

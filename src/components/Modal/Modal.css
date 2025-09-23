@@ -228,6 +228,7 @@
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .modal-flyer:hover {
@@ -707,6 +708,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .event-photo-item:hover .event-photo {

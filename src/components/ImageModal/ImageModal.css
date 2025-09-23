@@ -1,0 +1,194 @@
+/* Image Modal Backdrop */
+.image-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 2000; /* Maior que o modal principal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: imageModalFadeIn 0.3s ease-out;
+}
+
+@keyframes imageModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Image Modal Content */
+.image-modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: imageModalSlideIn 0.3s ease-out;
+}
+
+@keyframes imageModalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Close Button */
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.image-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.image-modal-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Image Container */
+.image-modal-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 80px 20px 20px; /* Top padding para não sobrepor o botão close */
+}
+
+.image-modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+/* Image Info */
+.image-modal-info {
+  padding: 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.image-modal-caption {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .image-modal-backdrop {
+    padding: 10px;
+  }
+
+  .image-modal-close {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .image-modal-close svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .image-modal-image-container {
+    padding: 70px 10px 10px;
+  }
+
+  .image-modal-info {
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .image-modal-caption {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-modal-backdrop {
+    padding: 5px;
+  }
+
+  .image-modal-close {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .image-modal-close svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .image-modal-image-container {
+    padding: 60px 5px 5px;
+  }
+
+  .image-modal-image {
+    border-radius: 8px;
+  }
+
+  .image-modal-info {
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  .image-modal-caption {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animação de hover para imagem */
+@media (hover: hover) {
+  .image-modal-image:hover {
+    transform: scale(1.02);
+  }
+}
