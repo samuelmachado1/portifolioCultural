@@ -139,7 +139,7 @@ export const Board: React.FC<BoardProps> = ({
 
       {/* Título da seção */}
       <div className="timeline-header">
-        <h2 className="timeline-title">Trajetória Profissional</h2>
+        <h2 className="timeline-title">Trajetória</h2>
         {/* <p className="timeline-subtitle">Navegue pela linha do tempo para conhecer a jornada de Samuel Estrella</p> */}
       </div>
 
