@@ -4,8 +4,9 @@ import { getPublicAssetPath } from "../utils/assets";
 const portfolioData = {
   profile: {
     name: "Samuel Estrella",
-    title: "Produção Cultural & Gestão de Projetos",
-    bio: "Especialista em gestão de projetos culturais, políticas públicas para cultura e captação de recursos públicos. Experiência consolidada em produção executiva e curadoria de eventos.",
+    title:
+      "Produção Cultural, Gestão de Projetos & Desenvolvimento de Produtos Digitais",
+    bio: "Especialista em gestão de projetos culturais, políticas públicas para cultura e captação de recursos públicos. Experiência consolidada em produção executiva e curadoria de eventos e desenvolvimento de software.",
     contact: {
       email: "samuelmachado1@gmail.com",
       phone: "+55 (61) 98239-1310",
@@ -28,7 +29,7 @@ const portfolioData = {
         title: "Festival Curicaca",
         date: "Junho 2025",
         description:
-          "Painel - Empreender no que é nosso: desafios e força do território no Festival Curicaca, discutindo empreendedorismo territorial e inovação.",
+          "Mediador no painel - Empreender no que é nosso: desafios e força do território no Festival Curicaca, discutindo empreendedorismo territorial e inovação.",
         fullDescription:
           "Atuei como mediador no painel 'Empreender no que é nosso: desafios e força do território', durante o Festival Curicaca. A discussão explorou como transformar desafios locais em diferenciais competitivos e como a identidade territorial pode ser uma força motriz para negócios. Junto com Âmbar del Valle González Blanco, Manoel Arcanjo Magalhães e Juliana Vieira, buscamos caminhos práticos para empreendedores locais que enfrentam obstáculos específicos do território, mas que também enxergam seu potencial único. O evento aconteceu no IFB - Campus São Sebastião, com entrada gratuita, demonstrando o compromisso com o acesso democrático ao conhecimento sobre empreendedorismo e inovação territorial.",
         flyerUrl: getPublicAssetPath("assets/curicaca/flyer_curicaca.jpeg"),
@@ -108,6 +109,87 @@ const portfolioData = {
         size: "large",
         theme: "Mediação",
         icon: getPublicAssetPath("assets/curicaca/flyer_curicaca.jpeg"),
+      },
+    },
+    {
+      id: "reggae-na-praca-sessions",
+      type: "experience",
+      position: { x: 150, y: 45 },
+      data: {
+        title: "Reggae na Praça Sessions",
+        date: "21 de Setembro de 2025",
+        description:
+          "Curadoria e apresentação do Reggae na Praça Sessions na Tenda em Movimento durante o festival Elemento em Movimento.",
+        fullDescription:
+          "Como parte da programação do festival Elemento em Movimento, realizamos o Reggae na Praça Sessions na icônica Tenda em Movimento. O evento reuniu alguns dos principais sound systems e coletivos da cena reggae do DF: BoomClap sound system, Rude Gyals, Boquinha Dub e Calangos Sounds (Samuel Estrella e Dudulino). Foi uma experiência única de intercâmbio cultural, onde cada coletivo trouxe sua identidade sonora e estética, criando uma atmosfera autêntica do Reggae na Praça. A iniciativa reforça o conceito itinerante do evento, levando a cultura reggae para diferentes espaços e contextos da cidade.",
+        flyerUrl: getPublicAssetPath(
+          "assets/reggaenapraca_elemento/flyer_reggaenapraca_elemento.png"
+        ),
+        tags: [
+          "reggae",
+          "sound system",
+          "curadoria",
+          "festival",
+          "elemento em movimento",
+        ],
+        achievements: [
+          "Curadoria e apresentação na Tenda em Movimento",
+          "Apresentação musical como Samuel Estrella e Experimental DUB",
+          "Intercâmbio cultural entre coletivos reggae",
+          "Expansão do conceito itinerante do Reggae na Praça",
+          "Engajamento com o público do festival Elemento em Movimento",
+        ],
+        skills: [
+          "Curadoria",
+          "Produção de Eventos",
+          "Articulação entre Coletivos",
+          "Apresentação artística",
+          "Gestão Cultural Itinerante",
+        ],
+        socialLinks: {
+          video: getPublicAssetPath(
+            "assets/reggaenapraca_elemento/BC860B97-E35F-4F01-BF88-9669252A9D39.mov"
+          ),
+          instagram: "https://www.instagram.com/reggaenapraca",
+          website: "https://reggaenapraca.com.br",
+        },
+        links: [
+          {
+            title: "Festival Elemento em Movimento",
+            url: "https://elementoemmovimento.com.br",
+          },
+          {
+            title: "Instagram @reggaenapraca",
+            url: "https://www.instagram.com/reggaenapraca",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath(
+            "assets/reggaenapraca_elemento/photos/Gabriela Pires - @gabiiils @ocreimagem-291.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_elemento/photos/VENUS-8604.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_elemento/photos/Gabriela Pires - @gabiiils @ocreimagem-272.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_elemento/photos/LUCAS MEDEIROS-0677.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_elemento/photos/Gabriela Pires - @gabiiils @ocreimagem-281.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_elemento/photos/BEATRIZ BRAGA-0547.jpg"
+          ),
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Produção Geral",
+        icon: getPublicAssetPath(
+          "assets/reggaenapraca_elemento/flyer_reggaenapraca_elemento.png"
+        ),
       },
     },
     {
@@ -940,7 +1022,7 @@ const portfolioData = {
   ] as BoardHouse[],
 
   boardConfig: {
-    width: 1000,
+    width: 1200,
     height: 400,
     backgroundColor: "#1a1a2e",
     pathColor: "#ffffff",

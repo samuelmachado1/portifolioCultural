@@ -38,12 +38,45 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  const parseDate = (dateString: string): Date => {
+    if (!dateString) return new Date(0);
 
-  const extractLatestYear = (dateString: string): number => {
-    if (!dateString) return 0;
-    const yearMatches = dateString.match(/\d{4}/g);
-    if (!yearMatches) return 0;
-    return Math.max(...yearMatches.map(year => parseInt(year, 10)));
+    const monthNames = {
+      'janeiro': 0, 'fevereiro': 1, 'março': 2, 'abril': 3,
+      'maio': 4, 'junho': 5, 'julho': 6, 'agosto': 7,
+      'setembro': 8, 'outubro': 9, 'novembro': 10, 'dezembro': 11
+    };
+
+    // Tentar padrão com dia, mês e ano
+    const fullDateMatch = dateString.match(/(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
+    if (fullDateMatch) {
+      const day = parseInt(fullDateMatch[1]);
+      const monthName = fullDateMatch[2].toLowerCase();
+      const year = parseInt(fullDateMatch[3]);
+      const month = monthNames[monthName as keyof typeof monthNames];
+      if (month !== undefined) {
+        return new Date(year, month, day);
+      }
+    }
+
+    // Tentar padrão apenas com mês e ano
+    const monthYearMatch = dateString.match(/(\w+)\s+(\d{4})/i);
+    if (monthYearMatch) {
+      const monthName = monthYearMatch[1].toLowerCase();
+      const year = parseInt(monthYearMatch[2]);
+      const month = monthNames[monthName as keyof typeof monthNames];
+      if (month !== undefined) {
+        return new Date(year, month, 1); // Primeiro dia do mês
+      }
+    }
+
+    // Fallback: extrair apenas o ano
+    const yearMatch = dateString.match(/\d{4}/);
+    if (yearMatch) {
+      return new Date(parseInt(yearMatch[0]), 0, 1);
+    }
+
+    return new Date(0);
   };
 
   const filteredHouses = useMemo(() => {
@@ -52,12 +85,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
       return house.type === activeFilter;
     });
 
+    // Ordenar por data mais recente primeiro (cronologia inversa)
     return filtered.sort((a, b) => {
       const dateA = a.data?.date || '';
       const dateB = b.data?.date || '';
-      const yearA = extractLatestYear(dateA);
-      const yearB = extractLatestYear(dateB);
-      return yearB - yearA;
+      const parsedDateA = parseDate(dateA);
+      const parsedDateB = parseDate(dateB);
+      return parsedDateB.getTime() - parsedDateA.getTime();
     });
   }, [houses, activeFilter]);
 
@@ -93,8 +127,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
 
     return () => clearTimeout(startDelay);
   }, [fullText]);
-
-
 
   const handleContactProject = () => {
     const phone = personalInfo.contact.phone.replace(/\s/g, '').replace(/[()-]/g, '');
@@ -154,11 +186,11 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
                 <div className="stat-divider"></div>
                 <div className="stat-item">
                   <div className="stat-number">+{new Date().getFullYear() - 2013}</div>
-                  <div className="stat-label">Anos de experiência em Gestão de Projetos</div>
+                  <div className="stat-label">Anos de experiência em Gestão de Projetos e Captação de Recursos</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">+{new Date().getFullYear() - 2015}</div>
-                  <div className="stat-label">Anos de experiência em Captação de Recursos</div>
+                  <div className="stat-number">+{new Date().getFullYear() - 2019}</div>
+                  <div className="stat-label">Anos de experiência em desenvolvimento de software (FullStack)</div>
                 </div>
                 <div className="stat-divider"></div>
 
