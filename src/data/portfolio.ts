@@ -5,7 +5,7 @@ const portfolioData = {
   profile: {
     name: "Samuel Estrella",
     title: "Produção Cultural & Gestão de Projetos",
-    bio: "Especialista em gestão de projetos culturais, políticas públicas para cultura e captação de recursos públicos. Experiência consolidada em produção executiva e curadoria de evemtos.",
+    bio: "Especialista em gestão de projetos culturais, políticas públicas para cultura e captação de recursos públicos. Experiência consolidada em produção executiva e curadoria de eventos.",
     contact: {
       email: "samuelmachado1@gmail.com",
       phone: "+55 (61) 98239-1310",
@@ -107,45 +107,194 @@ const portfolioData = {
       style: {
         size: "large",
         theme: "Mediação",
-        icon: "🎤",
+        icon: getPublicAssetPath("assets/curicaca/flyer_curicaca.jpeg"),
       },
     },
     {
       id: "reggae-na-praca-10-anos",
       type: "experience",
-      position: { x: 90, y: 35 }, // AJUSTAR: posição no timeline
+      position: { x: 90, y: 35 },
       data: {
-        title: "Reggae na Praça 10 Anos", //
-        date: "Março 2025", //
+        title: "Reggae na Praça 10 Anos",
+        date: "09 de Março de 2025",
         description:
-          "Produção geral da edição comemorativa de 10 anos do maior e mais tradicional festival de Reggae do Distrito Federal, em São Sebastião.", //
+          "Produção geral da edição comemorativa de 10 anos do maior festival de Reggae do DF, realizado na Praça do Reggae em São Sebastião com mais de 900 pessoas.",
         fullDescription:
-          "Como produtor geral, fui responsável pela concepção, planejamento, captação de recursos e execução da 10ª edição do festival 'Reggae na Praça'. O evento, financiado com recursos da Secretaria de Cultura e Economia Criativa do DF (SECEC/DF), celebra uma década de história, sendo uma marca registrada na cidade desde 2018. A edição contou com a apresentação de grandes nomes nacionais como Marina Peralta e Dada Yute, além de valorizar a cena local com diversos artistas do DF. A estrutura foi planejada para um público de até 2.400 pessoas, com palco, backstage, praça de alimentação e uma tenda de autoestima chamada 'Reggaestima'.", //
-        tags: ["festival", "reggae", "cultura-df"],
+          "O projeto Plataforma Periférica II, apoiado pelo deputado distrital Max Maciel, destinou fomento para a realização do Reggae na Praça - 10 Anos, evento produzido pelo coletivo Calangos Sounds. Reunindo 12 atrações musicais e um público de mais de 900 pessoas, o evento superou expectativas e consolidou-se como um marco cultural e de desenvolvimento socioeconômico para São Sebastião. A curadoria contemplou artistas locais como Jah Connection, Negra Eve, Experimental Dub, I Cris, Heitor Valente, Selecta KBC, Novick MC e DJ Kalm, além da headliner nacional Marina Peralta. O evento gerou 82 empregos diretos e mais de 600 indiretos, com 65% dos recursos utilizados em serviços e produtos locais, impactando positivamente a economia criativa da região.",
+        tags: ["festival", "reggae", "economia criativa", "impacto social"],
         achievements: [
-          "Aprovação e financiamento via edital da Secretaria de Cultura e Economia Criativa do DF", //
-          "Curadoria com artistas de expressão nacional como Dada Yute, Marina Peralta e Digital Dubs", //
-          "Expectativa de público entre 800 e 2.400 pessoas", //
-          "Planejamento de comunicação massiva com outdoor, carro de som e R$1.200 em mídia paga", //
+          "Público de mais de 900 pessoas na Praça do Reggae",
+          "12 atrações musicais com foco na cena local",
+          "82 empregos diretos e mais de 600 indiretos gerados",
+          "65% dos recursos investidos na economia local",
+          "Alcance de +99 mil pessoas nas redes sociais em 27 dias",
+          "Aumento de 150% no número de seguidores @reggaenapraca",
+          "21 inserções na mídia (TV Globo, G1, Correio Braziliense, Portal Metrópoles e outros)",
+          "Investimento de R$ 90.000 com retorno estimado de R$ 150.000",
+          "Equipe de produção com 48% de mulheres",
+          "Alinhamento com 4 Objetivos de Desenvolvimento Sustentável da ONU",
         ],
         skills: [
           "Produção de Grandes Eventos",
-          "Captação de Recursos (FAC)", //
-          "Curadoria Artística", //
-          "Gestão Cultural", //
+          "Captação de Recursos Públicos",
+          "Curadoria Artística",
+          "Gestão de Economia Criativa",
+          "Desenvolvimento Social",
+          "Marketing Digital",
+          "Impacto Socioeconômico",
         ],
+        flyerUrl: getPublicAssetPath(
+          "assets/reggaenapraca_dez_anos/reggaenapraca10anosflyer.jpeg"
+        ),
+        socialLinks: {
+          video: getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/6d940beb7c5145538b91e24a5b5bb962.mp4"
+          ),
+          instagram: "https://www.instagram.com/reggaenapraca",
+          website: "https://reggaenapraca.com.br",
+        },
         links: [
-          // OPCIONAL: links relacionados
           {
             title: "Site Oficial do Festival",
-            url: "https://reggaenapraca.com.br", //
+            url: "https://reggaenapraca.com.br",
           },
+          {
+            title: "Instagram @reggaenapraca",
+            url: "https://www.instagram.com/reggaenapraca",
+          },
+        ],
+        clippingLinks: [
+          {
+            title: "TV Globo - Bom Dia DF (07/03)",
+            url: "https://g1.globo.com/df/distrito-federal/bom-dia-df/video/bom-dia-df-edicao-de-07032025-13399617.ghtml",
+          },
+          {
+            title: "TV Globo - DF1 (07/03)",
+            url: "https://g1.globo.com/df/distrito-federal/df1/video/df1-edicao-de-07032025-13400523.ghtml",
+          },
+          {
+            title: "Correio Braziliense - Festival de Reggae em São Sebastião",
+            url: "https://www.correiobraziliense.com.br/diversao-e-arte/2025/03/7078075-sao-sebastiao-recebe-10-edicao-do-festival-reggae-na-praca.html",
+          },
+          {
+            title: "G1 - Agenda Cultural do DF",
+            url: "https://g1.globo.com/df/distrito-federal/o-que-fazer-no-distrito-federal/noticia/2025/03/07/e-o-tchan-teatro-com-lucinha-lins-e-ressacas-de-carnaval-sao-atracoes-do-fim-de-semana-no-df.ghtml",
+          },
+          {
+            title: "BrasíliaETC - 10ª edição do Festival",
+            url: "https://brasiliaetc.com.br/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca/",
+          },
+          {
+            title: "Portal Lago Sul - Reggae na Praça",
+            url: "https://lagosul.com.br/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca/",
+          },
+          {
+            title: "Visite Brasília - 10ª edição",
+            url: "https://visitebrasilia.com.br/noticias/sao-sebastiao-recebe-10-edicao-do-festival-reggae-na-praca",
+          },
+          {
+            title: "Mutirum Instituto de Cultura",
+            url: "https://mutirum.com/2025/03/05/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca/",
+          },
+          {
+            title: "TV Comunitária DF",
+            url: "https://www.tvcomunitariadf.com/2025/03/06/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca-com-mais-de-13-grupos-inclusive-renato-mattos-o-pai-do-reggae-no-df/",
+          },
+          {
+            title: "Jornal Daqui DF",
+            url: "https://jornaldaquidf.com.br/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca/",
+          },
+          {
+            title: "Jornal Alô Brasília",
+            url: "https://www.alobrasilia.com.br/2025/03/sao-sebastiao-recebe-10-edicao-do.html",
+          },
+          {
+            title: "Conectado ao Poder",
+            url: "https://conectadoaopoder.com.br/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca/",
+          },
+          {
+            title: "É Di Brasília",
+            url: "https://www.edibrasilia.com.br/noticias/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca/",
+          },
+          {
+            title: "Jornal de Brasília - Agenda",
+            url: "https://jornaldebrasilia.com.br/entretenimento/agenda-brasilia/ressaca-pos-carnaval-veja-onde-curtir-o-restinho-da-folia-no-df/",
+          },
+          {
+            title: "Portal De Boa - Festival",
+            url: "https://brasilia.deboa.com/brasilia/festa-show/festas-shows-em-brasilia/festival-reggae-na-praca/",
+          },
+          {
+            title: "Sabor a Vida",
+            url: "https://www.saboravida.com.br/gastronomia/2025/03/05/sao-sebastiao-recebe-10a-edicao-do-festival-reggae-na-praca/",
+          },
+          {
+            title: "São Sebastião Oficial - Instagram",
+            url: "https://www.instagram.com/p/DG1T2-vxRy4/?igsh=Z2l0cnk0a2x0aHFk",
+          },
+          {
+            title: "São Sebastião Oficial - Facebook",
+            url: "https://www.facebook.com/share/p/1C3cAen65a/?mibextid=wwXIfr",
+          },
+        ],
+        impactReport: {
+          investment: "R$ 90.000,00",
+          estimatedReturn: "R$ 150.000,00",
+          directJobs: 82,
+          indirectJobs: 600,
+          localSpending: "65%",
+          audience: "900+",
+          socialReach: "99.000+",
+          mediaInsertions: "21",
+          followerGrowth: "150%",
+          womenInProduction: "48%",
+          odsAlignment: ["ODS 8", "ODS 9", "ODS 10", "ODS 11"],
+        },
+        eventPhotos: [
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-12.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-6.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-3.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-14.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-9.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-10.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-13.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-2.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/photos-1/RodGueto-11.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/6 - FOTOS 6/RNP - 2025 - RodGueto-3.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/7 - FOTOS 7/RNP - 2025 - RodGueto-1.jpg"
+          ),
+          getPublicAssetPath(
+            "assets/reggaenapraca_dez_anos/photos/8 - FOTOS 8/RNP - 2025 - RodGueto-2.jpg"
+          ),
         ],
       },
       style: {
         size: "large",
-        theme: "cultural",
-        icon: "🎵",
+        theme: "Produtor Geral",
+        icon: getPublicAssetPath(
+          "assets/reggaenapraca_dez_anos/reggaenapraca10anosflyer.jpeg"
+        ),
       },
     },
     {
@@ -551,7 +700,7 @@ const portfolioData = {
       },
       style: {
         size: "medium",
-        theme: "production",
+        theme: "Gestão Cultural",
         icon: "🤝",
       },
     },

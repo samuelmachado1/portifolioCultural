@@ -24,6 +24,11 @@ export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick }) =>
 
   // Mapeamento de tipos para ícones
   const getTypeIcon = (type: string) => {
+    // Se o style.icon é uma URL/caminho de imagem, retorna null para usar imagem
+    if (house.style.icon && (house.style.icon.includes('.') || house.style.icon.startsWith('/'))) {
+      return null;
+    }
+
     switch (type) {
       case 'milestone': return '🏆';
       case 'experience': return '💼';
@@ -54,9 +59,23 @@ export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick }) =>
       <div className="timeline-card-header">
         <div
           className="timeline-card-icon"
-          style={{ backgroundColor: getThemeColor(house.style.theme) }}
+          style={{ backgroundColor: getTypeIcon(house.type) ? getThemeColor(house.style.theme) : 'transparent' }}
         >
-          {getTypeIcon(house.type)}
+          {getTypeIcon(house.type) ? (
+            getTypeIcon(house.type)
+          ) : (
+            <img
+              src={house.style.icon}
+              alt={`Ícone ${title}`}
+              className="timeline-card-icon-image"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '12px'
+              }}
+            />
+          )}
         </div>
         <div className="timeline-card-meta">
           <div className="timeline-card-type">

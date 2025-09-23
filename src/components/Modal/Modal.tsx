@@ -59,7 +59,23 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
 
         <div className="modal-header">
           <div className="modal-title-section">
-            <span className="modal-icon">{house.style.icon}</span>
+            <div className="modal-icon">
+              {house.style.icon && (house.style.icon.includes('.') || house.style.icon.startsWith('/')) ? (
+                <img
+                  src={house.style.icon}
+                  alt={`Ícone ${data.title}`}
+                  className="modal-icon-image"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '15px'
+                  }}
+                />
+              ) : (
+                house.style.icon
+              )}
+            </div>
             <div>
               <h2 id="modal-title" className="modal-title">{data.title}</h2>
               <p className="modal-date">{data.date}</p>
@@ -114,6 +130,23 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
             </div>
           )}
 
+          {data.eventPhotos && data.eventPhotos.length > 0 && (
+            <div className="modal-section">
+              <h3>Fotos do Evento</h3>
+              <div className="event-photos-grid">
+                {data.eventPhotos.map((photo, index) => (
+                  <div key={index} className="event-photo-item">
+                    <img
+                      src={photo}
+                      alt={`Foto ${index + 1} do ${data.title}`}
+                      className="event-photo"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="modal-description">
             <h3>Descrição Completa</h3>
             <p>{data.fullDescription || data.description}</p>
@@ -159,6 +192,86 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                 {data.tags.map((tag, index) => (
                   <span key={index} className="tag">{tag}</span>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {data.impactReport && (
+            <div className="modal-section">
+              <h3>📊 Relatório de Impacto</h3>
+              <div className="modal-impact-report">
+                <div className="impact-metrics">
+                  {data.impactReport.investment && (
+                    <div className="impact-metric">
+                      <span className="metric-label">💰 Investimento</span>
+                      <span className="metric-value">{data.impactReport.investment}</span>
+                    </div>
+                  )}
+                  {data.impactReport.estimatedReturn && (
+                    <div className="impact-metric">
+                      <span className="metric-label">📈 Retorno Estimado</span>
+                      <span className="metric-value">{data.impactReport.estimatedReturn}</span>
+                    </div>
+                  )}
+                  {data.impactReport.audience && (
+                    <div className="impact-metric">
+                      <span className="metric-label">👥 Público</span>
+                      <span className="metric-value">{data.impactReport.audience} pessoas</span>
+                    </div>
+                  )}
+                  {data.impactReport.directJobs && (
+                    <div className="impact-metric">
+                      <span className="metric-label">💼 Empregos Diretos</span>
+                      <span className="metric-value">{data.impactReport.directJobs}</span>
+                    </div>
+                  )}
+                  {data.impactReport.indirectJobs && (
+                    <div className="impact-metric">
+                      <span className="metric-label">🔗 Empregos Indiretos</span>
+                      <span className="metric-value">{data.impactReport.indirectJobs}+</span>
+                    </div>
+                  )}
+                  {data.impactReport.localSpending && (
+                    <div className="impact-metric">
+                      <span className="metric-label">🏪 Gastos Locais</span>
+                      <span className="metric-value">{data.impactReport.localSpending}</span>
+                    </div>
+                  )}
+                  {data.impactReport.socialReach && (
+                    <div className="impact-metric">
+                      <span className="metric-label">📱 Alcance Social</span>
+                      <span className="metric-value">{data.impactReport.socialReach}</span>
+                    </div>
+                  )}
+                  {data.impactReport.mediaInsertions && (
+                    <div className="impact-metric">
+                      <span className="metric-label">📺 Inserções na Mídia</span>
+                      <span className="metric-value">{data.impactReport.mediaInsertions}</span>
+                    </div>
+                  )}
+                  {data.impactReport.followerGrowth && (
+                    <div className="impact-metric">
+                      <span className="metric-label">📊 Crescimento de Seguidores</span>
+                      <span className="metric-value">{data.impactReport.followerGrowth}</span>
+                    </div>
+                  )}
+                  {data.impactReport.womenInProduction && (
+                    <div className="impact-metric">
+                      <span className="metric-label">👩‍💼 Mulheres na Produção</span>
+                      <span className="metric-value">{data.impactReport.womenInProduction}</span>
+                    </div>
+                  )}
+                </div>
+                {data.impactReport.odsAlignment && data.impactReport.odsAlignment.length > 0 && (
+                  <div className="ods-alignment">
+                    <h4>🎯 Alinhamento aos ODS da ONU</h4>
+                    <div className="ods-tags">
+                      {data.impactReport.odsAlignment.map((ods, index) => (
+                        <span key={index} className="ods-tag">{ods}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

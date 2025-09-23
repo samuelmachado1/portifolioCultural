@@ -29,7 +29,22 @@ export interface ExperienceData {
     video?: string;
     spotify?: string;
     youtube?: string;
+    instagram?: string;
   };
+  impactReport?: {
+    investment?: string;
+    estimatedReturn?: string;
+    directJobs?: number;
+    indirectJobs?: number;
+    localSpending?: string;
+    audience?: string;
+    socialReach?: string;
+    mediaInsertions?: string;
+    followerGrowth?: string;
+    womenInProduction?: string;
+    odsAlignment?: string[];
+  };
+  eventPhotos?: string[];
 }
 
 export interface HouseStyle {

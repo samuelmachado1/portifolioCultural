@@ -261,6 +261,15 @@
   color: white;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;          /* Garante que a imagem não saia dos limites */
+}
+
+.timeline-card-icon-image {
+  transition: transform 0.3s ease;
+}
+
+.timeline-card-icon:hover .timeline-card-icon-image {
+  transform: scale(1.05);
 }
 
 .timeline-card-meta {
