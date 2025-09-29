@@ -112,6 +112,161 @@ const portfolioData = {
       },
     },
     {
+      id: "festival-paredao-ccbb-2025",
+      type: "experience",
+      position: { x: 80, y: 50 },
+      data: {
+        title: "Festival Paredão CCBB 2025",
+        date: "28 de Setembro de 2025",
+        description:
+          "Mediador da Mesa de Debates 'Sonoridades Periféricas: Resistência, Identidade e Transformação Social' no Festival Paredão realizado no Centro Cultural Banco do Brasil.",
+        fullDescription:
+          "Atuei como mediador da Mesa de Debates 'Sonoridades Periféricas: Resistência, Identidade e Transformação Social' durante o Festival Paredão CCBB 2025. O evento, realizado no prestigioso Centro Cultural Banco do Brasil, reuniu importantes vozes da cultura periférica, destacando-se a participação de Célia Sampaio, conhecida como a dama do reggae, e Nubia, a nova voz feminina do reggae do Maranhão. Durante a conversa, as participantes compartilharam suas trajetórias artísticas e refletiram sobre a importância de pautas como negritude, o amor LGBTQIA+ e toda a liberdade de expressão que o reggae proporciona. Destacamos a participação histórica de Célia Sampaio no festival The Town junto com IZA, discutindo as expectativas em relação ao crescimento do gênero no cenário nacional. A mesa também abordou a fundamental importância de políticas públicas de cultura voltadas para o segmento reggae e toda sua cadeia produtiva, desde artistas até produtores, técnicos e demais profissionais envolvidos. O debate explorou como as sonoridades das periferias urbanas se constituem como ferramentas de resistência, construção de identidade e transformação social, além de temas como apropriação cultural, representatividade e o impacto das sonoridades periféricas na construção de narrativas alternativas sobre os territórios marginalizados.",
+        flyerUrl: getPublicAssetPath(
+          "assets/festival_paredao_ccbb_2025/flyer_mesa_debates.png"
+        ),
+        tags: [
+          "mediação",
+          "cultura periférica",
+          "sonoridades",
+          "resistência",
+          "CCBB",
+          "transformação social",
+        ],
+        achievements: [
+          "Mediação de mesa de debates no CCBB com Célia Sampaio e Nubia",
+          "Articulação de discussões sobre negritude e diversidade LGBTQIA+",
+          "Promoção do debate sobre políticas públicas para o reggae",
+          "Facilitação de reflexões sobre cadeia produtiva do reggae",
+          "Discussão sobre participação histórica no festival The Town",
+          "Contribuição para reflexões sobre representatividade feminina no reggae",
+        ],
+        skills: [
+          "Mediação de Debates",
+          "Cultura Periférica",
+          "Facilitação de Diálogos",
+          "Articulação Institucional",
+          "Curadoria de Conteúdo",
+        ],
+        socialLinks: {
+          release: getPublicAssetPath(
+            "assets/festival_paredao_ccbb_2025/post_instagram.png"
+          ),
+          instagram: "https://www.instagram.com/festivalparedao",
+        },
+        links: [
+          {
+            title: "Centro Cultural Banco do Brasil",
+            url: "https://ccbb.com.br/brasilia",
+          },
+          {
+            title: "Festival Paredão",
+            url: "https://www.festivalparedao.com.br",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath(
+            "assets/festival_paredao_ccbb_2025/foto_mesa_tres_2.png"
+          ),
+          getPublicAssetPath(
+            "assets/festival_paredao_ccbb_2025/foto_mesa_tres_3.png"
+          ),
+          getPublicAssetPath(
+            "assets/festival_paredao_ccbb_2025/foto_mesa_tres_participantes.png"
+          ),
+          getPublicAssetPath(
+            "assets/festival_paredao_ccbb_2025/foto_samuel_destaque.png"
+          ),
+        ],
+        clippingLinks: [
+          {
+            title: "Vídeo Release do Festival Paredão CCBB 2025",
+            url: getPublicAssetPath(
+              "assets/festival_paredao_ccbb_2025/video_release_1_festival_paredao.mov"
+            ),
+          },
+          {
+            title: "Programação completa do Festival Paredão CCBB 2025",
+            url: "https://ccbb.com.br/brasilia/programacao/festival-paredao-2025",
+          },
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Mediação",
+        icon: getPublicAssetPath(
+          "assets/festival_paredao_ccbb_2025/flyer_foto_samuel_estrella.png"
+        ),
+      },
+    },
+    {
+      id: "queira-sempre-mais-single",
+      type: "experience",
+      position: { x: 130, y: 55 },
+      data: {
+        title: "Single 'Queira Sempre Mais'",
+        date: "29 de Setembro de 2025",
+        description:
+          "Lançamento do single 'Queira Sempre Mais' de Samuel Estrella ft. Experimental Dub, uma música inspiracional sobre nunca desistir dos objetivos.",
+        fullDescription:
+          "Lançamento do single 'Queira Sempre Mais', uma colaboração entre Samuel Estrella e Experimental Dub que marca um momento especial na carreira artística. A música traz uma mensagem inspiracional sobre perseverança e a importância de nunca desistir dos objetivos, lembrando que a vida é um constante evoluir e que devemos sempre querer mais de nós mesmos. A produção combina elementos do reggae original do cerrado com sonoridades dub, criando uma atmosfera única que reflete a identidade musical do projeto. O single foi disponibilizado em todas as plataformas de streaming e no canal Reggae na Praça no YouTube, representando a continuidade do trabalho autoral e a consolidação da parceria artística com Experimental Dub. A canção reforça a mensagem de que devemos sempre buscar nossa melhor versão.",
+        flyerUrl: getPublicAssetPath("assets/queira_sempre_mais_single/1.png"),
+        tags: [
+          "single",
+          "lançamento",
+          "reggae",
+          "dub",
+          "inspiracional",
+          "colaboração",
+          "streaming",
+        ],
+        achievements: [
+          "Lançamento em todas as plataformas de streaming",
+          "Colaboração com Experimental Dub",
+          "Produção original do Reggae do Cerrado",
+          "Disponibilização no canal Reggae na Praça",
+          "Consolidação da carreira autoral",
+        ],
+        skills: [
+          "Composição Musical",
+          "Produção Artística",
+          "Colaboração Musical",
+          "Direção Criativa",
+          "Marketing Digital",
+        ],
+        socialLinks: {
+          video:
+            "https://www.youtube.com/watch?v=W-Hk_CuOs0Q&list=RDW-Hk_CuOs0Q&start_radio=1",
+          release: getPublicAssetPath("assets/queira_sempre_mais_single/2.png"),
+          youtube: "https://youtube.com/reggaenapraca",
+        },
+        links: [
+          {
+            title: "Canal Reggae na Praça no YouTube",
+            url: "https://youtube.com/reggaenapraca",
+          },
+          {
+            title: "Spotify",
+            url: "https://open.spotify.com/artist/samuel-estrella",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath("assets/queira_sempre_mais_single/1.png"),
+        ],
+        clippingLinks: [
+          {
+            title: "Videoclipe 'Queira Sempre Mais'",
+            url: "https://www.youtube.com/watch?v=W-Hk_CuOs0Q&list=RDW-Hk_CuOs0Q&start_radio=1",
+          },
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Produção Musical",
+        icon: getPublicAssetPath("assets/queira_sempre_mais_single/1.png"),
+      },
+    },
+    {
       id: "reggae-na-praca-sessions",
       type: "experience",
       position: { x: 150, y: 45 },

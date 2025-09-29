@@ -129,7 +129,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                   </div>
                 )}
 
-                {data.socialLinks?.video && (
+                {data.socialLinks?.video && house.id !== 'queira-sempre-mais-single' && (
                   <div className="modal-media-item">
                     <video
                       controls
