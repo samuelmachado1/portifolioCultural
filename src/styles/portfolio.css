@@ -702,7 +702,7 @@
 
 .board-container {
   flex: 1; /* Ocupa o espaço restante */
-  padding: 1rem 2rem;
+  padding: 0.5rem 0.5rem; /* Reduzido significativamente para maximizar espaço do board */
   padding-bottom: 70px; /* Espaço para o PositionIndicator fixo */
   overflow: visible; /* Permite que o conteúdo seja visível */
   display: flex;
@@ -850,120 +850,9 @@
     align-items: center;
   }
   
-  .name-accent {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .stats-row {
-    justify-content: center;
-  }
-  
-  .contact-panel {
-    width: auto; /* Largura flexível em tablets */
-    max-width: 180px; /* Ligeiramente maior em tablets */
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .portfolio-header {
-    min-height: 160px !important; /* Reduzir ainda mais a altura mínima */
-    padding: 0.5rem !important;
-  }
-  
-  .header-content {
-    padding: 1rem 1rem !important;
-    gap: 1.5rem !important;
-  }
-  
-  .profile-info {
-    gap: 1rem !important; /* Reduzir gap entre seções */
-  }
-  
-  .title-section {
-    gap: 0.3rem !important; /* Reduzir gap entre título e subtítulo */
-  }
-  
-  .contact-panel {
-    padding: 0.5rem !important;
-    gap: 0.4rem !important;
-    max-width: 300px !important;
-    width: 100% !important;
-  }
-  
-  .contact-grid {
-    gap: 0.3rem !important;
-  }
-  
-  .action-buttons {
-    margin-top: 0.3rem !important;
-  }
-  
-  .panel-title {
-    font-size: 0.85rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .portfolio-header {
-    min-height: 140px !important; /* Ainda menor para telas pequenas */
-  }
-  
-  .header-content {
-    padding: 0.75rem 0.75rem !important;
-    gap: 1rem !important;
-  }
-  
-  .primary-name {
-    font-size: 1.8rem !important;
-    line-height: 0.85 !important;
-  }
-  
-  .primary-title {
-    font-size: 0.95rem !important;
-  }
-  
+  /* Corrigir alinhamento da descrição em mobile */
   .title-subtitle {
-    font-size: 0.75rem !important;
-  }
-}
-
-@media (max-width: 1200px) {
-  .header-content {
-    gap: 2.5rem;
-  }
-  
-  .main-profile {
-    gap: 2rem;
-  }
-  
-  .primary-name {
-    font-size: 3.2rem;
-  }
-  
-  .contact-panel {
-    width: 140px; /* Ajuste para telas menores */
-    min-width: 140px;
-  }
-}
-
-@media (max-width: 968px) {
-  .header-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-  
-  .main-profile {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-  
-  .profile-info {
-    text-align: center;
-    align-items: center;
+    text-align: left;
   }
   
   .name-accent {
@@ -1096,7 +985,7 @@
 /* Garantir que o board tenha espaço suficiente em mobile */
 @media (max-width: 768px) {
   .board-container {
-    padding: 0.5rem;
+    padding: 0.25rem; /* Reduzido para maximizar espaço */
     padding-bottom: 60px; /* Espaço para o position indicator */
     min-height: calc(100vh - 180px); /* Considera altura reduzida do header */
   }
@@ -1104,7 +993,7 @@
 
 @media (max-width: 480px) {
   .board-container {
-    padding: 0.25rem;
+    padding: 0.15rem; /* Reduzido ainda mais em telas pequenas */
     padding-bottom: 50px;
     min-height: calc(100vh - 160px);
   }
@@ -1369,7 +1258,7 @@
 /* Garantir que o board tenha espaço suficiente em mobile */
 @media (max-width: 768px) {
   .board-container {
-    padding: 0.5rem;
+    padding: 0.25rem; /* Reduzido para maximizar espaço */
     padding-bottom: 60px; /* Espaço para o position indicator */
     min-height: calc(100vh - 180px); /* Considera altura reduzida do header */
   }
@@ -1377,7 +1266,7 @@
 
 @media (max-width: 480px) {
   .board-container {
-    padding: 0.25rem;
+    padding: 0.15rem; /* Reduzido ainda mais em telas pequenas */
     padding-bottom: 50px;
     min-height: calc(100vh - 160px);
   }
@@ -1454,6 +1343,7 @@
   }
   
   .board-container {
+    padding: 0.25rem 0.5rem; /* Reduzido para maximizar espaço */
     padding-bottom: 50px; /* Reduz padding bottom */
   }
 }
@@ -1468,7 +1358,7 @@
   }
   
   .board-container {
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.5rem; /* Reduzido para maximizar espaço */
     padding-bottom: 30px;
   }
 }
@@ -1489,4 +1379,21 @@ body {
   overflow-y: auto !important;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+/* ===== CORREÇÃO DE ALINHAMENTO ESPECÍFICA PARA MOBILE ===== */
+@media (max-width: 768px) {
+  /* Garantir alinhamento à esquerda da descrição em todas as telas mobile */
+  .title-subtitle.typing-animation {
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Reforçar alinhamento em telas muito pequenas */
+  .title-subtitle.typing-animation {
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
 }

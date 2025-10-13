@@ -37,7 +37,7 @@ export const Board: React.FC<BoardProps> = ({
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = 320; // nova largura do card (300px) + gap (20px)
+      const cardWidth = 286; // nova largura do card (270px) + gap (16px)
       const newIndex = Math.round(scrollLeft / cardWidth);
       setCurrentIndex(Math.min(newIndex, timelineItems.length - 1));
     };

@@ -141,11 +141,11 @@
   border: 1px solid #e0e0e0;
   border-radius: 16px;
   padding: 20px;
-  min-width: 280px;           /* Largura mínima maior */
-  max-width: 320px;           /* Largura máxima maior */
-  width: 300px;               /* Largura fixa maior para usar melhor o espaço */
-  min-height: 280px;          /* Altura mínima para consistência */
-  max-height: 350px;          /* Altura máxima maior */
+  min-width: 260px;           /* Reduzido para permitir 4 cards na tela */
+  max-width: 280px;           /* Reduzido para permitir 4 cards na tela */
+  width: 270px;               /* Largura fixa reduzida para exibir 4 cards completos */
+  min-height: 340px;          /* Altura mínima aumentada para mostrar mais conteúdo */
+  max-height: 420px;          /* Altura máxima aumentada */
   box-shadow: 
     0 4px 20px rgba(0,0,0,0.08),
     0 1px 3px rgba(0,0,0,0.1);
@@ -233,8 +233,8 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   display: -webkit-box;
-  -webkit-line-clamp: 3;     /* Reduzido para 3 linhas para dar espaço às tags */
-  line-clamp: 3;
+  -webkit-line-clamp: 4;     /* Aumentado para 4 linhas para mostrar mais conteúdo */
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex-shrink: 1;            /* Permite encolher se necessário */
