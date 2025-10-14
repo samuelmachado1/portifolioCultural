@@ -295,15 +295,17 @@
   }
 }
 
-/* Navegação da Timeline - Expandida para ocupar mais espaço */
 .timeline-navigation {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center; /* Centraliza o conteúdo */
-  width: calc(100% ); /* Expande para além do container para botões nas laterais */
-  margin: 0 -20px; /* Margem negativa para compensar o padding do container */
-  padding: 0 20px; /* Padding interno para manter o conteúdo centralizado */
+  width: 100%; /* Mantém dentro dos limites do container */
+  max-width: 100vw; /* Não ultrapassa a largura da viewport */
+  margin: 0;
+  padding: 0 60px; /* Padding para os botões não sobreporem o conteúdo */
+  box-sizing: border-box;
+  overflow: hidden; /* Evita scroll horizontal */
 }
 
 .timeline-nav-button {
@@ -340,11 +342,11 @@
 }
 
 .timeline-nav-left {
-  left: -10px; /* Mais próximo da lateral esquerda */
+  left: 10px; /* Garante que o botão fique dentro da tela */
 }
 
 .timeline-nav-right {
-  right: -10px; /* Mais próximo da lateral direita */
+  right: 10px; /* Garante que o botão fique dentro da tela */
 }
 
 /* Container dos cards da timeline - Horizontal para todas as resoluções */
@@ -440,10 +442,12 @@
   
   .timeline-navigation {
     position: relative;
-    width: calc(100% + 20px); /* Expande em mobile também */
+    width: 100%;
     max-width: 100vw;
-    margin: 0 -10px; /* Margem negativa para expansão */
-    padding: 0 10px;
+    margin: 0;
+    padding: 0 50px; /* Espaço para os botões em mobile */
+    box-sizing: border-box;
+    overflow: hidden;
   }
   
   .timeline-card-container {
@@ -488,11 +492,11 @@
   }
   
   .timeline-nav-left {
-    left: 0.25rem; /* Mais próximo da lateral em mobile */
+    left: 0.5rem; /* Garante distância segura da borda em mobile */
   }
   
   .timeline-nav-right {
-    right: 0.25rem; /* Mais próximo da lateral em mobile */
+    right: 0.5rem; /* Garante distância segura da borda em mobile */
   }
 }
 
@@ -512,7 +516,11 @@
   }
   
   .timeline-navigation {
+    width: 100%;
     max-width: 100vw;
+    margin: 0;
+    padding: 0 45px; /* Espaço reduzido para telas pequenas */
+    box-sizing: border-box;
     overflow: hidden;
   }
   
@@ -536,11 +544,11 @@
   }
   
   .timeline-nav-left {
-    left: 0.25rem;
+    left: 0.5rem; /* Mantém distância segura mesmo em telas pequenas */
   }
   
   .timeline-nav-right {
-    right: 0.25rem;
+    right: 0.5rem; /* Mantém distância segura mesmo em telas pequenas */
   }
 }
 
@@ -601,4 +609,25 @@
 .timeline-nav-button:disabled:hover {
   background: rgba(116, 185, 255, 0.1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query adicional para telas muito pequenas */
+@media (max-width: 360px) {
+  .timeline-navigation {
+    padding: 0 40px; /* Reduz ainda mais o padding em telas muito pequenas */
+  }
+  
+  .timeline-nav-button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .timeline-nav-left {
+    left: 0.25rem; /* Posiciona muito próximo da borda em telas pequenas */
+  }
+  
+  .timeline-nav-right {
+    right: 0.25rem; /* Posiciona muito próximo da borda em telas pequenas */
+  }
 }
