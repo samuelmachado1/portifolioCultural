@@ -160,6 +160,25 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Media query para telas grandes (2560x1664 e similares) */
+@media (min-width: 2000px) and (min-height: 1400px) {
+  .timeline-card {
+    padding: 16px;
+    min-width: 240px;
+    max-width: 260px;
+    width: 250px;
+    min-height: 320px;
+    max-height: 380px;
+    gap: 12px;
+  }
+  
+  .timeline-card-container {
+    padding: 15px 10px;
+    gap: 14px;
+    min-height: 320px;
+  }
+}
+
 /* Efeito hover para os cards */
 .timeline-card:hover {
   transform: translateY(-6px);

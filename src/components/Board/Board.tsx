@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import type { BoardHouse } from '../../types/portfolio';
 import { TimelineCard } from '../TimelineCard/TimelineCard';
-import { PositionIndicator } from '../PositionIndicator/PositionIndicator';
 import '../TimelineCard/TimelineCard.css';
 import './Board.css';
 
@@ -122,17 +121,6 @@ export const Board: React.FC<BoardProps> = ({
     }
   };
 
-  const handleIndicatorClick = (index: number) => {
-    setCurrentIndex(index);
-    if (containerRef.current) {
-      const cardWidth = 320; // nova largura
-      containerRef.current.scrollTo({
-        left: index * cardWidth,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <div className="board">
       <div className="board-texture"></div>
@@ -142,17 +130,6 @@ export const Board: React.FC<BoardProps> = ({
         <h2 className="timeline-title">Trajetória</h2>
         {/* <p className="timeline-subtitle">Navegue pela linha do tempo para conhecer a jornada de Samuel Estrella</p> */}
       </div>
-
-      {/* Indicadores de Posição */}
-      {timelineItems.length > 1 && (
-        <PositionIndicator
-          currentIndex={currentIndex}
-          totalItems={timelineItems.length}
-          onIndicatorClick={handleIndicatorClick}
-          visibleItems={1}
-          timelineItems={timelineItems}
-        />
-      )}
 
       {/* Container para os cards da linha do tempo */}
       <div className="timeline-navigation">

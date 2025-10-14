@@ -158,3 +158,29 @@
     min-width: 12px;    /* Menor */
   }
 }
+
+/* Media query para telas grandes (2560x1664 e similares) */
+@media (min-width: 2000px) and (min-height: 1400px) {
+  .filter-bar {
+    gap: 3px;
+    margin: 4px 0;
+    padding: 6px;
+  }
+  
+  .filter-label {
+    font-size: 0.7em;
+  }
+  
+  .filter-buttons {
+    gap: 3px;
+  }
+  
+  .filter-button {
+    padding: 3px 6px;
+    font-size: 0.65em;
+  }
+  
+  .filter-button-icon {
+    font-size: 0.85em;
+  }
+}
