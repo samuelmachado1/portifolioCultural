@@ -243,15 +243,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
 
             </div>
 
-            {!isMobile && (
-              <div className="contact-filter-section">
-                <FilterBar
-                  activeFilter={activeFilter}
-                  onFilterChange={handleFilterChange}
-                  itemCounts={itemCounts}
-                />
-              </div>
-            )}
+            <div className="contact-filter-section">
+              <FilterBar
+                activeFilter={activeFilter}
+                onFilterChange={handleFilterChange}
+                itemCounts={itemCounts}
+              />
+            </div>
           </div>
         </div>
 

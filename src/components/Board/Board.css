@@ -226,6 +226,8 @@
     overflow-x: hidden;
     overflow-y: visible;
     justify-content: flex-start;
+    height: auto;
+    min-height: auto;
   }
   
   .timeline-header {
@@ -281,6 +283,10 @@
     padding: 0.25rem;
     margin: 2px;
     justify-content: flex-start;
+    height: auto;
+    min-height: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
   
   .timeline-header {

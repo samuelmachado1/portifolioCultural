@@ -10,6 +10,8 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-content {

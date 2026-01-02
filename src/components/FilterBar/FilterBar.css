@@ -13,13 +13,13 @@
 
 .filter-bar__subtitle {
   font-size: 0.85rem;
-  color: #2c3e50;
+  color: #ffffff;
   font-weight: 500;
   font-style: italic;
   text-align: center;
   margin: 0;
   padding: 0;
-  text-shadow: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .filter-label {
@@ -152,13 +152,19 @@
   
   .filter-bar__subtitle {
     font-size: 0.8rem;
+    color: #ffffff;
   }
 }
 
 @media (max-width: 480px) {
   .filter-bar {
     flex-direction: column;
-    padding: 8px;       /* Menor */
+    padding: 8px;
+  }
+  
+  .filter-bar__subtitle {
+    font-size: 0.85rem;
+    color: #ffffff;
   }
 
   .filter-buttons {
@@ -166,13 +172,13 @@
   }
 
   .filter-button {
-    padding: 4px 6px;   /* Menor */
-    font-size: 0.7em;   /* Menor */
+    padding: 4px 6px;
+    font-size: 0.7em;
   }
 
   .filter-button-count {
-    font-size: 0.6em;   /* Menor */
-    min-width: 12px;    /* Menor */
+    font-size: 0.6em;
+    min-width: 12px;
   }
 }
 
@@ -186,6 +192,7 @@
   
   .filter-bar__subtitle {
     font-size: 0.75rem;
+    color: #ffffff;
   }
   
   .filter-label {

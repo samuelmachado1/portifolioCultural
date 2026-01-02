@@ -1312,10 +1312,6 @@
     display: none !important;
   }
   
-  .contact-filter-section {
-    display: none !important; /* Ocultar filtros completamente em mobile */
-  }
-  
   .action-buttons {
     gap: 0.4rem;
     margin-top: 0.5rem;
@@ -1515,17 +1511,23 @@
 /* Garantir que o board tenha espaço suficiente em mobile */
 @media (max-width: 768px) {
   .board-container {
-    padding: 0.25rem; /* Reduzido para maximizar espaço */
-    padding-bottom: 70px; /* Espaço aumentado para o position indicator em mobile */
-    min-height: calc(100vh - 180px); /* Considera altura reduzida do header */
+    padding: 0.25rem;
+    padding-bottom: 20px;
+    min-height: auto;
+    margin-bottom: 0;
+    overflow: visible;
+    height: auto;
   }
 }
 
 @media (max-width: 480px) {
   .board-container {
-    padding: 0.15rem; /* Reduzido ainda mais em telas pequenas */
-    padding-bottom: 60px; /* Espaço adequado para o position indicator */
-    min-height: calc(100vh - 160px);
+    padding: 0.15rem;
+    padding-bottom: 20px;
+    min-height: auto;
+    margin-bottom: 0;
+    overflow: visible;
+    height: auto;
   }
 }
 
