@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Board } from '../Board/Board';
 import { FilterBar } from '../FilterBar/FilterBar';
 import { Modal } from '../Modal/Modal';
+import { Footer } from '../Footer/Footer';
 import { usePortfolio } from '../../hooks/usePortfolio';
 import type { PortfolioData } from '../../types/portfolio';
 import { personalInfo } from '../../data/personal-info';
@@ -263,6 +264,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           selectedHouse={selectedHouse}
         />
       </main>
+
+      <Footer />
 
       <Modal
         isOpen={isModalOpen}
