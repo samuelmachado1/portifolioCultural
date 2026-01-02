@@ -32,6 +32,10 @@ export interface ExperienceData {
     instagram?: string;
     comunicado?: string;
     oficio?: string;
+    release?: string;
+    videoRelease?: string;
+    corte1?: string;
+    corte2?: string;
   };
   impactReport?: {
     investment?: string;
