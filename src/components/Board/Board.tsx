@@ -47,7 +47,12 @@ export const Board: React.FC<BoardProps> = ({
   };
 
   const timelineItems = [...houses]
-    .sort((a, b) => parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime())
+    .filter(house => house.data?.date)
+    .sort((a, b) => {
+      const dateA = a.data?.date ? parseDate(a.data.date).getTime() : 0;
+      const dateB = b.data?.date ? parseDate(b.data.date).getTime() : 0;
+      return dateB - dateA;
+    })
     .slice(0, 15);
 
   useEffect(() => {
