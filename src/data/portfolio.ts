@@ -1023,6 +1023,77 @@ const portfolioData = {
         icon: "🎪",
       },
     },
+    {
+      id: "equalizando-frequencias-2",
+      type: "experience",
+      position: { x: 45, y: 80 },
+      data: {
+        title: "Equalizando Frequências #2",
+        date: "27 de Dezembro de 2025",
+        description:
+          "Sonorização e apoio à realização do evento Equalizando Frequências #2 pela Calangos Sounds, celebrando a virada de ano com reggae e cultura.",
+        fullDescription:
+          "A Calangos Sounds participou como responsável pela sonorização e apoio à realização da segunda edição do Equalizando Frequências, evento apresentado pela ROOTS & CULTURE PRODUÇÕES. O evento foi realizado no 14 Bis Lounge Bar e Tabacaria, em Santa Maria - DF, reunindo pessoas de diferentes lugares para celebrar a virada de ano com a vibração do reggae. A proposta do evento foi descentralizar a cultura e fortalecer a comunidade com paz, união e criatividade, criando um espaço onde cada batida, verso e acorde servisse como ponte para novas percepções, conexões e caminhos. O line-up contou com Selectas Boquinha Dub e Fyah Bass, Pupa Jay e KingZulu no mic, e a banda Jah Connection Reggae. A Calangos Sounds garantiu a qualidade técnica de som do evento, trabalhando em parceria com a Favela Pro Stage na parte técnica, demonstrando o compromisso com a excelência na produção de eventos culturais e o fortalecimento da cena reggae local. O evento simbolizou a renovação de energias através da música, preparando coração e alma para o novo ano com vibrações positivas.",
+        flyerUrl: getPublicAssetPath(
+          "assets/equalizando_frequencias_2/flyer_1.png"
+        ),
+        tags: [
+          "sonorização",
+          "reggae",
+          "virada de ano",
+          "calangos sounds",
+          "produção técnica",
+          "cultura",
+        ],
+        achievements: [
+          "Sonorização completa do evento Equalizando Frequências #2",
+          "Apoio à realização de evento cultural descentralizado",
+          "Parceria técnica com Favela Pro Stage",
+          "Contribuição para fortalecimento da cena reggae local",
+          "Garantia de qualidade técnica e experiência sonora imersiva",
+        ],
+        skills: [
+          "Sonorização de Eventos",
+          "Produção Técnica",
+          "Gestão de Equipamentos",
+          "Parceria Institucional",
+          "Suporte a Eventos Culturais",
+        ],
+        socialLinks: {
+          release: getPublicAssetPath(
+            "assets/equalizando_frequencias_2/destaque_post_divulgacao.png"
+          ),
+          instagram: "https://www.instagram.com/calangossounds",
+        },
+        links: [
+          {
+            title: "14 Bis Lounge Bar e Tabacaria",
+            url: "https://www.instagram.com/14bisbaroficial",
+          },
+          {
+            title: "Calangos Sounds",
+            url: "https://www.instagram.com/calangossounds",
+          },
+          {
+            title: "Favela Pro Stage",
+            url: "https://www.instagram.com/favelaprostage",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath("assets/equalizando_frequencias_2/apoiadores.png"),
+          getPublicAssetPath(
+            "assets/equalizando_frequencias_2/destaque_post_divulgacao.png"
+          ),
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Sonorização de Eventos",
+        icon: getPublicAssetPath(
+          "assets/equalizando_frequencias_2/flyer_1.png"
+        ),
+      },
+    },
   ] as BoardHouse[],
 
   boardConfig: {
