@@ -760,34 +760,140 @@ const portfolioData = {
       },
     },
     {
+      id: "mocao-louvor-cldf",
+      type: "experience",
+      position: { x: 60, y: 42 },
+      data: {
+        title: "Moção de Louvor - CLDF",
+        date: "01 de Novembro de 2019",
+        description:
+          "Reconhecimento da Câmara Legislativa do Distrito Federal pelo profissionalismo e relevante contribuição a projetos culturais e à música brasileira.",
+        fullDescription:
+          "Recebi Moção de Louvor da Câmara Legislativa do Distrito Federal (CLDF) mediante proposição da Deputada Arlete Sampaio, em reconhecimento ao profissionalismo e à relevante contribuição a projetos culturais e, em especial, à música brasileira. Esta homenagem foi motivada pela conquista da semifinal do Prêmio Profissionais da Música (@premiopm) na categoria Produção - Produtor Executivo Pessoa Física, sendo o único representante do Distrito Federal neste quesito. A moção marca um momento de reflexão sobre uma década de trajetória profissional, desde a emissão da carteira de músico em 2009, quando me tornei profissional da música. Durante esses 10 anos, muitas histórias de desafios e conquistas ficaram pelo caminho. Receber essa homenagem me fez refletir sobre essa caminhada e resgatar ótimos aprendizados que jamais esquecerei. Seja como músico ou como produtor, ser profissional sempre foi a meta. Fico extremamente orgulhoso de conseguir mostrar mais uma vez que nós, jovens Pretos, de periferia, também podemos ocupar lugares de expoência, colocando a quebrada no topo!",
+        flyerUrl: getPublicAssetPath(
+          "assets/mocao_de_louvor_2019/mocao_de_louvor_Dep.ArleteSampaio.png"
+        ),
+        tags: [
+          "reconhecimento",
+          "música brasileira",
+          "produção cultural",
+          "prêmio profissionais da música",
+          "cldf",
+          "representatividade",
+        ],
+        achievements: [
+          "Moção de Louvor da CLDF",
+          "Semifinalista do Prêmio Profissionais da Música",
+          "Único representante do DF na categoria Produtor Executivo",
+          "10 anos de carreira profissional na música",
+          "Reconhecimento institucional pelo trabalho cultural",
+        ],
+        skills: [
+          "Produção Musical",
+          "Gestão de Projetos Culturais",
+          "Representatividade",
+          "Liderança Cultural",
+        ],
+        socialLinks: {
+          instagram: "https://www.instagram.com/premiopm",
+        },
+        links: [
+          {
+            title: "Prêmio Profissionais da Música",
+            url: "https://www.ppm.art.br",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath(
+            "assets/mocao_de_louvor_2019/flyer_semifinal_premio_profissionais_da_musica.png"
+          ),
+          getPublicAssetPath(
+            "assets/mocao_de_louvor_2019/mocao_de_louvor_Dep.ArleteSampaio.png"
+          ),
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Reconhecimento",
+        icon: getPublicAssetPath(
+          "assets/mocao_de_louvor_2019/mocao_de_louvor_Dep.ArleteSampaio.png"
+        ),
+      },
+    },
+    {
       id: "presidente-crc",
       type: "experience",
       position: { x: 75, y: 55 },
       data: {
         title: "Presidente do CRC/DF",
-        date: "Janeiro 2024",
+        date: "Janeiro 2024 - Atual",
         description:
-          "Presidente do Conselho Regional de Cultura de São Sebastião",
+          "Presidente do Conselho Regional de Cultura de São Sebastião, atuando na defesa das vocações culturais e no projeto do Complexo Cultural.",
         fullDescription:
-          "Atuação como Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF, participando ativamente das decisões sobre políticas culturais e representando os interesses da comunidade artística regional.",
-        tags: ["conselho", "representação", "liderança", "cultura"],
+          "Atuação como Presidente do Conselho Regional de Cultura de São Sebastião - CRC/DF, liderando iniciativas estratégicas para o desenvolvimento cultural da região. Um dos principais marcos da gestão foi o acompanhamento e contribuição para o projeto arquitetônico do Complexo Cultural de São Sebastião. Em reunião realizada em 29 de outubro de 2024 na Administração Regional, junto com Alex e Sr. Chico do Instituto Metamorfose, apresentei aos arquitetos Giovana e Douglas a visão do Conselho sobre as vocações culturais da cidade e como o novo espaço pode atender à comunidade de forma mais completa. Foram levantados mais de 10 pontos estratégicos, incluindo: necessidade de espaços mais versáteis como galeria de arte para expor trabalhos da comunidade e receber mostras externas; ilha de edição audiovisual ao invés de sala de informática tradicional; auditório com capacidade superior ao do IFB, funcionando como cinema, teatro e espaço para shows e eventos de grande porte; espaço de convivência nos pilotis com acesso livre e internet para a comunidade, inspirado no Complexo Nacional da República; diversificação dos serviços com espaço gastronômico mais amplo além da lanchonete. Os arquitetos se comprometeram a apresentar as adequações no projeto até dezembro, incorporando todos os itens levantados pelo CRC. O Conselho segue acompanhando de perto o projeto e trabalhando para garantir que a burocracia não atrapalhe a execução da obra, que tem prazo até meados de 2025 para ser licitada. A verba de 5 milhões de reais, proveniente do prêmio do Sebrae, já está garantida para a construção do Complexo Cultural. A Administração Regional de São Sebastião segue comprometida com o desenvolvimento de espaços que valorizam a arte e a cultura da nossa cidade.",
+        flyerUrl: getPublicAssetPath("assets/crc_presidencia/atuacao.png"),
+        tags: [
+          "conselho",
+          "representação",
+          "liderança",
+          "cultura",
+          "complexo cultural",
+          "gestão pública",
+          "articulação institucional",
+        ],
         achievements: [
           "Eleição para presidência do CRC/DF",
-          "Representação da comunidade artística",
-          "Participação em decisões estratégicas",
-          "Advocacy para políticas culturais",
+          "Liderança no projeto do Complexo Cultural de São Sebastião",
+          "Articulação com Administração Regional e arquitetos responsáveis",
+          "Contribuição com mais de 10 pontos estratégicos para o projeto",
+          "Garantia de verba de R$ 5 milhões para construção do Complexo",
+          "Representação das vocações culturais da comunidade",
+          "Acompanhamento ativo das políticas culturais regionais",
         ],
         skills: [
           "Liderança institucional",
           "Representação política",
           "Articulação de grupos",
           "Gestão de conselhos",
+          "Planejamento de equipamentos culturais",
+          "Advocacy para políticas públicas",
+          "Gestão de projetos",
+        ],
+        socialLinks: {
+          instagram: "https://www.instagram.com/techrastabr",
+          video: getPublicAssetPath(
+            "assets/crc_presidencia/reuniao_centro_cultural.mov"
+          ),
+          comunicado: getPublicAssetPath(
+            "assets/crc_presidencia/comunicado_a_comunidade_cultural.mov"
+          ),
+          oficio: getPublicAssetPath(
+            "assets/crc_presidencia/entregando_oficio_para_deputado_max_maciel.mov"
+          ),
+        },
+        links: [
+          {
+            title: "Conselho Regional de Cultura São Sebastião",
+            url: "https://www.instagram.com/crcsaosebas",
+          },
+          {
+            title: "Instituto Metamorfose",
+            url: "https://www.instagram.com/institutometamorfose",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath("assets/crc_presidencia/atuacao.png"),
+          getPublicAssetPath(
+            "assets/crc_presidencia/logo_conselho_regional_cultura.png"
+          ),
         ],
       },
       style: {
-        size: "medium",
+        size: "large",
         theme: "Gestão Cultural",
-        icon: "🤝",
+        icon: getPublicAssetPath(
+          "assets/crc_presidencia/logo_conselho_regional_cultura.png"
+        ),
       },
     },
     {
@@ -848,41 +954,6 @@ const portfolioData = {
         size: "medium",
         theme: "milestone",
         icon: "🏆",
-      },
-    },
-    {
-      id: "mocao-louvor-cldf",
-      type: "milestone",
-      position: { x: 85, y: 55 },
-      data: {
-        title: "Moção de Louvor - CLDF",
-        date: "Novembro 2019",
-        description: "Moção de louvor na Câmara Legislativa do DF",
-        fullDescription:
-          "Recebimento de Moção de Louvor na Câmara Legislativa do Distrito Federal pelas contribuições significativas em projetos culturais, reconhecendo o impacto positivo das ações desenvolvidas para a comunidade.",
-        tags: [
-          "reconhecimento",
-          "CLDF",
-          "contribuição social",
-          "projetos culturais",
-        ],
-        achievements: [
-          "Moção de louvor oficial da CLDF",
-          "Reconhecimento público das contribuições",
-          "Impacto social reconhecido",
-          "Exemplo para a comunidade",
-        ],
-        skills: [
-          "Impacto social",
-          "Liderança comunitária",
-          "Transformação cultural",
-          "Responsabilidade social",
-        ],
-      },
-      style: {
-        size: "large",
-        theme: "milestone",
-        icon: "🎖️",
       },
     },
     {
@@ -1137,6 +1208,9 @@ const portfolioData = {
           ),
           release: getPublicAssetPath(
             "assets/cinema_urbana_2024/mini_release_pos_evento.mov"
+          ),
+          videoRelease: getPublicAssetPath(
+            "assets/cinema_urbana_2024/video_release.mov"
           ),
           instagram: "https://www.instagram.com/cinemaurbana",
         },

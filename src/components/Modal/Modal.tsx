@@ -114,7 +114,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
             </div>
           )}
 
-          {(data.flyerUrl || data.socialLinks?.video) && (
+          {(data.flyerUrl || data.socialLinks?.video || data.socialLinks?.release || data.socialLinks?.videoRelease || data.socialLinks?.comunicado || data.socialLinks?.oficio) && (
             <div className="modal-media-section">
               <h3>Mídia do Evento</h3>
               <div className="modal-media-container">
@@ -131,12 +131,69 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
 
                 {data.socialLinks?.video && house.id !== 'queira-sempre-mais-single' && (
                   <div className="modal-media-item">
+                    <h4>Vídeo de Divulgação</h4>
                     <video
                       controls
                       className="modal-video"
                       preload="metadata"
                     >
                       <source src={data.socialLinks.video} type="video/mp4" />
+                      Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                  </div>
+                )}
+
+                {data.socialLinks?.release && (
+                  <div className="modal-media-item">
+                    <h4>Mini Release Pós-Evento</h4>
+                    <video
+                      controls
+                      className="modal-video"
+                      preload="metadata"
+                    >
+                      <source src={data.socialLinks.release} type="video/mp4" />
+                      Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                  </div>
+                )}
+
+                {data.socialLinks?.videoRelease && (
+                  <div className="modal-media-item">
+                    <h4>Vídeo Release</h4>
+                    <video
+                      controls
+                      className="modal-video"
+                      preload="metadata"
+                    >
+                      <source src={data.socialLinks.videoRelease} type="video/mp4" />
+                      Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                  </div>
+                )}
+
+                {data.socialLinks?.comunicado && (
+                  <div className="modal-media-item">
+                    <h4>Comunicado à Comunidade Cultural</h4>
+                    <video
+                      controls
+                      className="modal-video"
+                      preload="metadata"
+                    >
+                      <source src={data.socialLinks.comunicado} type="video/mp4" />
+                      Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                  </div>
+                )}
+
+                {data.socialLinks?.oficio && (
+                  <div className="modal-media-item">
+                    <h4>Entrega de Ofício ao Deputado Max Maciel</h4>
+                    <video
+                      controls
+                      className="modal-video"
+                      preload="metadata"
+                    >
+                      <source src={data.socialLinks.oficio} type="video/mp4" />
                       Seu navegador não suporta o elemento de vídeo.
                     </video>
                   </div>

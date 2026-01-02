@@ -2,7 +2,7 @@
   "name": "portfolio-samuel-estrella",
   "private": false,
   "version": "1.0.0",
-  "description": "Portfólio interativo em formato de jogo de tabuleiro para o produtor cultural Samuel Estrella",
+  "description": "Portfólio interativo com timeline horizontal de experiências para o produtor cultural Samuel Estrella",
   "author": "Samuel Estrella <samuel@estrella.com.br>",
   "keywords": [
     "portfolio",
@@ -10,7 +10,8 @@
     "typescript",
     "cultural-production",
     "interactive",
-    "board-game"
+    "timeline",
+    "cards"
   ],
   "homepage": "https://samuelmachado1.github.io/portifolioCultural",
   "repository": {

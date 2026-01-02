@@ -19,7 +19,7 @@ export const Board: React.FC<BoardProps> = ({
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [dragStart, setDragStart] = useState<{ x: number; scrollLeft: number }>({ x: 0, scrollLeft: 0 });
 
-  const timelineItems = houses.slice(0, 10);
+  const timelineItems = houses.slice(0, 15);
 
   useEffect(() => {
     const container = containerRef.current;

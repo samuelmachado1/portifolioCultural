@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎮 Samuel Estrella - Portfólio Cultural
+# 🎯 Samuel Estrella - Portfólio Cultural
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <strong>Portfólio interativo em formato de jogo de tabuleiro</strong><br>
+  <strong>Portfólio interativo com timeline horizontal de experiências</strong><br>
   Produtor cultural especializado em eventos musicais e gestão artística
 </p>
 
@@ -38,13 +38,13 @@
 
 ## 📖 Sobre o Projeto
 
-Uma **experiência interativa inovadora** que apresenta a trajetória profissional do produtor cultural Samuel Estrella através de um jogo de tabuleiro digital. Cada marco da carreira é representado como uma "casa" no percurso, criando uma narrativa visual envolvente sobre a jornada no cenário cultural brasileiro.
+Uma **experiência interativa inovadora** que apresenta a trajetória profissional do produtor cultural Samuel Estrella através de uma timeline horizontal com cards interativos. Cada marco da carreira é representado como um card navegável, criando uma narrativa visual envolvente sobre a jornada no cenário cultural brasileiro.
 
 ### 🎯 **Objetivo**
 Demonstrar como a **convergência entre tecnologia e arte** pode transformar uma apresentação profissional tradicional em uma experiência **memorável e interativa**.
 
 ### 🏆 **Diferenciais**
-- ✨ **Interface Gamificada** com navegação em tabuleiro
+- ✨ **Timeline Horizontal Interativa** com navegação por arrasto e botões
 - 🎨 **Design Moderno** com glassmorphism e animações fluidas
 - 📱 **Totalmente Responsivo** para todos os dispositivos
 - ⚡ **Performance Otimizada** com bundle de apenas 36KB
@@ -122,10 +122,12 @@ npm run deploy   # Deploy para GitHub Pages
 ```
 src/
 ├── components/           # Componentes React
-│   ├── Board/           # Tabuleiro principal
+│   ├── Board/           # Container da timeline
 │   ├── FilterBar/       # Filtros de navegação
 │   ├── Portfolio/       # Container principal
-│   ├── TimelineCard/    # Cards de experiência
+│   ├── TimelineCard/    # Cards interativos de experiência
+│   ├── Modal/           # Modal de detalhes expandidos
+│   ├── Footer/          # Rodapé com informações
 │   └── UI/              # Componentes de interface
 ├── data/                # Dados do portfólio
 ├── hooks/               # Custom hooks
@@ -154,12 +156,13 @@ src/
 ---
 ---
 
-## 🎮 Funcionalidades
+## 🎯 Funcionalidades
 
 ### **📱 Interface Interativa**
-- Navegação em formato de jogo de tabuleiro
-- Animações fluidas e transições suaves
-- Feedback visual para todas as interações
+- Timeline horizontal navegável com scroll e arrasto
+- Botões de navegação para experiências anteriores/próximas
+- Cards interativos com informações resumidas
+- Modal expandido com detalhes completos da experiência
 - Sistema de filtros por categoria de experiência
 
 ### **🎨 Design System**
@@ -167,11 +170,13 @@ src/
 - Paleta de cores consistente da marca
 - Tipografia otimizada para legibilidade
 - Iconografia personalizada
+- Animações e transições suaves
 
 ### **📱 Responsividade**
 - Layout adaptativo para todas as telas
-- Otimização específica para mobile
+- Otimização específica para mobile e tablet
 - Touch-friendly para dispositivos móveis
+- Navegação por gestos (arrasto) em mobile
 - Progressive Enhancement
 
 ### **⚡ Performance**
@@ -179,6 +184,7 @@ src/
 - Lazy loading de componentes
 - Otimização de imagens
 - Service Worker para cache
+- Scroll suave e otimizado
 
 ---
 
@@ -259,140 +265,6 @@ MIT License - você pode usar, modificar e distribuir livremente
 
 **⭐ Se este projeto te inspirou, deixe uma star!**
 
-*Feito com ❤️ por Samuel Estrella | © 2025*
+*Feito com ❤️ por Samuel Estrella | © 2026*
 
 </div>
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
-
----
-
-*Desenvolvido com ❤️ para demonstrar a intersecção entre tecnologia e cultura*
-```
-http://localhost:5174
-```
-
-## 🏗️ Estrutura do Projeto
-
-```
-src/
-├── components/           # Componentes React
-│   ├── Board/           # Tabuleiro principal
-│   ├── House/           # Casas interativas  
-│   ├── Modal/           # Modal de detalhes
-│   └── Portfolio/       # Componente raiz
-├── data/                # Dados do portfólio
-├── hooks/               # Hooks customizados
-├── types/               # Interfaces TypeScript
-└── styles/              # Estilos globais
-```
-
-## 🎮 Como Funciona
-
-### Tipos de Casas
-- **📚 Cultural**: Experiências em produção cultural
-- **🎨 Artistic**: Projetos artísticos e criativos
-- **🎬 Production**: Trabalhos de produção audiovisual
-- **📖 Education**: Formação e ensino
-- **🏆 Milestone**: Marcos importantes na carreira
-
-### Interatividade
-- Clique em qualquer casa para ver detalhes
-- Modal com informações completas da experiência
-- Seção especial de contato no perfil central
-- Animações responsivas aos hovers
-
-## 🎨 Design System
-
-### Cores Principais
-```css
---primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)
---glassmorphism: rgba(255, 255, 255, 0.1)
---shadow: 0 8px 32px rgba(0, 0, 0, 0.1)
-```
-
-### Temas das Casas
-- **Cultural**: Gradiente azul-roxo
-- **Artistic**: Gradiente rosa-laranja  
-- **Production**: Gradiente verde-azul
-- **Education**: Gradiente dourado
-- **Milestone**: Gradiente especial multi-cor
-
-## 🔧 Customização
-
-### Adicionando Nova Experiência
-
-1. **Edite o arquivo `src/data/portfolio.ts`**:
-```typescript
-{
-  id: 'nova-experiencia',
-  title: 'Título da Experiência',
-  period: '2024',
-  description: 'Descrição detalhada...',
-  type: 'cultural', // cultural | artistic | production | education | milestone
-  size: 'medium',   // small | medium | large
-  position: { x: 50, y: 50 }, // Posição no tabuleiro (%)
-  // ... outros campos
-}
-```
-
-2. **A casa aparecerá automaticamente no tabuleiro**
-
-### Modificando o Layout
-
-- **Posições**: Ajuste `position: { x, y }` em cada experiência
-- **Trilha**: Modifique o SVG path em `Board.tsx`
-- **Cores**: Customize as variáveis CSS em `styles/portfolio.css`
-
-## 📱 Deploy
-
-### GitHub Pages
-```bash
-npm run build
-npm run deploy
-```
-
-## 🤝 Quer Contribuir?
-
-1. Fork o projeto
-2. Crie sua feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📄 Scripts Disponíveis
-
-```bash
-npm run dev          # Servidor de desenvolvimento
-npm run build        # Build para produção
-npm run preview      # Preview do build
-npm run lint         # Verificação de código
-```
-
-## 🐛 Troubleshooting
-
-### Erro de Dependências
-```bash
-rm -rf node_modules package-lock.json
-npm install
-```
-
-### Problemas de Build
-```bash
-npm run build -- --mode development
-```
-
-## 📞 Contato
-
-**Samuel Estrella**
-- 📧 Email: samuelmachado1@gmail.com
-- 📱 WhatsApp: +55 61 98239-1310
-- 🔗 LinkedIn: [linkedin.com/in/samuel-estrella](https://www.linkedin.com/in/samuel-machado-347204158/)
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-⭐ Se este projeto te ajudou, considere dar uma estrela no repositório!
