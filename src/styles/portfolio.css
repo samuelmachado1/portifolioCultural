@@ -927,9 +927,8 @@
   padding-bottom: 0;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  min-height: 500px;
   position: relative;
   box-sizing: border-box;
 }
@@ -939,9 +938,10 @@
   .board-container {
     padding: 0;
     padding-bottom: 0;
+    margin: 0;
     min-height: auto;
-    height: calc(100vh - 165px);
-    max-height: calc(100vh - 165px);
+    height: calc(100vh - 150px);
+    max-height: calc(100vh - 150px);
     overflow: hidden;
   }
 }
@@ -951,9 +951,10 @@
   .board-container {
     padding: 0;
     padding-bottom: 0;
+    margin: 0;
     min-height: auto;
-    height: calc(100vh - 185px);
-    max-height: calc(100vh - 185px);
+    height: calc(100vh - 170px);
+    max-height: calc(100vh - 170px);
     overflow: hidden;
   }
 }

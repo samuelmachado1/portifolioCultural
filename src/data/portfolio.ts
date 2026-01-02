@@ -1094,6 +1094,83 @@ const portfolioData = {
         ),
       },
     },
+    {
+      id: "cinema-urbana-2024",
+      type: "experience",
+      position: { x: 90, y: 75 },
+      data: {
+        title: "Cinema Urbana 2024 - Praça do Reggae",
+        date: "26 de Outubro de 2024",
+        description:
+          "Mediação de roda de conversa sobre a história da Praça do Reggae e recolocação da placa histórica, promovendo debate sobre ocupação cultural de espaços públicos.",
+        fullDescription:
+          "Participação como mediador na roda de conversa 'Praça do Reggae: História e Ocupação Cultural', realizada durante o evento Cinema Urbana 2024, edição 'Mulheridades'. O evento reuniu importantes figuras da comunidade local, incluindo Edvair, Zezinho Pedra, Dona Idália e quiosqueiros da praça, para discutir a importância de espaços públicos para a socialização da comunidade e valorização da arte local. A conversa explorou como ações como o Reggae na Praça valorizam a arte local e fomentam o mercado cultural da região, debatendo como a ocupação cultural pode gerar empregos, promover sustentabilidade e criar ambientes mais vibrantes e acolhedores. O momento também marcou a recolocação da placa histórica da Praça do Reggae, simbolizando o reconhecimento oficial deste importante espaço cultural de São Sebastião. A Cinema Urbana encerrou o ciclo da edição com celebrações que incluíram sessões de cinema, debates, oficinas de cineclubismo e festa com os coletivos Calangos Sounds e Jamaicana, demonstrando como as conexões culturais reverberam e fortalecem a identidade local.",
+        flyerUrl: getPublicAssetPath(
+          "assets/cinema_urbana_2024/flyer_roda_de_conversa.png"
+        ),
+        tags: [
+          "mediação",
+          "ocupação cultural",
+          "espaços públicos",
+          "cinema urbana",
+          "praça do reggae",
+          "patrimônio cultural",
+        ],
+        achievements: [
+          "Mediação de roda de conversa com agentes culturais locais",
+          "Recolocação da placa histórica da Praça do Reggae",
+          "Promoção do debate sobre ocupação cultural de espaços públicos",
+          "Articulação entre comerciantes e produtores culturais",
+          "Fortalecimento da identidade cultural de São Sebastião",
+          "Valorização da história e memória do Reggae na Praça",
+        ],
+        skills: [
+          "Mediação de Debates",
+          "Articulação Comunitária",
+          "Gestão de Patrimônio Cultural",
+          "Facilitação de Diálogos",
+          "Ocupação Cultural",
+        ],
+        socialLinks: {
+          video: getPublicAssetPath(
+            "assets/cinema_urbana_2024/video_divulgacao.mov"
+          ),
+          release: getPublicAssetPath(
+            "assets/cinema_urbana_2024/mini_release_pos_evento.mov"
+          ),
+          instagram: "https://www.instagram.com/cinemaurbana",
+        },
+        links: [
+          {
+            title: "Cinema Urbana",
+            url: "https://www.instagram.com/cinemaurbana",
+          },
+          {
+            title: "Brigadas Populares",
+            url: "https://www.instagram.com/brigadaspopulares",
+          },
+          {
+            title: "Calangos Sounds",
+            url: "https://www.instagram.com/calangossounds",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath(
+            "assets/cinema_urbana_2024/descricao_flyer_roda_de_conversa.png"
+          ),
+          getPublicAssetPath(
+            "assets/cinema_urbana_2024/nova_placa_praca_reggae.png"
+          ),
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Mediação",
+        icon: getPublicAssetPath(
+          "assets/cinema_urbana_2024/flyer_roda_de_conversa.png"
+        ),
+      },
+    },
   ] as BoardHouse[],
 
   boardConfig: {

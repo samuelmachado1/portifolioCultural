@@ -123,13 +123,6 @@ export const Board: React.FC<BoardProps> = ({
 
   return (
     <div className="board">
-      <div className="board-texture"></div>
-
-      {/* Título da seção */}
-      <div className="timeline-header">
-        <h2 className="timeline-title">Trajetória</h2>
-        {/* <p className="timeline-subtitle">Navegue pela linha do tempo para conhecer a jornada de Samuel Estrella</p> */}
-      </div>
 
       {/* Container para os cards da linha do tempo */}
       <div className="timeline-navigation">
