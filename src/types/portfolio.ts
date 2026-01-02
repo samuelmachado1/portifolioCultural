@@ -30,6 +30,8 @@ export interface ExperienceData {
     spotify?: string;
     youtube?: string;
     instagram?: string;
+    comunicado?: string;
+    oficio?: string;
   };
   impactReport?: {
     investment?: string;
