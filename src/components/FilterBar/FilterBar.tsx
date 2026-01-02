@@ -7,18 +7,7 @@ interface FilterBarProps {
   itemCounts: { [key: string]: number };
 }
 
-export const FilterBar: React.FC<FilterBarProps> = ({
-  activeFilter,
-  onFilterChange,
-  itemCounts,
-}) => {
-  const filters = [
-    { key: 'all', label: 'Todos', icon: '🎯' },
-    { key: 'milestone', label: 'Marcos', icon: '🏆' },
-    { key: 'experience', label: 'Experiências', icon: '💼' },
-    // { key: 'education', label: 'Educação', icon: '🎓' },
-  ];
-
+export const FilterBar: React.FC<FilterBarProps> = () => {
   return (
     <div className="filter-bar">
       <p className="filter-bar__subtitle">
