@@ -153,6 +153,7 @@
 .timeline-card-container {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   gap: 16px;
   padding: 5px;
   padding-bottom: 5px;

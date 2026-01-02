@@ -149,9 +149,6 @@ const portfolioData = {
           "Curadoria de Conteúdo",
         ],
         socialLinks: {
-          release: getPublicAssetPath(
-            "assets/festival_paredao_ccbb_2025/post_instagram.png"
-          ),
           instagram: "https://www.instagram.com/festivalparedao",
         },
         links: [
@@ -237,7 +234,6 @@ const portfolioData = {
         socialLinks: {
           video:
             "https://www.youtube.com/watch?v=W-Hk_CuOs0Q&list=RDW-Hk_CuOs0Q&start_radio=1",
-          release: getPublicAssetPath("assets/queira_sempre_mais_single/2.png"),
           youtube: "https://youtube.com/reggaenapraca",
         },
         links: [
@@ -539,12 +535,13 @@ const portfolioData = {
       type: "experience",
       position: { x: 70, y: 40 }, // AJUSTAR: posição no timeline
       data: {
-        title: "Reggae o Bosque", //
-        date: "Maio 2022", //
+        title: "Reggae o Bosque",
+        date: "Maio 2022",
         description:
           "Produção e apresentação musical como Calangos Sounds no festival Reggae o Bosque, um evento gratuito em Candangolândia.",
         fullDescription:
           "Participei da produção do festival 'Reggae o Bosque' e também me apresentei como Calangos Sounds. O evento foi uma iniciativa do Coletivo Reggae DF, realizado de forma gratuita no dia 1º de maio de 2022, na Praça do Bosque em Candangolândia. Voltado para toda a família e ao ar livre, o festival contou com uma estrutura completa de bar, praça de alimentação e banheiros. O line-up foi extenso, com bandas como Banda Zoka, Marrul e um show especial 'Brasil Riddim'. Minha apresentação como Calangos Sounds ocorreu às 16:45 e, posteriormente, às 21:45 em uma colaboração com outros artistas para o encerramento.",
+        flyerUrl: getPublicAssetPath("assets/reggae_bosque/flyer.png"),
         tags: ["festival", "reggae", "produção musical"],
         achievements: [
           "Realização de um evento gratuito e ao ar livre para toda a família ",
@@ -559,17 +556,19 @@ const portfolioData = {
           "Articulação de Coletivos Culturais",
         ],
         links: [
-          // OPCIONAL: links relacionados
           {
             title: "Canal Calango Rasta no YouTube",
-            url: "youtube.com/calangorasta", //
+            url: "youtube.com/calangorasta",
           },
+        ],
+        eventPhotos: [
+          getPublicAssetPath("assets/reggae_bosque/detalhes_post.png"),
         ],
       },
       style: {
-        size: "large", // "small" | "medium" | "large"
-        theme: "cultural", // Ver seção de temas abaixo
-        icon: "🎵", // Emoji representativo
+        size: "large",
+        theme: "Apresentação Musical",
+        icon: getPublicAssetPath("assets/reggae_bosque/flyer.png"),
       },
     },
     {
@@ -897,7 +896,7 @@ const portfolioData = {
       position: { x: 75, y: 55 },
       data: {
         title: "Presidente do CRC/DF",
-        date: "Janeiro 2024 - Atual",
+        date: "Dezembro 2024 - Final do mandato.",
         description:
           "Presidente do Conselho Regional de Cultura de São Sebastião, atuando na defesa das vocações culturais e no projeto do Complexo Cultural.",
         fullDescription:
@@ -1202,9 +1201,6 @@ const portfolioData = {
           "Suporte a Eventos Culturais",
         ],
         socialLinks: {
-          release: getPublicAssetPath(
-            "assets/equalizando_frequencias_2/destaque_post_divulgacao.png"
-          ),
           instagram: "https://www.instagram.com/calangossounds",
         },
         links: [

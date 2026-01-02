@@ -19,16 +19,58 @@ export const Board: React.FC<BoardProps> = ({
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [dragStart, setDragStart] = useState<{ x: number; scrollLeft: number }>({ x: 0, scrollLeft: 0 });
 
-  const timelineItems = houses.slice(0, 15);
+  const parseDate = (dateStr: string): Date => {
+    const cleanDate = dateStr.split(' - ')[0].trim();
 
-  // Garante que o scroll comece no início (primeiro card visível completo)
+    const meses: { [key: string]: number } = {
+      'Janeiro': 0, 'Fevereiro': 1, 'Março': 2, 'Abril': 3,
+      'Maio': 4, 'Junho': 5, 'Julho': 6, 'Agosto': 7,
+      'Setembro': 8, 'Outubro': 9, 'Novembro': 10, 'Dezembro': 11
+    };
+
+    const parts = cleanDate.match(/(\d+)?\s*de\s*(\w+)\s*de\s*(\d{4})|(\w+)\s+(\d{4})/);
+
+    if (parts) {
+      if (parts[1] && parts[2] && parts[3]) {
+        const dia = parseInt(parts[1]);
+        const mes = meses[parts[2]];
+        const ano = parseInt(parts[3]);
+        return new Date(ano, mes, dia);
+      } else if (parts[4] && parts[5]) {
+        const mes = meses[parts[4]];
+        const ano = parseInt(parts[5]);
+        return new Date(ano, mes, 1);
+      }
+    }
+
+    return new Date(1900, 0, 1);
+  };
+
+  const timelineItems = [...houses]
+    .sort((a, b) => parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime())
+    .slice(0, 15);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Define scroll inicial para 0 (início)
     container.scrollLeft = 0;
+
+    const timeoutId = setTimeout(() => {
+      if (container) {
+        container.scrollLeft = 0;
+      }
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
   }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    container.scrollLeft = 0;
+  }, [timelineItems.length]);
 
   useEffect(() => {
     const container = containerRef.current;

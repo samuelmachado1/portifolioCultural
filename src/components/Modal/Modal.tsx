@@ -132,10 +132,14 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                 {data.socialLinks?.video && house.id !== 'queira-sempre-mais-single' && (
                   <div className="modal-media-item">
                     <h4>Vídeo{house.id === 'entrevista-crixas-podcast' ? ' da Entrevista' : ' de Divulgação'}</h4>
-                    {data.socialLinks.video.includes('youtube.com') || data.socialLinks.video.includes('youtu.be') ? (
+                    {(data.socialLinks.video.includes('youtube.com') ||
+                      data.socialLinks.video.includes('youtu.be') ||
+                      data.socialLinks.video.includes('embed')) ? (
                       <iframe
                         className="modal-video"
-                        src={data.socialLinks.video}
+                        src={data.socialLinks.video.includes('watch?v=')
+                          ? data.socialLinks.video.replace('watch?v=', 'embed/').split('&')[0]
+                          : data.socialLinks.video}
                         title="Vídeo do YouTube"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -147,8 +151,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                         controls
                         className="modal-video"
                         preload="metadata"
+                        playsInline
+                        controlsList="nodownload"
                       >
                         <source src={data.socialLinks.video} type="video/mp4" />
+                        <source src={data.socialLinks.video} type="video/webm" />
+                        <source src={data.socialLinks.video} type="video/ogg" />
                         Seu navegador não suporta o elemento de vídeo.
                       </video>
                     )}
@@ -162,8 +170,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                       controls
                       className="modal-video"
                       preload="metadata"
+                      playsInline
+                      controlsList="nodownload"
                     >
                       <source src={data.socialLinks.release} type="video/mp4" />
+                      <source src={data.socialLinks.release} type="video/webm" />
+                      <source src={data.socialLinks.release} type="video/ogg" />
                       Seu navegador não suporta o elemento de vídeo.
                     </video>
                   </div>
@@ -176,8 +188,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                       controls
                       className="modal-video"
                       preload="metadata"
+                      playsInline
+                      controlsList="nodownload"
                     >
                       <source src={data.socialLinks.videoRelease} type="video/mp4" />
+                      <source src={data.socialLinks.videoRelease} type="video/webm" />
+                      <source src={data.socialLinks.videoRelease} type="video/ogg" />
                       Seu navegador não suporta o elemento de vídeo.
                     </video>
                   </div>
@@ -190,8 +206,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                       controls
                       className="modal-video"
                       preload="metadata"
+                      playsInline
+                      controlsList="nodownload"
                     >
                       <source src={data.socialLinks.comunicado} type="video/mp4" />
+                      <source src={data.socialLinks.comunicado} type="video/webm" />
+                      <source src={data.socialLinks.comunicado} type="video/ogg" />
                       Seu navegador não suporta o elemento de vídeo.
                     </video>
                   </div>
@@ -204,8 +224,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                       controls
                       className="modal-video"
                       preload="metadata"
+                      playsInline
+                      controlsList="nodownload"
                     >
                       <source src={data.socialLinks.oficio} type="video/mp4" />
+                      <source src={data.socialLinks.oficio} type="video/webm" />
+                      <source src={data.socialLinks.oficio} type="video/ogg" />
                       Seu navegador não suporta o elemento de vídeo.
                     </video>
                   </div>
