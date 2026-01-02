@@ -664,6 +664,77 @@ const portfolioData = {
       },
     },
     {
+      id: "entrevista-crixas-podcast",
+      type: "experience",
+      position: { x: 30, y: 48 },
+      data: {
+        title: "Entrevista Crixás Podcast",
+        date: "11 de Maio de 2024",
+        description:
+          "Entrevista sobre a trajetória do Reggae na Praça e do movimento reggae em São Sebastião.",
+        fullDescription:
+          "Concedi entrevista ao Crixás Podcast para compartilhar a trajetória completa do projeto Reggae na Praça e a história do movimento reggae em São Sebastião. Durante a conversa, relatei os desafios enfrentados, as conquistas alcançadas ao longo dos anos, e como o projeto se tornou um marco cultural na região, promovendo não apenas a música reggae, mas também a ocupação cultural de espaços públicos e o fortalecimento da comunidade local. A entrevista explora desde os primórdios do movimento até os dias atuais, destacando a importância da persistência, da gestão cultural profissional e do impacto social que o reggae trouxe para São Sebastião.",
+        flyerUrl: getPublicAssetPath(
+          "assets/crixas_podcast/post_crixas_podcast.png"
+        ),
+        tags: [
+          "entrevista",
+          "reggae na praça",
+          "movimento reggae",
+          "história cultural",
+          "podcast",
+          "memória",
+        ],
+        achievements: [
+          "Registro da história do Reggae na Praça",
+          "Compartilhamento da trajetória do movimento reggae",
+          "Divulgação da cultura reggae de São Sebastião",
+          "Preservação da memória cultural",
+        ],
+        skills: [
+          "Comunicação",
+          "Storytelling",
+          "Representação cultural",
+          "Memória histórica",
+        ],
+        socialLinks: {
+          video: "https://www.youtube.com/embed/LvRAUPJ5Cp4?start=5713",
+          youtube: "https://www.youtube.com/watch?v=LvRAUPJ5Cp4&t=5713s",
+          corte1: "https://www.instagram.com/p/C7KbDZJLhYr/embed",
+          corte2: "https://www.instagram.com/p/C7KbSI_r5ER/embed",
+          corte3: "https://www.instagram.com/p/C7Kbqk5rqlk/embed",
+        },
+        links: [
+          {
+            title: "Episódio Completo no YouTube",
+            url: "https://www.youtube.com/watch?v=LvRAUPJ5Cp4&t=5713s",
+          },
+          {
+            title: "Corte 1 - Instagram",
+            url: "https://www.instagram.com/p/C7KbDZJLhYr/",
+          },
+          {
+            title: "Corte 2 - Instagram",
+            url: "https://www.instagram.com/p/C7KbSI_r5ER/",
+          },
+          {
+            title: "Corte 3 - Instagram",
+            url: "https://www.instagram.com/p/C7Kbqk5rqlk/",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath("assets/crixas_podcast/post_crixas_podcast.png"),
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Entrevista",
+        icon: getPublicAssetPath(
+          "assets/crixas_podcast/post_crixas_podcast.png"
+        ),
+      },
+    },
+    {
       id: "omb-registro",
       type: "milestone",
       position: { x: 35, y: 30 },

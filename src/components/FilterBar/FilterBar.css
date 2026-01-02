@@ -13,13 +13,13 @@
 
 .filter-bar__subtitle {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #2c3e50;
   font-weight: 500;
   font-style: italic;
   text-align: center;
   margin: 0;
   padding: 0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .filter-label {
@@ -145,7 +145,13 @@
 /* Responsive */
 @media (max-width: 768px) {
   .filter-bar {
-    display: none !important; /* Oculta completamente em tablet/mobile */
+    gap: 6px;
+    margin: 8px 0;
+    padding: 10px;
+  }
+  
+  .filter-bar__subtitle {
+    font-size: 0.8rem;
   }
 }
 

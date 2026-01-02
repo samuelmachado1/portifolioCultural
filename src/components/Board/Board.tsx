@@ -21,6 +21,15 @@ export const Board: React.FC<BoardProps> = ({
 
   const timelineItems = houses.slice(0, 15);
 
+  // Garante que o scroll comece no início (primeiro card visível completo)
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Define scroll inicial para 0 (início)
+    container.scrollLeft = 0;
+  }, []);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -97,14 +106,14 @@ export const Board: React.FC<BoardProps> = ({
   };
 
   const scrollLeft = () => {
-    if (containerRef.current) {
+    if (containerRef.current && window.innerWidth > 768) {
       const cardWidth = 320;
       containerRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
-    if (containerRef.current) {
+    if (containerRef.current && window.innerWidth > 768) {
       const cardWidth = 320;
       containerRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
