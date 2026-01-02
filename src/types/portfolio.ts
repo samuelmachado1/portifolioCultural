@@ -36,6 +36,7 @@ export interface ExperienceData {
     videoRelease?: string;
     corte1?: string;
     corte2?: string;
+    corte3?: string;
   };
   impactReport?: {
     investment?: string;
