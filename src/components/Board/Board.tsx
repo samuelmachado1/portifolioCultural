@@ -6,37 +6,28 @@ import './Board.css';
 
 interface BoardProps {
   houses: BoardHouse[];
-  onHouseClick: (house: BoardHouse) => void; // Manter, pode ser útil depois
-  selectedHouse: BoardHouse | null; // Manter, pode ser útil depois
-  // boardConfig: { // Comentar se não for usado imediatamente
-  //   width: number;
-  //   height: number;
-  //   backgroundColor: string;
-  //   pathColor: string;
-  // };
+  onHouseClick: (house: BoardHouse) => void;
+  selectedHouse: BoardHouse | null;
 }
 
 export const Board: React.FC<BoardProps> = ({
   houses,
   onHouseClick,
-  // selectedHouse, // Comentado pois não está sendo usado ainda
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [dragStart, setDragStart] = useState<{ x: number; scrollLeft: number }>({ x: 0, scrollLeft: 0 });
 
-  // As casas já vêm filtradas do Portfolio
   const timelineItems = houses.slice(0, 10);
 
-  // Detectar mudança de posição no scroll
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = 286; // nova largura do card (270px) + gap (16px)
+      const cardWidth = 286;
       const newIndex = Math.round(scrollLeft / cardWidth);
       setCurrentIndex(Math.min(newIndex, timelineItems.length - 1));
     };
@@ -45,7 +36,6 @@ export const Board: React.FC<BoardProps> = ({
     return () => container.removeEventListener('scroll', handleScroll);
   }, [timelineItems.length]);
 
-  // Funcionalidade de arrastar para scroll
   const handleMouseDown = (e: React.MouseEvent) => {
     const container = containerRef.current;
     if (!container) return;
@@ -64,7 +54,7 @@ export const Board: React.FC<BoardProps> = ({
     e.preventDefault();
     const container = containerRef.current;
     const x = e.pageX;
-    const walk = (x - dragStart.x) * 2; // Multiplicador para sensibilidade
+    const walk = (x - dragStart.x) * 2;
     container.scrollLeft = dragStart.scrollLeft - walk;
   };
 
@@ -82,7 +72,6 @@ export const Board: React.FC<BoardProps> = ({
     }
   };
 
-  // Touch events para dispositivos móveis
   const handleTouchStart = (e: React.TouchEvent) => {
     const container = containerRef.current;
     if (!container) return;
@@ -109,22 +98,20 @@ export const Board: React.FC<BoardProps> = ({
 
   const scrollLeft = () => {
     if (containerRef.current) {
-      const cardWidth = 320; // nova largura
+      const cardWidth = 320;
       containerRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
-      const cardWidth = 320; // nova largura
+      const cardWidth = 320;
       containerRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
   };
 
   return (
     <div className="board">
-
-      {/* Container para os cards da linha do tempo */}
       <div className="timeline-navigation">
         <button
           className="timeline-nav-button timeline-nav-left"
@@ -166,23 +153,6 @@ export const Board: React.FC<BoardProps> = ({
           →
         </button>
       </div>
-
-      {/* Estatísticas rápidas */}
-      {/* <div className="timeline-stats">
-        <div className="stat-item">
-          <span className="stat-number">{timelineItems.length}</span>
-          <span className="stat-label">Experiências</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">{currentIndex + 1}</span>
-          <span className="stat-label">Atual</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">{Math.round(((currentIndex + 1) / timelineItems.length) * 100)}%</span>
-          <span className="stat-label">Progresso</span>
-        </div>
-      </div> */}
-
     </div>
   );
 };

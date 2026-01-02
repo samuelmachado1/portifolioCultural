@@ -33,7 +33,7 @@ export interface Achievement {
 }
 
 export const personalInfo: PersonalInfo = {
-  name: "Samuel Machado",
+  name: "Samuel Estrella",
   artisticName: "Samuel Estrella",
   alternativeNames: ["Calangos Sounds", "Calango Rasta"],
   contact: {

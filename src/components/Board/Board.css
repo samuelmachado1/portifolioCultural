@@ -1,4 +1,3 @@
-/* Estilos do tabuleiro - Baseado na imagem fornecida */
 .board {
   width: 100%;
   height: 100%;
@@ -15,31 +14,6 @@
   box-sizing: border-box;
 }
 
-/* Media query para telas grandes (2560x1664 e similares) */
-/* @media (min-width: 2000px) and (min-height: 1400px) {
-  .board {
-    min-height: auto;
-    max-height: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-} */
-
-/* Media query para MacBook Air e laptops similares */
-/* @media (min-width: 1280px) and (max-width: 1920px) and (min-height: 800px) and (max-height: 1200px) {
-  .board {
-    min-height: auto;
-    max-height: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-} */
-
-/* Textura de papel antigo refinada */
 .board-texture {
   position: absolute;
   top: 0;
@@ -47,79 +21,15 @@
   width: 100%;
   height: 100%;
   background-image: 
-    /* Granulação sutil */
-    url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.025"/></svg>'), /* Opacidade da granulação levemente reduzida */
-    /* Manchas suaves com tons mais quentes */
-    radial-gradient(circle at 20% 20%, rgba(222, 184, 135, 0.08) 0%, transparent 40%), /* Burlywood mais suave */
-    radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.06) 0%, transparent 30%), /* Goldenrod mais suave */
-    radial-gradient(circle at 50% 50%, rgba(245, 222, 179, 0.05) 0%, transparent 50%); /* Wheat mais suave */
-  opacity: 0.8; /* Opacidade geral da textura pode ser ajustada */
-  pointer-events: none; /* Para não interferir com cliques */
-  z-index: 0; /* Abaixo das faixas */
+    url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.025"/></svg>'),
+    radial-gradient(circle at 20% 20%, rgba(222, 184, 135, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.06) 0%, transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(245, 222, 179, 0.05) 0%, transparent 50%);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Removendo os estilos das faixas coloridas da tentativa anterior */
-/*
-.board-track {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.6; /* Opacidade geral para as faixas, pode ser ajustada por faixa 
-  z-index: 1; /* Acima da textura, abaixo das casas 
-  pointer-events: none; /* Para não interferir com cliques 
-}
-
-.track-green-dark {
-  width: 110vmin; /* vmin para responsividade baseada na menor dimensão da viewport 
-  height: 110vmin;
-  background: radial-gradient(circle at 30% 70%, #2a5237 0%, transparent 60%);
-  transform: translate(-40%, -60%) rotate(-15deg);
-  opacity: 0.5;
-}
-
-.track-blue {
-  width: 100vmin;
-  height: 100vmin;
-  background: radial-gradient(circle at 70% 30%, #3b769f 0%, transparent 55%);
-  transform: translate(-60%, -40%) rotate(10deg);
-  opacity: 0.55;
-}
-
-.track-orange {
-  width: 95vmin;
-  height: 95vmin;
-  background: radial-gradient(circle at 50% 90%, #c76a3f 0%, transparent 50%);
-  transform: translate(-50%, -70%) rotate(5deg);
-  opacity: 0.6;
-}
-
-.track-yellow {
-  width: 120vmin;
-  height: 120vmin;
-  background: radial-gradient(circle at 80% 80%, #d4a429 0%, transparent 65%);
-  transform: translate(-70%, -65%) rotate(25deg);
-  opacity: 0.45;
-}
-
-.track-green-light {
-  width: 130vmin;
-  height: 130vmin;
-  background: radial-gradient(circle at 20% 30%, #4b8763 0%, transparent 70%);
-  transform: translate(-30%, -45%) rotate(-5deg);
-  opacity: 0.5;
-}
-*/
-
-
-/* Comentando outros elementos visuais para focar no background e faixas */
-/*
-.board-path,
-.board-center,
-.board-decorative-elements {
-  display: none; 
-}
-*/
-
-/* Animações (mantidas caso sejam reutilizadas) */
 @keyframes spin {
   0% { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
@@ -130,112 +40,6 @@
   100% { transform: translate(-50%, -50%) rotate(-360deg); }
 }
 
-/* Estilos para o círculo central e foto (comentados) */
-/*
-.board-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.board-inner-circle {
-  width: 320px; 
-  height: 320px;
-  background: radial-gradient(circle, #e0d8c8 0%, #d4c8b8 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 
-    0 0 0 10px rgba(255, 255, 255, 0.2),
-    0 0 30px rgba(0, 0, 0, 0.2),
-    inset 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.board-logo-area {
-  text-align: center;
-  color: #4a3b30;
-}
-
-.board-photo-container {
-  margin-bottom: 15px;
-}
-
-.board-profile-photo {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  object-fit: cover;
-}
-
-.board-central-text {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #3a2d23;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-}
-
-.board-central-subtitle {
-  font-size: 0.9em;
-  color: #5c4b3e;
-  margin-top: 5px;
-}
-
-.board-decorative-elements {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden; 
-}
-
-.board-curve-accent {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-  border-style: solid;
-}
-
-.board-curve-accent.curve-1 {
-  width: 120vmin;
-  height: 120vmin;
-  border-width: 30vmin;
-  border-color: #4a9d5f; 
-  top: -40vmin;
-  left: -30vmin;
-  transform: rotate(20deg);
-}
-
-.board-curve-accent.curve-2 {
-  width: 100vmin;
-  height: 100vmin;
-  border-width: 25vmin;
-  border-color: #3b82c7; 
-  bottom: -50vmin;
-  right: -40vmin;
-  transform: rotate(-30deg);
-}
-
-.board-curve-accent.curve-3 {
-  width: 80vmin;
-  height: 80vmin;
-  border-width: 20vmin;
-  border-color: #d4642a; 
-  top: 50%;
-  left: 20%;
-  transform: translateY(-50%) rotate(10deg);
-  opacity: 0.07;
-}
-*/
-
-/* Estilos para o header da timeline */
 .timeline-header {
   text-align: center;
   margin: 0;
@@ -261,7 +65,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Media query para telas grandes - compactar header */
 @media (min-width: 2000px) and (min-height: 1400px) {
   .timeline-header {
     margin: 0;
@@ -278,7 +81,6 @@
   }
 }
 
-/* Media query para MacBook Air e laptops similares */
 @media (min-width: 1280px) and (max-width: 1920px) and (min-height: 800px) and (max-height: 1200px) {
   .timeline-header {
     margin: 0;
@@ -299,13 +101,13 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centraliza o conteúdo */
-  width: 100%; /* Mantém dentro dos limites do container */
-  max-width: 100vw; /* Não ultrapassa a largura da viewport */
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
   margin: 0;
-  padding: 0 60px; /* Padding para os botões não sobreporem o conteúdo */
+  padding: 0 60px;
   box-sizing: border-box;
-  overflow: hidden; /* Evita scroll horizontal */
+  overflow: hidden;
 }
 
 .timeline-nav-button {
@@ -342,14 +144,13 @@
 }
 
 .timeline-nav-left {
-  left: 10px; /* Garante que o botão fique dentro da tela */
+  left: 10px;
 }
 
 .timeline-nav-right {
-  right: 10px; /* Garante que o botão fique dentro da tela */
+  right: 10px;
 }
 
-/* Container dos cards da timeline - Horizontal para todas as resoluções */
 .timeline-card-container {
   display: flex;
   flex-direction: row;
@@ -371,7 +172,6 @@
   scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
 }
 
-/* Media query para telas grandes - ajustar container */
 @media (min-width: 2000px) and (min-height: 1400px) {
   .timeline-card-container {
     gap: 12px;
@@ -381,7 +181,6 @@
   }
 }
 
-/* Media query para MacBook Air e laptops similares */
 @media (min-width: 1280px) and (max-width: 1920px) and (min-height: 800px) and (max-height: 1200px) {
   .timeline-card-container {
     gap: 16px;
@@ -395,16 +194,14 @@
   cursor: grabbing;
 }
 
-/* Cards base - dimensões fixas para scroll horizontal */
 .timeline-card-container .timeline-card {
   flex-shrink: 0;
-  width: 270px; /* Reduzido para exibir 4 cards completos */
+  width: 270px;
   min-width: 270px;
   max-width: 270px;
   scroll-snap-align: center;
 }
 
-/* Scrollbar customizada para desktop */
 .timeline-card-container::-webkit-scrollbar {
   height: 8px;
 }
@@ -423,7 +220,6 @@
   background: rgba(139, 92, 246, 0.5);
 }
 
-/* Responsividade para botões de navegação */
 @media (max-width: 768px) {
   .board {
     min-height: 400px;
@@ -437,7 +233,7 @@
   
   .timeline-title {
     font-size: 1.5rem;
-    margin-bottom: 8px; /* Mantém os 8px em mobile também */
+    margin-bottom: 8px;
   }
   
   .timeline-navigation {
@@ -445,7 +241,7 @@
     width: 100%;
     max-width: 100vw;
     margin: 0;
-    padding: 0 50px; /* Espaço para os botões em mobile */
+    padding: 0 50px;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -454,16 +250,14 @@
     gap: 1rem;
     padding: 1rem 0.5rem;
     max-width: 100vw;
-    scrollbar-width: none; /* Remove scrollbar no Firefox */
-    -ms-overflow-style: none; /* Remove scrollbar no IE */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   
-  /* Remove scrollbar no Webkit em mobile */
   .timeline-card-container::-webkit-scrollbar {
     display: none;
   }
   
-  /* Cards menores em mobile */
   .timeline-card-container .timeline-card {
     width: 280px;
     min-width: 280px;
@@ -492,11 +286,11 @@
   }
   
   .timeline-nav-left {
-    left: 0.5rem; /* Garante distância segura da borda em mobile */
+    left: 0.5rem;
   }
   
   .timeline-nav-right {
-    right: 0.5rem; /* Garante distância segura da borda em mobile */
+    right: 0.5rem;
   }
 }
 
@@ -512,14 +306,14 @@
   
   .timeline-title {
     font-size: 1.3rem;
-    margin-bottom: 8px; /* Mantém os 8px em telas pequenas também */
+    margin-bottom: 8px;
   }
   
   .timeline-navigation {
     width: 100%;
     max-width: 100vw;
     margin: 0;
-    padding: 0 45px; /* Espaço reduzido para telas pequenas */
+    padding: 0 45px;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -529,7 +323,6 @@
     gap: 0.75rem;
   }
   
-  /* Cards ainda menores para telas pequenas */
   .timeline-card-container .timeline-card {
     width: 250px;
     min-width: 250px;
@@ -544,18 +337,17 @@
   }
   
   .timeline-nav-left {
-    left: 0.5rem; /* Mantém distância segura mesmo em telas pequenas */
+    left: 0.5rem;
   }
   
   .timeline-nav-right {
-    right: 0.5rem; /* Mantém distância segura mesmo em telas pequenas */
+    right: 0.5rem;
   }
 }
 
-/* Otimização para landscape mobile */
 @media (max-width: 768px) and (orientation: landscape) {
   .board {
-    min-height: 200px; /* Altura reduzida em landscape */
+    min-height: 200px;
   }
   
   .timeline-card-container {
@@ -563,15 +355,14 @@
   }
 }
 
-/* Timeline Stats - Ainda mais compacto para caber na tela */
 .timeline-stats {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin: 5px 0 3px 0;   /* Margem reduzida */
-  padding: 6px;          /* Padding reduzido */
+  margin: 5px 0 3px 0;
+  padding: 6px;
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 6px;    /* Border radius menor */
+  border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
@@ -580,26 +371,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1px;              /* Gap mínimo */
-  min-width: 50px;       /* Largura mínima ainda menor */
+  gap: 1px;
+  min-width: 50px;
 }
 
 .stat-number {
-  font-size: 1.1em;      /* Tamanho reduzido */
+  font-size: 1.1em;
   font-weight: 700;
   color: #74b9ff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .stat-label {
-  font-size: 0.65em;      /* Tamanho reduzido */
+  font-size: 0.65em;
   color: #7f8c8d;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
 
-/* Button states */
 .timeline-nav-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -611,10 +401,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Media query adicional para telas muito pequenas */
 @media (max-width: 360px) {
   .timeline-navigation {
-    padding: 0 40px; /* Reduz ainda mais o padding em telas muito pequenas */
+    padding: 0 40px;
   }
   
   .timeline-nav-button {
@@ -624,10 +413,10 @@
   }
   
   .timeline-nav-left {
-    left: 0.25rem; /* Posiciona muito próximo da borda em telas pequenas */
+    left: 0.25rem;
   }
   
   .timeline-nav-right {
-    right: 0.25rem; /* Posiciona muito próximo da borda em telas pequenas */
+    right: 0.25rem;
   }
 }

@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
     <footer className="portfolio-footer">
       <div className="footer-content">
         <p className="footer-text">
-          Desenvolvido por <span className="footer-highlight">Samuel Machado</span>
+          Desenvolvido por <span className="footer-highlight">Samuel Estrella</span>
         </p>
         <div className="footer-tech">
           <span className="tech-badge">React</span>

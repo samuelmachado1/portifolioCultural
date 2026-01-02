@@ -100,7 +100,7 @@ const portfolioData = {
             url: "https://primeirojornal.com.br/2025/06/festival-curicaca-debate-desafios-para-a-inovacao-em-sao-sebastiao/",
           },
           {
-            title: "LinkedIn - Post de Samuel Machado sobre o Festival",
+            title: "LinkedIn - Post de Samuel Estrella sobre o Festival",
             url: "https://www.linkedin.com/posts/samuel-machado-347204158_festivalcuricaca-inovaaexaeto-lideranaexa-activity-7340535462085779456-jy2F",
           },
         ],
