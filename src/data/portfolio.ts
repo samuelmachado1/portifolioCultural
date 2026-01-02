@@ -572,6 +572,133 @@ const portfolioData = {
       },
     },
     {
+      id: "cineclube-mana-a-mano",
+      type: "experience",
+      position: { x: 85, y: 45 },
+      data: {
+        title: "Cineclube Mana a Mano",
+        date: "Junho a Novembro 2022",
+        description:
+          "Apoio institucional e técnico ao Cineclube Mana a Mano pela Calango Sounds, projeto de exibição de filmes brasileiros na comunidade Zumbi dos Palmares.",
+        fullDescription:
+          "A Calango Sounds atuou como apoiadora do Cineclube Mana a Mano - Edição São Sebastião/DF, projeto cultural realizado pela Casa Taiwo em parceria com Jurumim Produções. O cineclube realizou exibições semanais de filmes prioritariamente nacionais, dando destaque a produções do Distrito Federal, na comunidade Zumbi dos Palmares no Morro da Cruz em São Sebastião/DF. Durante seis meses (junho a novembro de 2022), o projeto proporcionou acesso democrático ao cinema e audiovisual, acontecendo às segundas-feiras à noite, intercalando entre dois pontos da comunidade. Mensalmente, o cineclube promovia sessões especiais com debates entre realizadores e a comunidade, fortalecendo o diálogo sobre a produção audiovisual brasileira. Entre os destaques, estiveram a exibição do longa-metragem 'A roda da vida' com conversa com o diretor William Alves (Festival Taguatinga de Cinema), e o curta 'Eu era o lobisomem da Cei' de Suéllen Batista. O apoio da Calango Sounds incluiu suporte técnico, articulação institucional e contribuição para a infraestrutura das exibições, reafirmando o compromisso com a democratização do acesso à cultura e o fortalecimento das iniciativas culturais comunitárias. O projeto foi realizado com recursos do Fundo de Apoio à Cultura do Distrito Federal.",
+        flyerUrl: getPublicAssetPath(
+          "assets/manamano_cineclube/flyer_principal.png"
+        ),
+        tags: [
+          "cineclube",
+          "audiovisual",
+          "cinema brasileiro",
+          "cultura comunitária",
+          "apoio institucional",
+          "democratização cultural",
+        ],
+        achievements: [
+          "Apoio a mais de 20 sessões de cinema comunitário durante 6 meses",
+          "Suporte técnico para exibições audiovisuais na periferia",
+          "Contribuição para debates com realizadores de cinema do DF",
+          "Fortalecimento do acesso à cultura na comunidade Zumbi dos Palmares",
+          "Parceria com Casa Taiwo, Jurumim Produções e Brigadas Populares DF",
+        ],
+        skills: [
+          "Apoio a Projetos Culturais",
+          "Articulação Institucional",
+          "Suporte Técnico Audiovisual",
+          "Cultura Comunitária",
+          "Democratização Cultural",
+        ],
+        socialLinks: {
+          instagram: "https://www.instagram.com/calangossounds",
+        },
+        links: [
+          {
+            title: "Casa Taiwo",
+            url: "https://www.instagram.com/casataiwo",
+          },
+          {
+            title: "Jurumim Produções",
+            url: "https://www.instagram.com/jurumimproducoes",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath("assets/manamano_cineclube/1a_sessao_2022.gif"),
+          getPublicAssetPath("assets/manamano_cineclube/23a_sessao_2022.gif"),
+          getPublicAssetPath("assets/manamano_cineclube/24a_sessao_2022.gif"),
+          getPublicAssetPath("assets/manamano_cineclube/prog_julho.png"),
+          getPublicAssetPath("assets/manamano_cineclube/prog_agosto.png"),
+          getPublicAssetPath("assets/manamano_cineclube/prog_setembro.png"),
+          getPublicAssetPath("assets/manamano_cineclube/prog_outubro.png"),
+          getPublicAssetPath("assets/manamano_cineclube/prog_novembro.png"),
+        ],
+      },
+      style: {
+        size: "large",
+        theme: "Cine Clube",
+        icon: getPublicAssetPath(
+          "assets/manamano_cineclube/flyer_principal.png"
+        ),
+      },
+    },
+    {
+      id: "oficina-audiovisual-mana-a-mano",
+      type: "experience",
+      position: { x: 90, y: 50 },
+      data: {
+        title: "Oficina de Audiovisual para Dispositivos Móveis",
+        date: "Novembro 2022",
+        description:
+          "Apoio institucional pela Calango Sounds à Oficina de Audiovisual para dispositivos móveis no Centro Educacional São Francisco, integrada ao Cineclube Mana a Mano.",
+        fullDescription:
+          "A Calango Sounds apoiou a realização da Oficina de Audiovisual para Dispositivos Móveis, promovida pelo Cineclube Mana a Mano em parceria com a Cinese Audiovisual. A oficina aconteceu nos dias 07, 09 e 11 de novembro de 2022, às 8h, no Centro Educacional São Francisco (Chicão) em São Sebastião/DF. Ministrada pela cineasta maranhense Alice Lira, diretora executiva da produtora Cinese Audiovisual, a oficina apresentou conceitos básicos da produção audiovisual aos alunos, passando por todas as etapas de produção até a criação de um pequeno filme que foi posteriormente exibido no cineclube. Alice Lira, formada em Cinema e Mídias Digitais, traz vasta experiência com mais de 300 vídeos, 6 filmes de curta-metragem e atuação na área educacional desde 2018. A iniciativa teve como objetivo democratizar o conhecimento audiovisual e capacitar jovens da comunidade local para a produção de conteúdo com seus próprios dispositivos móveis. O projeto foi realizado pela Casa Taiwo em parceria com Jurumim Produções, com apoio das Brigadas Populares DF e Calango Sounds, utilizando recursos do Fundo de Apoio à Cultura do Distrito Federal.",
+        flyerUrl: getPublicAssetPath(
+          "assets/oficina_audiovisual_2022/oficina.gif"
+        ),
+        tags: [
+          "oficina",
+          "audiovisual",
+          "educação",
+          "dispositivos móveis",
+          "cinema",
+          "juventude",
+        ],
+        achievements: [
+          "Capacitação de jovens em produção audiovisual",
+          "Parceria com Cinese Audiovisual e Alice Lira",
+          "Produção de filme pelos alunos exibido no cineclube",
+          "Democratização do conhecimento sobre produção de conteúdo",
+          "Fortalecimento da educação cultural em São Sebastião/DF",
+        ],
+        skills: [
+          "Apoio Educacional",
+          "Produção Audiovisual",
+          "Articulação Institucional",
+          "Formação Cultural",
+          "Educação Comunitária",
+        ],
+        socialLinks: {
+          instagram: "https://www.instagram.com/calangossounds",
+        },
+        links: [
+          {
+            title: "Cinese Audiovisual",
+            url: "https://www.instagram.com/cineseaudiovisual",
+          },
+          {
+            title: "Alice Lira",
+            url: "https://www.instagram.com/alicecinese",
+          },
+        ],
+        eventPhotos: [
+          getPublicAssetPath("assets/oficina_audiovisual_2022/oficina.gif"),
+        ],
+      },
+      style: {
+        size: "medium",
+        theme: "Oficinas",
+        icon: getPublicAssetPath("assets/oficina_audiovisual_2022/oficina.gif"),
+      },
+    },
+    {
       id: "curso-gestao-cultural",
       type: "experience",
       position: { x: 25, y: 60 },
