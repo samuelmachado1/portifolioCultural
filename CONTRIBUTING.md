@@ -19,18 +19,25 @@ git checkout -b feature/nome-da-sua-feature
 
 ### 📝 Convenções de Nomenclatura de Branches
 
-Use prefixos descritivos para suas branches:
+Use prefixos descritivos **EM INGLÊS** para suas branches:
 
 - `feature/` - Nova funcionalidade
-  - Exemplo: `feature/novo-componente-modal`
+  - ✅ Correto: `feature/new-modal-component`
+  - ❌ Incorreto: `feature/novo-componente-modal`
 - `fix/` - Correção de bug
-  - Exemplo: `fix/corrigir-loading-centralizado`
+  - ✅ Correto: `fix/loading-centering-issue`
+  - ❌ Incorreto: `fix/corrigir-loading-centralizado`
 - `style/` - Ajustes de UI/CSS
-  - Exemplo: `style/ajustar-layout-mobile`
+  - ✅ Correto: `style/adjust-mobile-layout`
+  - ❌ Incorreto: `style/ajustar-layout-mobile`
 - `refactor/` - Refatoração de código
-  - Exemplo: `refactor/otimizar-loading`
+  - ✅ Correto: `refactor/optimize-loading`
+  - ❌ Incorreto: `refactor/otimizar-loading`
 - `docs/` - Documentação
-  - Exemplo: `docs/atualizar-readme`
+  - ✅ Correto: `docs/update-readme`
+  - ❌ Incorreto: `docs/atualizar-readme`
+
+**⚠️ IMPORTANTE**: Use sempre **inglês** para nomear branches.
 
 ### 2️⃣ Fazer Alterações e Commit
 
@@ -38,33 +45,43 @@ Use prefixos descritivos para suas branches:
 # Adicionar arquivos modificados
 git add .
 
-# Fazer commit com mensagem descritiva
-git commit -m "feat: adicionar novo componente de modal"
+# Fazer commit com mensagem descritiva EM INGLÊS
+git commit -m "feat: add new modal component"
 ```
 
 ### 📋 Convenção de Mensagens de Commit
 
-Use o padrão Conventional Commits:
+Use o padrão Conventional Commits **EM INGLÊS**:
 
-- `feat:` - Nova funcionalidade
-- `fix:` - Correção de bug
-- `style:` - Mudanças de estilo/formatação
-- `refactor:` - Refatoração de código
-- `docs:` - Mudanças na documentação
-- `test:` - Adicionar ou corrigir testes
-- `chore:` - Tarefas de manutenção
+- `feat:` - Nova funcionalidade (Ex: `feat: add user authentication`)
+- `fix:` - Correção de bug (Ex: `fix: resolve loading centering issue`)
+- `style:` - Mudanças de estilo/formatação (Ex: `style: adjust mobile layout`)
+- `refactor:` - Refatoração de código (Ex: `refactor: optimize loading component`)
+- `docs:` - Mudanças na documentação (Ex: `docs: update README`)
+- `test:` - Adicionar ou corrigir testes (Ex: `test: add unit tests for auth`)
+- `chore:` - Tarefas de manutenção (Ex: `chore: update dependencies`)
 
-### 3️⃣ Enviar para o Repositório Remoto
-
-```bash
-git push origin feature/nome-da-sua-feature
-```
-
+**⚠️ IMPORTANTE**: Todas as mensagens de commit devem ser escritas em **inglês** para manter consistência com as convenções da comunidade de código aberto.
 ### 4️⃣ Abrir um Pull Request
 
 1. Vá para o GitHub: https://github.com/samuelmachado1/portfolioCultural/pulls
 2. Clique em "New Pull Request"
 3. Selecione sua branch
+4. Preencha o template do PR **EM INGLÊS** com:
+   - Descrição das mudanças (description)
+   - Tipo de mudança (type of change)
+   - Como testar (how to test)
+   - Screenshots (se aplicável)
+5. Solicite revisão
+6. Aguarde aprovação e merge
+
+**⚠️ IMPORTANTE**: O título e descrição do Pull Request devem ser escritos em **inglês**.
+
+**Exemplos de títulos de PR:**
+- ✅ `feat: add authentication system`
+- ✅ `fix: resolve mobile layout issues`
+- ✅ `style: improve loading animation`
+- ❌ `feat: adicionar sistema de autenticação`
 4. Preencha o template do PR com:
    - Descrição das mudanças
    - Tipo de mudança
@@ -86,7 +103,7 @@ Se você tentar, receberá esta mensagem de erro:
 
 ```
 ❌ ============================================== ❌
-   PUSH DIRETO PARA A MAIN NÃO É PERMITIDO!
+   DIRECT PUSH TO MAIN IS NOT ALLOWED!
 ❌ ============================================== ❌
 ```
 
@@ -104,25 +121,40 @@ Se você tentar, receberá esta mensagem de erro:
 
 Para ativar as proteções no GitHub, o administrador deve:
 
-1. Ir em **Settings** > **Branches**
-2. Adicionar regra de proteção para `main`:
-   - ✅ Require pull request reviews before merging
-   - ✅ Require status checks to pass before merging
-   - ✅ Require branches to be up to date before merging
-   - ✅ Include administrators (opcional)
-   - ✅ Require review from Code Owners
-
 ## 💡 Dicas
 
 - Mantenha suas branches atualizadas com a main:
   ```bash
   git checkout main
   git pull origin main
-  git checkout sua-branch
+  git checkout your-branch
   git merge main
   ```
 
 - Delete branches locais após merge:
+  ```bash
+  git branch -d feature/branch-name
+  ```
+
+- Delete branches remotas após merge:
+  ```bash
+  git push origin --delete feature/branch-name
+  ```
+
+## 🌐 Padrões de Idioma
+
+### ✅ Use INGLÊS para:
+- **Nomes de branches**: `feature/add-modal`, `fix/button-style`
+- **Mensagens de commit**: `feat: add user profile`, `fix: resolve loading issue`
+- **Títulos de PR**: `feat: implement authentication`
+- **Descrições de PR**: Todo o conteúdo do Pull Request
+- **Código**: Nomes de variáveis, funções, classes, comentários no código
+
+### 📝 Pode usar PORTUGUÊS para:
+- **Comentários em issues**: Discussões podem ser em português
+- **Code reviews**: Comentários de revisão podem ser em português
+- **Documentação interna**: READMEs e guias podem ter versão em português
+- **Comunicação entre equipe**: Mensagens diretas e discussões informaisete branches locais após merge:
   ```bash
   git branch -d feature/nome-da-feature
   ```
