@@ -1,0 +1,23 @@
+name: Branch Protection Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-direct-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block Direct Push to Main
+        run: |
+          echo "❌ Direct push to main branch is not allowed!"
+          echo "Please create a feature branch and open a Pull Request."
+          echo ""
+          echo "How to do this:"
+          echo "1. git checkout -b feature/your-feature"
+          echo "2. git add ."
+          echo "3. git commit -m 'your message'"
+          echo "4. git push origin feature/your-feature"
+          echo "5. Open a Pull Request on GitHub"
+          exit 1

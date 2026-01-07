@@ -244,6 +244,107 @@ MIT License - você pode usar, modificar e distribuir livremente
 
 ---
 
+## 🤝 Contributing
+
+This project uses **branch protection** to ensure code quality. Direct push to `main` is not allowed.
+
+### 🔒 Branch Protection
+
+All changes must go through Pull Requests. The following protections are active:
+- ✅ Pre-push hook blocks direct pushes locally
+- ✅ GitHub workflow blocks direct pushes remotely
+- ✅ Pull Request template standardizes submissions
+- ✅ Code owners review required
+
+### 📋 Workflow
+
+#### 1️⃣ Create a Branch (in English)
+
+```bash
+# Update local main
+git checkout main
+git pull origin main
+
+# Create and switch to new branch
+git checkout -b feature/your-feature-name
+```
+
+**Branch naming conventions** (always in English):
+- `feature/` - New functionality (e.g., `feature/new-modal-component`)
+- `fix/` - Bug fix (e.g., `fix/loading-centering-issue`)
+- `style/` - UI/CSS adjustments (e.g., `style/adjust-mobile-layout`)
+- `refactor/` - Code refactoring (e.g., `refactor/optimize-loading`)
+- `docs/` - Documentation (e.g., `docs/update-readme`)
+
+#### 2️⃣ Make Changes and Commit (in English)
+
+```bash
+git add .
+git commit -m "feat: add new modal component"
+```
+
+**Conventional Commits** (always in English):
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `style:` - Styling/formatting changes
+- `refactor:` - Code refactoring
+- `docs:` - Documentation changes
+- `test:` - Add or fix tests
+- `chore:` - Maintenance tasks
+
+#### 3️⃣ Push to GitHub
+
+```bash
+git push origin feature/your-feature-name
+```
+
+#### 4️⃣ Open a Pull Request
+
+1. Go to: https://github.com/samuelmachado1/portfolioCultural/pulls
+2. Click "New Pull Request"
+3. Fill the PR template **in English**
+4. Request review
+5. Wait for approval and merge
+
+### ⚠️ What NOT to do
+
+❌ **NEVER push directly to main:**
+```bash
+# This will be BLOCKED
+git checkout main
+git push origin main
+```
+
+Error message you'll see:
+```
+❌ ============================================== ❌
+   DIRECT PUSH TO MAIN IS NOT ALLOWED!
+❌ ============================================== ❌
+```
+
+### 🌐 Language Standards
+
+**✅ Use ENGLISH for:**
+- Branch names
+- Commit messages
+- PR titles and descriptions
+- Code (variables, functions, classes, comments)
+
+**📝 Portuguese is OK for:**
+- Issue discussions
+- Code review comments
+- Internal team communication
+
+### 🛠️ Helper Script
+
+Use the provided script to create branches easily:
+
+```bash
+./scripts/new-branch.sh feature my-new-feature
+```
+
+---
+
 ## 📞 Contato
 
 <div align="center">
