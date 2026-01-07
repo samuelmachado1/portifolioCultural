@@ -1644,17 +1644,17 @@ body {
 
 /* ===== CORREÇÃO DE ALINHAMENTO ESPECÍFICA PARA MOBILE ===== */
 @media (max-width: 768px) {
-  /* Garantir alinhamento à esquerda da descrição em todas as telas mobile */
+  /* Garantir alinhamento centralizado da descrição em todas as telas mobile */
   .title-subtitle.typing-animation {
-    text-align: left !important;
-    justify-content: flex-start !important;
+    text-align: center !important;
+    justify-content: center !important;
   }
 }
 
 @media (max-width: 480px) {
-  /* Reforçar alinhamento em telas muito pequenas */
+  /* Reforçar alinhamento centralizado em telas muito pequenas */
   .title-subtitle.typing-animation {
-    text-align: left !important;
-    justify-content: flex-start !important;
+    text-align: center !important;
+    justify-content: center !important;
   }
 }
