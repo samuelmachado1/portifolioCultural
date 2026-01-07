@@ -244,6 +244,34 @@ MIT License - você pode usar, modificar e distribuir livremente
 
 ---
 
+## 🤝 Contribuindo
+
+Este projeto utiliza **proteção de branch** para garantir a qualidade do código. Push direto na `main` não é permitido.
+
+### 📋 Fluxo de Trabalho
+
+1. **Crie uma branch** a partir da main:
+   ```bash
+   git checkout -b feature/sua-feature
+   ```
+
+2. **Faça suas alterações** e commit:
+   ```bash
+   git add .
+   git commit -m "feat: descrição da mudança"
+   ```
+
+3. **Envie para o GitHub**:
+   ```bash
+   git push origin feature/sua-feature
+   ```
+
+4. **Abra um Pull Request** para revisão
+
+📖 **Leia o guia completo**: [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+---
+
 ## 📞 Contato
 
 <div align="center">
