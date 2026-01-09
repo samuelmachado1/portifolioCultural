@@ -366,6 +366,6 @@ Use the provided script to create branches easily:
 
 **⭐ Se este projeto te inspirou, deixe uma star!**
 
-*Feito com ❤️ por Samuel Estrella | © 2026*
+*Feito por Samuel Estrella, tá ligado né!? | © 2025*
 
 </div>
