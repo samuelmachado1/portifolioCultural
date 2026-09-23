@@ -1,36 +1,48 @@
 .filter-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.filter-chip {
-  display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 2px solid rgba(92, 42, 26, 0.25);
-  background: rgba(255, 248, 232, 0.8);
-  color: #3d2914;
-  border-radius: 999px;
-  padding: 6px 12px;
+  min-width: 0;
+}
+
+.filter-bar__label {
+  color: var(--gold);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.filter-bar select {
+  appearance: none;
+  border: 2px solid var(--gold);
+  border-radius: 0;
+  background-color: var(--asphalt);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--gold) 50%),
+    linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) center,
+    calc(100% - 10px) center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  color: var(--ice);
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 8px 28px 8px 12px;
   cursor: pointer;
+  max-width: 100%;
 }
 
-.filter-chip--active {
-  background: #1f6b45;
-  border-color: #1f6b45;
-  color: #fff8e8;
-}
-
-.filter-chip__count {
-  min-width: 1.4rem;
-  padding: 0 6px;
-  border-radius: 999px;
-  background: rgba(61, 41, 20, 0.12);
-  font-size: 0.8rem;
-}
-
-.filter-chip--active .filter-chip__count {
-  background: rgba(255, 248, 232, 0.2);
+.filter-bar select:hover,
+.filter-bar select:focus-visible {
+  border-color: var(--coral);
+  outline: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--coral) 50%),
+    linear-gradient(135deg, var(--coral) 50%, transparent 50%);
 }

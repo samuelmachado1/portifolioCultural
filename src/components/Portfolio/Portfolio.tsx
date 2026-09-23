@@ -1,14 +1,13 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Board } from "../Board/Board";
 import { FilterBar } from "../FilterBar/FilterBar";
 import { Modal } from "../Modal/Modal";
 import { Footer } from "../Footer/Footer";
-import { RegisterPanel } from "../Register/RegisterPanel";
 import { usePortfolio } from "../../hooks/usePortfolio";
-import type { BoardHouse, PortfolioData } from "../../types/portfolio";
+import type { PortfolioData } from "../../types/portfolio";
 import { education, mainPositions, personalInfo } from "../../data/personal-info";
 import samuelAvatar from "../../assets/SamuelEstrella.jpg";
-import { extractYear, parsePortfolioDate } from "../../utils/dates";
+import { parsePortfolioDate } from "../../utils/dates";
 import "../../styles/portfolio.css";
 import "../../styles/board-page.css";
 
@@ -19,17 +18,29 @@ interface PortfolioProps {
 export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   const {
     houses,
-    customHouses,
     selectedHouse,
     selectHouse,
     closeModal,
     isModalOpen,
-    addCustomHouse,
-    removeCustomHouse,
   } = usePortfolio(data.houses);
 
   const [activeFilter, setActiveFilter] = useState<string>("all");
-  const [focusYear, setFocusYear] = useState<{ year: number; token: number } | null>(null);
+  const [focusHouse] = useState<{ id: string; token: number } | null>(() => {
+    const id = new URLSearchParams(window.location.search).get("destaque");
+    return id ? { id, token: Date.now() } : null;
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("destaque")) return;
+    params.delete("destaque");
+    const search = params.toString();
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`
+    );
+  }, []);
 
   const filteredHouses = useMemo(() => {
     const filtered = houses.filter((house) => {
@@ -52,14 +63,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     return counts;
   }, [houses]);
 
-  const handleAdd = (house: BoardHouse) => {
-    addCustomHouse(house);
-    const year = extractYear(house.data?.date ?? "");
-    if (year !== null) {
-      setFocusYear({ year, token: Date.now() });
-    }
-  };
-
   const handleContact = () => {
     const phone = personalInfo.contact.phone.replace(/\s/g, "").replace(/[()-]/g, "");
     const message = encodeURIComponent(
@@ -74,7 +77,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
         <div className="board-page__heading">
           <p className="board-page__kicker">Currículo artístico</p>
           <h1 className="board-page__title">Portfólio</h1>
-          <p className="board-page__subtitle">{data.profile.title}</p>
         </div>
         <div className="board-page__actions">
           <FilterBar
@@ -82,13 +84,11 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             onFilterChange={setActiveFilter}
             itemCounts={itemCounts}
           />
-          <a className="board-page__cadastro" href="#cadastro">
-            Novo registro
-          </a>
           <button type="button" className="board-page__contact" onClick={handleContact}>
             Fale comigo
           </button>
         </div>
+        <p className="board-page__subtitle">{data.profile.title}</p>
       </header>
 
       <main>
@@ -96,7 +96,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
           houses={filteredHouses}
           onHouseClick={selectHouse}
           selectedHouse={selectedHouse}
-          focusYear={focusYear}
+          focusHouse={focusHouse}
           profile={{
             name: personalInfo.artisticName,
             biography: personalInfo.biography,
@@ -131,13 +131,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             </ul>
           </article>
         </section>
-
-        <RegisterPanel
-          records={customHouses}
-          activeFilter={activeFilter}
-          onAdd={handleAdd}
-          onRemove={removeCustomHouse}
-        />
       </main>
 
       <Footer />

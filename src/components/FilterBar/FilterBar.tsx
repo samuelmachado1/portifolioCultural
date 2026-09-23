@@ -19,19 +19,19 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   itemCounts,
 }) => {
   return (
-    <div className="filter-bar" role="group" aria-label="Filtrar registros">
-      {FILTERS.map((filter) => (
-        <button
-          key={filter.id}
-          type="button"
-          className={`filter-chip${activeFilter === filter.id ? " filter-chip--active" : ""}`}
-          aria-pressed={activeFilter === filter.id}
-          onClick={() => onFilterChange(filter.id)}
-        >
-          {filter.label}
-          <span className="filter-chip__count">{itemCounts[filter.id] ?? 0}</span>
-        </button>
-      ))}
-    </div>
+    <label className="filter-bar">
+      <span className="filter-bar__label">Filtro</span>
+      <select
+        value={activeFilter}
+        aria-label="Filtrar registros"
+        onChange={(event) => onFilterChange(event.target.value)}
+      >
+        {FILTERS.map((filter) => (
+          <option key={filter.id} value={filter.id}>
+            {filter.label} ({itemCounts[filter.id] ?? 0})
+          </option>
+        ))}
+      </select>
+    </label>
   );
 };

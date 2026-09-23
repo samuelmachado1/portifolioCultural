@@ -30,13 +30,13 @@ export function groupHousesByYear(houses: BoardHouse[]): YearGroup[] {
   });
 
   return [...grouped.entries()]
-    .sort(([yearA], [yearB]) => yearA - yearB)
+    .sort(([yearA], [yearB]) => yearB - yearA)
     .map(([year, yearHouses]) => ({
       year,
       houses: [...yearHouses].sort(
         (a, b) =>
-          parsePortfolioDate(a.data?.date ?? "").getTime() -
-          parsePortfolioDate(b.data?.date ?? "").getTime()
+          parsePortfolioDate(b.data?.date ?? "").getTime() -
+          parsePortfolioDate(a.data?.date ?? "").getTime()
       ),
     }));
 }

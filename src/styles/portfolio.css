@@ -4,9 +4,9 @@
   height: auto;
   max-height: none;
   min-height: 100vh;
-  background: linear-gradient(165deg, #f8e7c4 0%, #f4d78a 52%, #e8c56a 100%);
-  color: #3d2914;
-  font-family: "Source Sans 3", "Inter", Arial, sans-serif;
+  background: var(--asphalt);
+  color: var(--ice);
+  font-family: var(--font-ui);
   display: flex;
   flex-direction: column;
   overflow: visible;
