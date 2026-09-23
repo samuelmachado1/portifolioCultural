@@ -1,0 +1,129 @@
+.portfolio-container {
+  height: auto !important;
+  max-height: none !important;
+  min-height: 100vh;
+  overflow: visible !important;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(31, 107, 69, 0.16), transparent 26%),
+    radial-gradient(circle at 92% 6%, rgba(180, 35, 24, 0.14), transparent 24%),
+    radial-gradient(circle at 80% 90%, rgba(196, 123, 18, 0.18), transparent 28%),
+    linear-gradient(165deg, #f8e7c4 0%, #f4d78a 52%, #e8c56a 100%) !important;
+  color: #3d2914;
+  font-family: "Source Sans 3", "Inter", sans-serif;
+}
+
+.board-page__header {
+  width: min(1120px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 16px 0 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.board-page__kicker {
+  margin: 0 0 4px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #8d3414;
+}
+
+.board-page__title {
+  margin: 0;
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #5c2a1a;
+}
+
+.board-page__subtitle {
+  margin: 8px 0 0;
+  max-width: 520px;
+  color: #6b3a1f;
+  font-size: 1rem;
+}
+
+.board-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.board-page__cadastro,
+.board-page__contact {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.board-page__cadastro {
+  background: #b42318;
+  color: #fff8e8;
+}
+
+.board-page__contact {
+  background: #5c2a1a;
+  color: #fff8e8;
+}
+
+.board-extras {
+  width: min(1120px, calc(100% - 24px));
+  margin: 22px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 16px;
+}
+
+.board-extra {
+  background: rgba(255, 248, 232, 0.92);
+  border-radius: 18px;
+  padding: 18px 18px 8px;
+  border: 2px solid rgba(92, 42, 26, 0.16);
+}
+
+.board-extra h2 {
+  margin: 0 0 10px;
+  font-family: Fraunces, Georgia, serif;
+  color: #1f6b45;
+  font-size: 1.6rem;
+}
+
+.board-extra ul {
+  margin: 0;
+  padding: 0 0 8px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.board-extra li {
+  line-height: 1.35;
+}
+
+.board-extra li span {
+  display: block;
+  color: #6b3a1f;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 800px) {
+  .board-page__header,
+  .board-extras {
+    flex-direction: column;
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .board-page__actions {
+    justify-content: flex-start;
+  }
+}
