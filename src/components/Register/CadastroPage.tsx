@@ -12,11 +12,10 @@ interface CadastroPageProps {
 }
 
 export const CadastroPage: React.FC<CadastroPageProps> = ({ data }) => {
-  const { customHouses, addCustomHouse, removeCustomHouse } = usePortfolio(data.houses);
+  const { houses, addCustomHouse, updateHouse, removeHouse } = usePortfolio(data.houses);
 
   const handleAdd = (house: BoardHouse) => {
     addCustomHouse(house);
-    navigate(`/?destaque=${encodeURIComponent(house.id)}`);
   };
 
   return (
@@ -45,9 +44,10 @@ export const CadastroPage: React.FC<CadastroPageProps> = ({ data }) => {
 
       <main>
         <RegisterPanel
-          records={customHouses}
+          records={houses.filter((house) => house.type === "experience" || house.type === "milestone")}
           onAdd={handleAdd}
-          onRemove={removeCustomHouse}
+          onUpdate={updateHouse}
+          onRemove={removeHouse}
         />
       </main>
 

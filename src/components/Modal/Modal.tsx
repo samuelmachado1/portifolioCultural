@@ -114,7 +114,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
             </div>
           )}
 
-          {(data.flyerUrl || data.socialLinks?.video || data.socialLinks?.release || data.socialLinks?.videoRelease || data.socialLinks?.comunicado || data.socialLinks?.oficio) && (
+          {(data.flyerUrl || data.socialLinks?.video || data.videos?.length || data.socialLinks?.release || data.socialLinks?.videoRelease || data.socialLinks?.comunicado || data.socialLinks?.oficio) && (
             <div className="modal-media-section">
               <h3>Mídia do Evento</h3>
               <div className="modal-media-container">
@@ -162,6 +162,30 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                     )}
                   </div>
                 )}
+
+                {data.videos
+                  ?.filter((video) => video && video !== data.socialLinks?.video)
+                  .map((video, index) => (
+                    <div className="modal-media-item" key={`extra-video-${index}`}>
+                      <h4>Vídeo {index + 2}</h4>
+                      {video.includes("youtube.com") || video.includes("youtu.be") || video.includes("embed") ? (
+                        <iframe
+                          className="modal-video"
+                          src={video.includes("watch?v=") ? video.replace("watch?v=", "embed/").split("&")[0] : video}
+                          title={`Vídeo ${index + 2}`}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          style={{ width: "100%", aspectRatio: "16/9", borderRadius: "8px" }}
+                        />
+                      ) : (
+                        <video controls className="modal-video" preload="metadata" playsInline>
+                          <source src={video} type="video/mp4" />
+                          <source src={video} type="video/webm" />
+                        </video>
+                      )}
+                    </div>
+                  ))}
 
                 {data.socialLinks?.release && (
                   <div className="modal-media-item">

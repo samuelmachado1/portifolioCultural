@@ -52,6 +52,7 @@ export interface ExperienceData {
     odsAlignment?: string[];
   };
   eventPhotos?: string[];
+  videos?: string[];
 }
 
 export interface HouseStyle {
