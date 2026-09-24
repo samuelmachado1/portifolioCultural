@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { BoardHouse } from '../../types/portfolio';
 import { activityLabel } from '../../utils/activities';
+import { houseImage } from '../../utils/groupByYear';
 import { ImageModal } from '../ImageModal/ImageModal';
 import './Modal.css';
 
@@ -45,6 +46,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
   if (!isOpen || !house?.data) return null;
 
   const { data } = house;
+  const iconSrc = houseImage(house) || data.eventPhotos?.find((photo) => photo.trim());
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -75,9 +77,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
         <div className="modal-header">
           <div className="modal-title-section">
             <div className="modal-icon">
-              {house.style.icon && (house.style.icon.includes('.') || house.style.icon.startsWith('/')) ? (
+              {iconSrc ? (
                 <img
-                  src={house.style.icon}
+                  src={iconSrc}
                   alt={`Ícone ${data.title}`}
                   className="modal-icon-image"
                   style={{
