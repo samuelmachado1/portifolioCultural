@@ -430,7 +430,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
             </div>
           )}
 
-          {(data.links && data.links.length > 0) || data.socialLinks && (
+          {((data.links && data.links.length > 0) || data.socialLinks) && (
             <div className="modal-section">
               <h3>Links Relacionados</h3>
               <div className="modal-links">

@@ -1,214 +1,184 @@
-import React, { useRef, useState, useEffect } from 'react';
-import type { BoardHouse } from '../../types/portfolio';
-import { TimelineCard } from '../TimelineCard/TimelineCard';
-import '../TimelineCard/TimelineCard.css';
-import './Board.css';
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import type { BoardHouse } from "../../types/portfolio";
+import { groupHousesByYear, houseImage } from "../../utils/groupByYear";
+import "./Board.css";
+
+export interface BoardProfile {
+  name: string;
+  biography: string;
+  yearsActive: number;
+  email: string;
+  phone: string;
+  avatarSrc: string;
+  alternativeNames: string[];
+}
 
 interface BoardProps {
   houses: BoardHouse[];
   onHouseClick: (house: BoardHouse) => void;
   selectedHouse: BoardHouse | null;
+  profile: BoardProfile;
+  focusHouse?: { id: string; token: number } | null;
+}
+
+type PathCell =
+  | { kind: "year"; year: number; key: string; accent: string }
+  | { kind: "stop"; house: BoardHouse; key: string; accent: string; year: number };
+
+const HOUSE_COLORS = ["var(--matrix)", "var(--gold)", "var(--coral)", "var(--black)"];
+
+function useColumns() {
+  const [columns, setColumns] = useState(8);
+
+  useEffect(() => {
+    const update = () => {
+      const width = window.innerWidth;
+      if (width <= 560) setColumns(3);
+      else if (width <= 900) setColumns(5);
+      else setColumns(8);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return columns;
+}
+
+function snakeSlot(index: number, columns: number) {
+  const row = Math.floor(index / columns);
+  const offset = index % columns;
+  const col = row % 2 === 0 ? offset + 1 : columns - offset;
+  return { row: row + 1, col };
+}
+
+function pathArrow(index: number, total: number, columns: number) {
+  if (index >= total - 1) return null;
+  const row = Math.floor(index / columns);
+  const endOfRow = index % columns === columns - 1;
+  if (endOfRow) return "down";
+  return row % 2 === 0 ? "right" : "left";
 }
 
 export const Board: React.FC<BoardProps> = ({
   houses,
   onHouseClick,
+  selectedHouse,
+  profile,
+  focusHouse,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [dragStart, setDragStart] = useState<{ x: number; scrollLeft: number }>({ x: 0, scrollLeft: 0 });
-
-  const parseDate = (dateStr: string): Date => {
-    const cleanDate = dateStr.split(' - ')[0].trim();
-
-    const meses: { [key: string]: number } = {
-      'Janeiro': 0, 'Fevereiro': 1, 'Março': 2, 'Abril': 3,
-      'Maio': 4, 'Junho': 5, 'Julho': 6, 'Agosto': 7,
-      'Setembro': 8, 'Outubro': 9, 'Novembro': 10, 'Dezembro': 11
-    };
-
-    const parts = cleanDate.match(/(\d+)?\s*de\s*(\w+)\s*de\s*(\d{4})|(\w+)\s+(\d{4})/);
-
-    if (parts) {
-      if (parts[1] && parts[2] && parts[3]) {
-        const dia = parseInt(parts[1]);
-        const mes = meses[parts[2]];
-        const ano = parseInt(parts[3]);
-        return new Date(ano, mes, dia);
-      } else if (parts[4] && parts[5]) {
-        const mes = meses[parts[4]];
-        const ano = parseInt(parts[5]);
-        return new Date(ano, mes, 1);
-      }
-    }
-
-    return new Date(1900, 0, 1);
-  };
-
-  const timelineItems = [...houses]
-    .filter(house => house.data?.date)
-    .sort((a, b) => {
-      const dateA = a.data?.date ? parseDate(a.data.date).getTime() : 0;
-      const dateB = b.data?.date ? parseDate(b.data.date).getTime() : 0;
-      return dateB - dateA;
-    })
-    .slice(0, 15);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    container.scrollLeft = 0;
-
-    const timeoutId = setTimeout(() => {
-      if (container) {
-        container.scrollLeft = 0;
-      }
-    }, 0);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    container.scrollLeft = 0;
-  }, [timelineItems.length]);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = 286;
-      const newIndex = Math.round(scrollLeft / cardWidth);
-      setCurrentIndex(Math.min(newIndex, timelineItems.length - 1));
-    };
-
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, [timelineItems.length]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    setIsDragging(true);
-    setDragStart({
-      x: e.pageX,
-      scrollLeft: container.scrollLeft
+  const columns = useColumns();
+  const seenFocus = useRef<number | null>(null);
+  const groups = useMemo(() => groupHousesByYear(houses), [houses]);
+  const cells = useMemo<PathCell[]>(() => {
+    const next: PathCell[] = [];
+    groups.forEach((group, groupIndex) => {
+      const accent = HOUSE_COLORS[groupIndex % HOUSE_COLORS.length];
+      next.push({ kind: "year", year: group.year, key: `year-${group.year}`, accent });
+      group.houses.forEach((house) => {
+        next.push({ kind: "stop", house, key: house.id, accent, year: group.year });
+      });
     });
-    container.style.cursor = 'grabbing';
-  };
+    return next;
+  }, [groups]);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !containerRef.current) return;
-
-    e.preventDefault();
-    const container = containerRef.current;
-    const x = e.pageX;
-    const walk = (x - dragStart.x) * 2;
-    container.scrollLeft = dragStart.scrollLeft - walk;
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grab';
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grab';
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    setIsDragging(true);
-    setDragStart({
-      x: e.touches[0].pageX,
-      scrollLeft: container.scrollLeft
-    });
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !containerRef.current) return;
-
-    const container = containerRef.current;
-    const x = e.touches[0].pageX;
-    const walk = (x - dragStart.x) * 2;
-    container.scrollLeft = dragStart.scrollLeft - walk;
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-  };
-
-  const scrollLeft = () => {
-    if (containerRef.current && window.innerWidth > 768) {
-      const cardWidth = 320;
-      containerRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (containerRef.current && window.innerWidth > 768) {
-      const cardWidth = 320;
-      containerRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
-    }
-  };
+  useEffect(() => {
+    if (!focusHouse || focusHouse.token === seenFocus.current) return;
+    const node = document.getElementById(`stop-${focusHouse.id}`);
+    if (!node) return;
+    seenFocus.current = focusHouse.token;
+    node.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [focusHouse, cells]);
 
   return (
-    <div className="board">
-      <div className="timeline-navigation">
-        <button
-          className="timeline-nav-button timeline-nav-left"
-          onClick={scrollLeft}
-          aria-label="Navegar para experiências anteriores"
-          disabled={currentIndex === 0}
-        >
-          ←
-        </button>
-
-        <div
-          className="timeline-card-container"
-          ref={containerRef}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
-        >
-          {timelineItems.map((house, index) => (
-            <TimelineCard
-              key={house.id}
-              house={house}
-              onClick={onHouseClick}
-              index={index}
-            />
-          ))}
+    <section className="game-board" aria-label="Tabuleiro cronológico">
+      <aside className="life-player">
+        <img src={profile.avatarSrc} alt={profile.name} className="life-player__avatar" />
+        <div className="life-player__copy">
+          <h2>{profile.name}</h2>
+          {profile.alternativeNames.length > 0 && (
+            <p className="life-player__aka">
+              Por vezes citado como {profile.alternativeNames.join(", ")}
+            </p>
+          )}
+          <p className="life-player__years">
+            Atua no campo da cultura há {profile.yearsActive} anos.
+          </p>
+          <p className="life-player__bio">{profile.biography}</p>
+          <div className="life-player__contacts">
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <span>{profile.phone}</span>
+          </div>
         </div>
+      </aside>
 
-        <button
-          className="timeline-nav-button timeline-nav-right"
-          onClick={scrollRight}
-          aria-label="Navegar para próximas experiências"
-          disabled={currentIndex >= timelineItems.length - 1}
+      <p className="game-board__direction">
+        Cada casa é um momento da trajetória. Siga as setas, da experiência mais recente à mais antiga.
+      </p>
+
+      {cells.length === 0 ? (
+        <p className="game-board__empty">Nenhum registro neste filtro.</p>
+      ) : (
+        <div
+          className="life-board"
+          style={{ "--cols": columns } as React.CSSProperties}
         >
-          →
-        </button>
-      </div>
-    </div>
+          {cells.map((cell, index) => {
+            const slot = snakeSlot(index, columns);
+            const arrow = pathArrow(index, cells.length, columns);
+            const onBlack = cell.accent === "var(--black)";
+            const nextCell = cells[index + 1];
+            const linked = Boolean(arrow && nextCell && nextCell.year === cell.year);
+            const placement = {
+              gridRow: slot.row,
+              gridColumn: slot.col,
+              "--house-accent": cell.accent,
+            } as React.CSSProperties;
+
+            if (cell.kind === "year") {
+              return (
+                <div
+                  key={cell.key}
+                  id={`year-house-${cell.year}`}
+                  className={`life-year${onBlack ? " life-year--black" : ""}`}
+                  style={placement}
+                  aria-label={`Ano ${cell.year}`}
+                >
+                  {index === 0 && <span className="life-year__start">Agora</span>}
+                  <span className="life-year__label">‹{cell.year}</span>
+                  {linked && arrow && (
+                    <span className={`life-link life-link--${arrow}${onBlack ? " life-link--black" : ""}`} aria-hidden="true" />
+                  )}
+                  {arrow && <span className={`life-arrow life-arrow--${arrow}`} aria-hidden="true" />}
+                </div>
+              );
+            }
+
+            const image = houseImage(cell.house);
+            const selected = selectedHouse?.id === cell.house.id;
+            return (
+              <button
+                key={cell.key}
+                id={`stop-${cell.house.id}`}
+                type="button"
+                className={`life-stop${image ? " life-stop--photo" : ""}${onBlack ? " life-stop--black" : ""}${selected ? " life-stop--selected" : ""}`}
+                style={{
+                  ...placement,
+                  "--house-image": image ? `url("${image.replace(/"/g, "")}")` : "none",
+                } as React.CSSProperties}
+                aria-label={`${cell.house.data?.title ?? "Registro"}, ${cell.house.data?.date ?? ""}`}
+                onClick={() => onHouseClick(cell.house)}
+              >
+                <span className="life-stop__title">{cell.house.data?.title}</span>
+                {linked && arrow && (
+                  <span className={`life-link life-link--${arrow}${onBlack ? " life-link--black" : ""}`} aria-hidden="true" />
+                )}
+                {arrow && <span className={`life-arrow life-arrow--${arrow}`} aria-hidden="true" />}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </section>
   );
 };

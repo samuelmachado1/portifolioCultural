@@ -32,6 +32,8 @@ export interface Achievement {
   url?: string;
 }
 
+const reggaeNaPracaYears = new Date().getFullYear() - 2013;
+
 export const personalInfo: PersonalInfo = {
   name: "Samuel Estrella",
   artisticName: "Samuel Estrella",
@@ -44,9 +46,7 @@ export const personalInfo: PersonalInfo = {
       facebook: "facebook.com/samuelestrellareggae",
     },
   },
-  biography: `Nasci em Brasília/DF, autodidata, com 12 anos já tocava violão em celebrações e encontros religiosos. Com a banda "Louvor da Alma" participei de diversos festivais de música católica. Aos 16 anos, tive minhas primeiras experiências como músico profissional me apresentando em eventos culturais, saraus e eventos particulares. 
-
-Em 2012 já com produtora própria chamada "Calangos Sound System", realizamos nosso primeiro evento de forma independente, foi o "SOUND SYSTEM", que serviu de laboratório para o projeto hoje chamado de "REGGAE NA PRAÇA" que já teve 8 edições desde o seu início. Fundador da banda "Calango Rasta", que teve seu primeiro single lançado em 2012 pela produtora Unidade 76, também sou compositor e vocalista da banda.`,
+  biography: `Desenvolvedor de software, músico e produtor cultural, Samuel Estrella (@techrastabr) atua na intersecção entre tecnologia, arte e impacto social, sendo uma voz ativa na cena independente do Distrito Federal. Equilibrando sua carreira no mundo tech com um forte trabalho de base, ele é coordenador de conteúdo da CRIPTOBAILE e produtor geral e idealizador do festival Reggae na Praça — evento que há mais de ${reggaeNaPracaYears} anos promove resistência cultural, democratiza o acesso à arte e garante o direito à cidade para a juventude de São Sebastião (DF). Acreditando no poder da arte e tecnologia como ferramentas de transformação, Samuel mostra que a cultura de rua e a inovação tecnológica caminham juntas na construção de um futuro com mais oportunidades.`,
   yearsActive: new Date().getFullYear() - 2009,
   registrations: [
     "Músico registrado na Ordem dos Músicos do Brasil – OMB/DF desde 2009",

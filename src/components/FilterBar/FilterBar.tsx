@@ -1,5 +1,5 @@
-import React from 'react';
-import './FilterBar.css';
+import React from "react";
+import "./FilterBar.css";
 
 interface FilterBarProps {
   activeFilter: string;
@@ -7,12 +7,31 @@ interface FilterBarProps {
   itemCounts: { [key: string]: number };
 }
 
-export const FilterBar: React.FC<FilterBarProps> = () => {
+const FILTERS = [
+  { id: "all", label: "Todos" },
+  { id: "experience", label: "Experiências" },
+  { id: "milestone", label: "Marcos" },
+];
+
+export const FilterBar: React.FC<FilterBarProps> = ({
+  activeFilter,
+  onFilterChange,
+  itemCounts,
+}) => {
   return (
-    <div className="filter-bar">
-      <p className="filter-bar__subtitle">
-        Por vezes citado como TechRasta, Calangos Sounds ou Calango Rasta
-      </p>
-    </div>
+    <label className="filter-bar">
+      <span className="filter-bar__label">Filtro</span>
+      <select
+        value={activeFilter}
+        aria-label="Filtrar registros"
+        onChange={(event) => onFilterChange(event.target.value)}
+      >
+        {FILTERS.map((filter) => (
+          <option key={filter.id} value={filter.id}>
+            {filter.label} ({itemCounts[filter.id] ?? 0})
+          </option>
+        ))}
+      </select>
+    </label>
   );
 };

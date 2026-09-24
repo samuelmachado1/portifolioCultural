@@ -57,7 +57,7 @@
   background: rgba(0, 0, 0, 0.7);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  color: white;
+  color: var(--ice);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -68,8 +68,9 @@
 }
 
 .image-modal-close:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--on-accent);
   transform: scale(1.1);
 }
 
@@ -107,11 +108,11 @@
   backdrop-filter: blur(10px);
   border-radius: 10px;
   margin-top: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--gold);
 }
 
 .image-modal-caption {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--ice);
   margin: 0;
   font-size: 1rem;
   font-weight: 500;
