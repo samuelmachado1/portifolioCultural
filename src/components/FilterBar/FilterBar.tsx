@@ -1,22 +1,23 @@
 import React from "react";
 import "./FilterBar.css";
 
+export interface FilterOption {
+  id: string;
+  label: string;
+}
+
 interface FilterBarProps {
   activeFilter: string;
   onFilterChange: (filter: string) => void;
   itemCounts: { [key: string]: number };
+  filters: FilterOption[];
 }
-
-const FILTERS = [
-  { id: "all", label: "Todos" },
-  { id: "experience", label: "Experiências" },
-  { id: "milestone", label: "Marcos" },
-];
 
 export const FilterBar: React.FC<FilterBarProps> = ({
   activeFilter,
   onFilterChange,
   itemCounts,
+  filters,
 }) => {
   return (
     <label className="filter-bar">
@@ -26,7 +27,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         aria-label="Filtrar registros"
         onChange={(event) => onFilterChange(event.target.value)}
       >
-        {FILTERS.map((filter) => (
+        {filters.map((filter) => (
           <option key={filter.id} value={filter.id}>
             {filter.label} ({itemCounts[filter.id] ?? 0})
           </option>

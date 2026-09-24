@@ -7,6 +7,7 @@ import { usePortfolio } from "../../hooks/usePortfolio";
 import type { PortfolioData } from "../../types/portfolio";
 import { education, mainPositions, personalInfo } from "../../data/personal-info";
 import samuelAvatar from "../../assets/SamuelEstrella.jpg";
+import { activityLabel } from "../../utils/activities";
 import { parsePortfolioDate } from "../../utils/dates";
 import "../../styles/portfolio.css";
 import "../../styles/board-page.css";
@@ -42,10 +43,17 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
     );
   }, []);
 
+  const filters = useMemo(() => {
+    const labels = [...new Set(houses.map((house) => activityLabel(house.style.theme)))].sort((a, b) =>
+      a.localeCompare(b, "pt")
+    );
+    return [{ id: "all", label: "Todos" }, ...labels.map((label) => ({ id: label, label }))];
+  }, [houses]);
+
   const filteredHouses = useMemo(() => {
     const filtered = houses.filter((house) => {
       if (activeFilter === "all") return true;
-      return house.type === activeFilter;
+      return activityLabel(house.style.theme) === activeFilter;
     });
 
     return filtered.sort(
@@ -58,7 +66,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
   const itemCounts = useMemo(() => {
     const counts: { [key: string]: number } = { all: houses.length };
     houses.forEach((house) => {
-      counts[house.type] = (counts[house.type] || 0) + 1;
+      const activity = activityLabel(house.style.theme);
+      counts[activity] = (counts[activity] || 0) + 1;
     });
     return counts;
   }, [houses]);
@@ -83,6 +92,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ data }) => {
             activeFilter={activeFilter}
             onFilterChange={setActiveFilter}
             itemCounts={itemCounts}
+            filters={filters}
           />
           <button type="button" className="board-page__contact" onClick={handleContact}>
             Fale comigo
