@@ -49,7 +49,7 @@ const EMPTY_FORM: FormState = {
 };
 
 const MAX_IMAGE_BYTES = 800_000;
-const MAX_VIDEO_BYTES = 1_200_000;
+const MAX_VIDEO_BYTES = 3_000_000;
 
 function isWebPath(value: string) {
   return value.startsWith("https://") || value.startsWith("http://") || value.startsWith("/");
@@ -87,7 +87,7 @@ function readVideoFile(file: File): Promise<string> {
       return;
     }
     if (file.size > MAX_VIDEO_BYTES) {
-      reject(new Error("Cada vídeo precisa ter até 1,2 MB para caber neste navegador."));
+      reject(new Error("Cada vídeo precisa ter até 3 MB para caber neste navegador."));
       return;
     }
     const reader = new FileReader();
@@ -394,7 +394,7 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
           <summary>Fotos, vídeos e links (opcional)</summary>
           <p className="register-extra__hint">
             Nada disso é obrigatório. Fotos e vídeos podem ser um link ou um arquivo deste dispositivo
-            (imagem até 800 KB, vídeo até 1,2 MB).
+            (imagem até 800 KB, vídeo até 3 MB).
           </p>
 
           <div className="register-extra__grid">
