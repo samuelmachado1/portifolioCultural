@@ -100,6 +100,8 @@
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   gap: 16px 14px;
+  --band-x: 14px;
+  --band-y: 16px;
   padding: 22px;
   background: var(--surface);
   border: 1px solid rgba(242, 242, 242, 0.1);
@@ -110,6 +112,7 @@
 .life-stop,
 .life-year {
   position: relative;
+  z-index: 1;
   aspect-ratio: 1;
   min-height: 0;
   border-radius: 16px;
@@ -212,33 +215,69 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
+.life-link {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--house-accent) 62%, transparent);
+}
+
+.life-link--black {
+  background: rgba(242, 242, 242, 0.42);
+}
+
+.life-link--right {
+  top: 50%;
+  right: calc(var(--band-x) * -1);
+  width: calc(var(--band-x) + 8px);
+  height: 4px;
+  transform: translateY(-50%);
+}
+
+.life-link--left {
+  top: 50%;
+  left: calc(var(--band-x) * -1);
+  width: calc(var(--band-x) + 8px);
+  height: 4px;
+  transform: translateY(-50%);
+}
+
+.life-link--down {
+  left: 50%;
+  bottom: calc(var(--band-y) * -1);
+  width: 4px;
+  height: calc(var(--band-y) + 8px);
+  transform: translateX(-50%);
+}
+
 .life-arrow {
   position: absolute;
   width: 0;
   height: 0;
   z-index: 2;
-  border: 7px solid transparent;
+  border: 4px solid transparent;
 }
 
 .life-arrow--right {
-  right: -15px;
+  right: calc((var(--band-x) + 2px) * -1);
   top: 50%;
   transform: translateY(-50%);
-  border-left-color: rgba(242, 242, 242, 0.55);
+  border-left-color: rgba(242, 242, 242, 0.72);
 }
 
 .life-arrow--left {
-  left: -15px;
+  left: calc((var(--band-x) + 2px) * -1);
   top: 50%;
   transform: translateY(-50%);
-  border-right-color: rgba(242, 242, 242, 0.55);
+  border-right-color: rgba(242, 242, 242, 0.72);
 }
 
 .life-arrow--down {
-  bottom: -17px;
+  bottom: calc((var(--band-y) + 2px) * -1);
   left: 50%;
   transform: translateX(-50%);
-  border-top-color: rgba(242, 242, 242, 0.55);
+  border-top-color: rgba(242, 242, 242, 0.72);
 }
 
 @media (max-width: 760px) {
@@ -267,6 +306,8 @@
   }
 
   .life-board {
+    --band-x: 10px;
+    --band-y: 14px;
     gap: 14px 10px;
     padding: 14px;
   }

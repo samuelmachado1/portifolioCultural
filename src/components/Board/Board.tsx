@@ -23,7 +23,7 @@ interface BoardProps {
 
 type PathCell =
   | { kind: "year"; year: number; key: string; accent: string }
-  | { kind: "stop"; house: BoardHouse; key: string; accent: string };
+  | { kind: "stop"; house: BoardHouse; key: string; accent: string; year: number };
 
 const HOUSE_COLORS = ["var(--matrix)", "var(--gold)", "var(--coral)", "var(--black)"];
 
@@ -76,7 +76,7 @@ export const Board: React.FC<BoardProps> = ({
       const accent = HOUSE_COLORS[groupIndex % HOUSE_COLORS.length];
       next.push({ kind: "year", year: group.year, key: `year-${group.year}`, accent });
       group.houses.forEach((house) => {
-        next.push({ kind: "stop", house, key: house.id, accent });
+        next.push({ kind: "stop", house, key: house.id, accent, year: group.year });
       });
     });
     return next;
@@ -127,6 +127,8 @@ export const Board: React.FC<BoardProps> = ({
             const slot = snakeSlot(index, columns);
             const arrow = pathArrow(index, cells.length, columns);
             const onBlack = cell.accent === "var(--black)";
+            const nextCell = cells[index + 1];
+            const linked = Boolean(arrow && nextCell && nextCell.year === cell.year);
             const placement = {
               gridRow: slot.row,
               gridColumn: slot.col,
@@ -144,6 +146,9 @@ export const Board: React.FC<BoardProps> = ({
                 >
                   {index === 0 && <span className="life-year__start">Agora</span>}
                   <span className="life-year__label">‹{cell.year}</span>
+                  {linked && arrow && (
+                    <span className={`life-link life-link--${arrow}${onBlack ? " life-link--black" : ""}`} aria-hidden="true" />
+                  )}
                   {arrow && <span className={`life-arrow life-arrow--${arrow}`} aria-hidden="true" />}
                 </div>
               );
@@ -165,6 +170,9 @@ export const Board: React.FC<BoardProps> = ({
                 onClick={() => onHouseClick(cell.house)}
               >
                 <span className="life-stop__title">{cell.house.data?.title}</span>
+                {linked && arrow && (
+                  <span className={`life-link life-link--${arrow}${onBlack ? " life-link--black" : ""}`} aria-hidden="true" />
+                )}
                 {arrow && <span className={`life-arrow life-arrow--${arrow}`} aria-hidden="true" />}
               </button>
             );
