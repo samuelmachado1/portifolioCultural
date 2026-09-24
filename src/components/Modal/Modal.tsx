@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { BoardHouse } from '../../types/portfolio';
+import { activityLabel } from '../../utils/activities';
 import { ImageModal } from '../ImageModal/ImageModal';
 import './Modal.css';
 
@@ -96,8 +97,8 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
             </div>
           </div>
           <div className="modal-badge-container">
-            <span className={`modal-badge ${house.style.theme}`}>
-              {house.style.theme}
+            <span className="modal-badge">
+              {activityLabel(house.style.theme)}
             </span>
           </div>
         </div>

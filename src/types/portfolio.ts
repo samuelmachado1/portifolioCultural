@@ -57,7 +57,7 @@ export interface ExperienceData {
 
 export interface HouseStyle {
   size: "small" | "medium" | "large";
-  theme: "cultural" | "artistic" | "production" | "education" | "milestone";
+  theme: string;
   customCSS?: string;
   icon?: string;
 }

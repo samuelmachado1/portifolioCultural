@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { BoardHouse } from "../../types/portfolio";
+import { activityLabel, activityOptions } from "../../utils/activities";
 import { extractYear } from "../../utils/dates";
 import "./RegisterPanel.css";
 
@@ -20,6 +21,7 @@ interface FormState {
   date: string;
   description: string;
   type: "experience" | "milestone";
+  activity: string;
   imageUrl: string;
   photos: string[];
   videos: string[];
@@ -35,6 +37,7 @@ const EMPTY_FORM: FormState = {
   date: "",
   description: "",
   type: "experience",
+  activity: "",
   imageUrl: "",
   photos: [],
   videos: [],
@@ -105,6 +108,7 @@ function houseToForm(house: BoardHouse): FormState {
     date: data?.date ?? "",
     description: data?.description ?? "",
     type: house.type === "milestone" ? "milestone" : "experience",
+    activity: activityLabel(house.style.theme),
     imageUrl: data?.flyerUrl ?? "",
     photos: data?.eventPhotos ?? [],
     videos,
@@ -151,7 +155,7 @@ function createHouse(form: FormState, id = `custom-${crypto.randomUUID()}`): Boa
     },
     style: {
       size: "medium",
-      theme: form.type === "milestone" ? "milestone" : "cultural",
+      theme: form.activity.trim(),
       icon: image,
     },
   };
@@ -218,6 +222,7 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
   const [editingId, setEditingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+  const [creatingActivity, setCreatingActivity] = useState(false);
 
   const update = (field: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
@@ -270,6 +275,10 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
       setError("Escreva uma descrição curta.");
       return;
     }
+    if (!form.activity.trim()) {
+      setError("Informe a atividade principal.");
+      return;
+    }
     if (mediaError) {
       setError(mediaError);
       return;
@@ -285,11 +294,13 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
     }
     setError(null);
     setEditingId(null);
+    setCreatingActivity(false);
     setForm(EMPTY_FORM);
   };
 
   const startEdit = (house: BoardHouse) => {
     setForm(houseToForm(house));
+    setCreatingActivity(false);
     setEditingId(house.id);
     setError(null);
     setNotice(`Editando “${house.data?.title ?? "registro"}”.`);
@@ -335,6 +346,39 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
             <option value="experience">Experiência</option>
             <option value="milestone">Marco</option>
           </select>
+        </label>
+        <label className="register-form__wide">
+          Atividade principal
+          <select
+            value={creatingActivity ? "__new__" : form.activity}
+            onChange={(event) => {
+              if (event.target.value === "__new__") {
+                setCreatingActivity(true);
+                update("activity", "");
+                return;
+              }
+              setCreatingActivity(false);
+              update("activity", event.target.value);
+            }}
+            required={!creatingActivity}
+          >
+            <option value="">Selecione a atividade</option>
+            {activityOptions(form.activity, ...records.map((record) => record.style.theme)).map((activity) => (
+              <option key={activity} value={activity}>
+                {activity}
+              </option>
+            ))}
+            <option value="__new__">Criar nova atividade</option>
+          </select>
+          {creatingActivity && (
+            <input
+              value={form.activity}
+              onChange={(event) => update("activity", event.target.value)}
+              placeholder="Nome da nova atividade"
+              maxLength={60}
+              required
+            />
+          )}
         </label>
         <label className="register-form__wide">
           Descrição
@@ -662,6 +706,7 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
               className="register-form__cancel"
               onClick={() => {
                 setEditingId(null);
+                setCreatingActivity(false);
                 setForm(EMPTY_FORM);
                 setNotice(null);
                 setError(null);
@@ -686,7 +731,10 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
               <li key={record.id}>
                 <span>
                   <strong>{record.data?.title}</strong>
-                  <small>{record.data?.date}</small>
+                  <small>
+                    {record.data?.date}
+                    {record.style.theme ? ` · ${activityLabel(record.style.theme)}` : ""}
+                  </small>
                 </span>
                 <span className="register-list__actions">
                   <button type="button" onClick={() => startEdit(record)}>
