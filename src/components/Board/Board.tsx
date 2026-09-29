@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import type { BoardHouse } from "../../types/portfolio";
-import { groupHousesByYear, houseImage } from "../../utils/groupByYear";
+import { groupHousesByYear, houseImage, houseImages } from "../../utils/groupByYear";
 import "./Board.css";
 
 export interface BoardProfile {
@@ -21,11 +21,75 @@ interface BoardProps {
   focusHouse?: { id: string; token: number } | null;
 }
 
-type PathCell =
-  | { kind: "year"; year: number; key: string; accent: string }
-  | { kind: "stop"; house: BoardHouse; key: string; accent: string; year: number };
+type YearCell = { kind: "year"; year: number; key: string; accent: string };
+type StopCell = { kind: "stop"; house: BoardHouse; key: string; accent: string; year: number };
+type PathCell = YearCell | StopCell;
 
 const HOUSE_COLORS = ["var(--matrix)", "var(--gold)", "var(--coral)", "var(--black)"];
+
+/** Tempo que cada imagem fica em cena enquanto o card está "vivo". */
+const FRAME_MS = 1800;
+/** Cards com uma única imagem (ou nenhuma) ficam vivos por este mínimo de quadros. */
+const MIN_FRAMES = 2;
+/** Cards com muitas fotos não monopolizam o ciclo além deste limite. */
+const MAX_FRAMES = 5;
+
+function liveFrames(house: BoardHouse) {
+  return Math.max(MIN_FRAMES, Math.min(MAX_FRAMES, houseImages(house).length));
+}
+
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  return reduced;
+}
+
+/**
+ * Mantém um único card "vivo" por vez, seguindo a ordem cronológica do
+ * tabuleiro. O card vivo percorre suas imagens quadro a quadro e, ao fim,
+ * passa o bastão para o próximo; ao chegar no último, volta ao início.
+ */
+function useLiveStop(stops: StopCell[]) {
+  const reducedMotion = usePrefersReducedMotion();
+  const [live, setLive] = useState({ stop: 0, frame: 0 });
+
+  useEffect(() => {
+    setLive({ stop: 0, frame: 0 });
+  }, [stops]);
+
+  useEffect(() => {
+    if (reducedMotion || stops.length === 0) return;
+    const id = window.setInterval(() => {
+      setLive((current) => {
+        const house = stops[current.stop]?.house;
+        const frames = house ? liveFrames(house) : MIN_FRAMES;
+        if (current.frame + 1 < frames) {
+          return { stop: current.stop, frame: current.frame + 1 };
+        }
+        return { stop: (current.stop + 1) % stops.length, frame: 0 };
+      });
+    }, FRAME_MS);
+    return () => window.clearInterval(id);
+  }, [stops, reducedMotion]);
+
+  if (reducedMotion) return null;
+  const cell = stops[live.stop];
+  if (!cell) return null;
+  const images = houseImages(cell.house);
+  return {
+    id: cell.house.id,
+    image: images.length > 0 ? images[live.frame % images.length] : undefined,
+    durationMs: liveFrames(cell.house) * FRAME_MS,
+  };
+}
 
 function useColumns() {
   const [columns, setColumns] = useState(8);
@@ -81,6 +145,11 @@ export const Board: React.FC<BoardProps> = ({
     });
     return next;
   }, [groups]);
+  const stops = useMemo(
+    () => cells.filter((cell): cell is StopCell => cell.kind === "stop"),
+    [cells]
+  );
+  const live = useLiveStop(stops);
 
   useEffect(() => {
     if (!focusHouse || focusHouse.token === seenFocus.current) return;
@@ -156,12 +225,13 @@ export const Board: React.FC<BoardProps> = ({
 
             const image = houseImage(cell.house);
             const selected = selectedHouse?.id === cell.house.id;
+            const isLive = live?.id === cell.house.id;
             return (
               <button
                 key={cell.key}
                 id={`stop-${cell.house.id}`}
                 type="button"
-                className={`life-stop${image ? " life-stop--photo" : ""}${onBlack ? " life-stop--black" : ""}${selected ? " life-stop--selected" : ""}`}
+                className={`life-stop${image ? " life-stop--photo" : ""}${onBlack ? " life-stop--black" : ""}${selected ? " life-stop--selected" : ""}${isLive ? " life-stop--live" : ""}`}
                 style={{
                   ...placement,
                   "--house-image": image ? `url("${image.replace(/"/g, "")}")` : "none",
@@ -169,6 +239,17 @@ export const Board: React.FC<BoardProps> = ({
                 aria-label={`${cell.house.data?.title ?? "Registro"}, ${cell.house.data?.date ?? ""}`}
                 onClick={() => onHouseClick(cell.house)}
               >
+                {isLive && live?.image && (
+                  <span
+                    key={live.image}
+                    className="life-stop__frame"
+                    style={{
+                      "--frame-image": `url("${live.image.replace(/"/g, "")}")`,
+                      "--frame-ms": `${live.durationMs}ms`,
+                    } as React.CSSProperties}
+                    aria-hidden="true"
+                  />
+                )}
                 <span className="life-stop__title">{cell.house.data?.title}</span>
                 {linked && arrow && (
                   <span className={`life-link life-link--${arrow}${onBlack ? " life-link--black" : ""}`} aria-hidden="true" />
