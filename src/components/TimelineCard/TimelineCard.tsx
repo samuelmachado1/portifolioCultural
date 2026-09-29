@@ -25,7 +25,13 @@ export const TimelineCard: React.FC<TimelineCardProps> = ({ house, onClick }) =>
   // Mapeamento de tipos para ícones
   const getTypeIcon = (type: string) => {
     // Se o style.icon é uma URL/caminho de imagem, retorna null para usar imagem
-    if (house.style.icon && (house.style.icon.includes('.') || house.style.icon.startsWith('/'))) {
+    if (
+      house.style.icon &&
+      (house.style.icon.includes('.') ||
+        house.style.icon.startsWith('/') ||
+        house.style.icon.startsWith('blob:') ||
+        house.style.icon.startsWith('data:'))
+    ) {
       return null;
     }
 

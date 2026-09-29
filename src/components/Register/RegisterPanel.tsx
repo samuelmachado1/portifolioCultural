@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import type { BoardHouse } from "../../types/portfolio";
 import { activityLabel, activityOptions } from "../../utils/activities";
 import { extractYear } from "../../utils/dates";
+import { cachedMediaUrl, isMediaRef, saveMedia, toStorableMedia } from "../../utils/mediaStore";
 import "./RegisterPanel.css";
 
 interface RegisterPanelProps {
@@ -48,53 +49,35 @@ const EMPTY_FORM: FormState = {
   clippings: [],
 };
 
-const MAX_IMAGE_BYTES = 800_000;
-const MAX_VIDEO_BYTES = 3_000_000;
-
 function isWebPath(value: string) {
   return value.startsWith("https://") || value.startsWith("http://") || value.startsWith("/");
 }
 
+/** Arquivo escolhido neste dispositivo: URL temporária, referência guardada ou base64 legado. */
+function isLocalFile(value: string) {
+  return value.startsWith("blob:") || value.startsWith("data:") || isMediaRef(value);
+}
+
 function isAcceptableImage(value: string) {
-  return isWebPath(value) || value.startsWith("data:image/");
+  return isWebPath(value) || value.startsWith("blob:") || isMediaRef(value) || value.startsWith("data:image/");
 }
 
 function isAcceptableVideo(value: string) {
-  return isWebPath(value) || value.startsWith("data:video/");
+  return isWebPath(value) || value.startsWith("blob:") || isMediaRef(value) || value.startsWith("data:video/");
 }
 
-function readImageFile(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    if (!file.type.startsWith("image/")) {
-      reject(new Error("Escolha um arquivo de imagem."));
-      return;
-    }
-    if (file.size > MAX_IMAGE_BYTES) {
-      reject(new Error("Cada imagem precisa ter até 800 KB para caber neste navegador."));
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result));
-    reader.onerror = () => reject(new Error("Não foi possível ler a imagem."));
-    reader.readAsDataURL(file);
-  });
-}
-
-function readVideoFile(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    if (!file.type.startsWith("video/")) {
-      reject(new Error("Escolha um arquivo de vídeo."));
-      return;
-    }
-    if (file.size > MAX_VIDEO_BYTES) {
-      reject(new Error("Cada vídeo precisa ter até 3 MB para caber neste navegador."));
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result));
-    reader.onerror = () => reject(new Error("Não foi possível ler o vídeo."));
-    reader.readAsDataURL(file);
-  });
+/**
+ * Guarda os arquivos no navegador (IndexedDB, sem limite além da cota do próprio navegador)
+ * e devolve URLs prontas para exibir. Arquivos do tipo errado são ignorados com erro.
+ */
+async function storeFiles(files: FileList | null | undefined, kind: "image" | "video"): Promise<string[]> {
+  if (!files || files.length === 0) return [];
+  const urls: string[] = [];
+  for (const file of Array.from(files)) {
+    const ref = await saveMedia(file, kind);
+    urls.push(cachedMediaUrl(ref) ?? ref);
+  }
+  return urls;
 }
 
 function houseToForm(house: BoardHouse): FormState {
@@ -121,9 +104,10 @@ function houseToForm(house: BoardHouse): FormState {
 }
 
 function createHouse(form: FormState, id = `custom-${crypto.randomUUID()}`): BoardHouse {
-  const image = form.imageUrl.trim() || undefined;
-  const photos = form.photos.map((photo) => photo.trim()).filter(Boolean);
-  const videos = form.videos.map((video) => video.trim()).filter(Boolean);
+  // URLs blob: só valem enquanto a página está aberta; o que fica salvo é a referência media:.
+  const image = toStorableMedia(form.imageUrl.trim()) || undefined;
+  const photos = form.photos.map((photo) => toStorableMedia(photo.trim())).filter(Boolean);
+  const videos = form.videos.map((video) => toStorableMedia(video.trim())).filter(Boolean);
   const links = form.links
     .map((link) => ({ title: link.title.trim(), url: link.url.trim() }))
     .filter((link) => link.title && link.url);
@@ -212,6 +196,24 @@ function validateMedia(form: FormState) {
   return null;
 }
 
+interface MediaPreviewProps {
+  value: string;
+  kind: "image" | "video";
+  alt: string;
+}
+
+/** Mostra o arquivo escolhido; se ainda não deu para carregar a mídia, indica que está guardada. */
+const MediaPreview: React.FC<MediaPreviewProps> = ({ value, kind, alt }) => {
+  const src = isMediaRef(value) ? cachedMediaUrl(value) : value;
+  if (!src) {
+    return <span className="register-file__label">Arquivo guardado neste navegador.</span>;
+  }
+  if (kind === "image") {
+    return <img src={src} alt={alt} className="register-file__preview" />;
+  }
+  return <video src={src} className="register-file__preview" muted playsInline preload="metadata" />;
+};
+
 export const RegisterPanel: React.FC<RegisterPanelProps> = ({
   records,
   onAdd,
@@ -223,28 +225,34 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [creatingActivity, setCreatingActivity] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   const update = (field: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
   };
 
-  const storeVideo = async (file: File | undefined, apply: (video: string) => void) => {
-    if (!file) return;
+  /** Guarda os arquivos escolhidos e aplica as URLs resultantes ao formulário. */
+  const storeMedia = async (
+    files: FileList | null | undefined,
+    kind: "image" | "video",
+    apply: (urls: string[]) => void
+  ) => {
+    if (!files || files.length === 0) return;
+    setSaving(true);
     try {
-      apply(await readVideoFile(file));
+      const urls = await storeFiles(files, kind);
+      if (urls.length > 0) apply(urls);
       setError(null);
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "Não foi possível ler o vídeo.");
-    }
-  };
-
-  const storeImage = async (file: File | undefined, apply: (image: string) => void) => {
-    if (!file) return;
-    try {
-      apply(await readImageFile(file));
-      setError(null);
-    } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "Não foi possível ler a imagem.");
+      setError(
+        reason instanceof Error
+          ? reason.message
+          : kind === "image"
+            ? "Não foi possível guardar a imagem."
+            : "Não foi possível guardar o vídeo."
+      );
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -255,8 +263,19 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
     }));
   };
 
+  const updateVideo = (index: number, value: string) => {
+    setForm((current) => ({
+      ...current,
+      videos: current.videos.map((video, videoIndex) => (videoIndex === index ? value : video)),
+    }));
+  };
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    if (saving) {
+      setError("Aguarde terminar de guardar os arquivos.");
+      return;
+    }
     const title = form.title.trim();
     const date = form.date.trim();
     const description = form.description.trim();
@@ -393,15 +412,21 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
         <details className="register-extra">
           <summary>Fotos, vídeos e links (opcional)</summary>
           <p className="register-extra__hint">
-            Nada disso é obrigatório. Fotos e vídeos podem ser um link ou um arquivo deste dispositivo
-            (imagem até 800 KB, vídeo até 3 MB).
+            Nada disso é obrigatório. Fotos e vídeos podem ser links ou arquivos deste dispositivo,
+            sem limite de tamanho (dá para escolher vários de uma vez). Os arquivos ficam guardados só
+            neste navegador.
           </p>
 
           <div className="register-extra__grid">
             <label>
               Imagem de capa
-              {form.imageUrl.startsWith("data:") ? (
-                <span className="register-file__chosen">Imagem selecionada neste computador.</span>
+              {isLocalFile(form.imageUrl) ? (
+                <span className="register-file__chosen">
+                  <MediaPreview value={form.imageUrl} kind="image" alt="Capa escolhida" />
+                  <button type="button" className="register-remove" onClick={() => update("imageUrl", "")}>
+                    Trocar
+                  </button>
+                </span>
               ) : (
                 <input
                   value={form.imageUrl}
@@ -416,8 +441,9 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
               <input
                 type="file"
                 accept="image/*"
+                disabled={saving}
                 onChange={(event) => {
-                  void storeImage(event.target.files?.[0], (image) => update("imageUrl", image));
+                  void storeMedia(event.target.files, "image", ([image]) => update("imageUrl", image));
                   event.target.value = "";
                 }}
               />
@@ -455,20 +481,42 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
           <div className="register-extra__block">
             <div className="register-extra__heading">
               <h3>Mais fotos</h3>
-              <button
-                type="button"
-                className="register-add"
-                onClick={() => setForm((current) => ({ ...current, photos: [...current.photos, ""] }))}
-              >
-                Adicionar foto
-              </button>
+              <div className="register-extra__tools">
+                <label className="register-upload">
+                  Escolher arquivos
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    disabled={saving}
+                    onChange={(event) => {
+                      void storeMedia(event.target.files, "image", (images) =>
+                        setForm((current) => ({
+                          ...current,
+                          photos: [...current.photos.filter((photo) => photo.trim()), ...images],
+                        }))
+                      );
+                      event.target.value = "";
+                    }}
+                  />
+                </label>
+                <button
+                  type="button"
+                  className="register-add"
+                  onClick={() => setForm((current) => ({ ...current, photos: [...current.photos, ""] }))}
+                >
+                  Adicionar link
+                </button>
+              </div>
             </div>
             {form.photos.map((photo, index) => (
-              <div className="register-repeat" key={`photo-${index}`}>
+              <div className="register-repeat register-repeat--media" key={`photo-${index}`}>
                 <label>
                   Foto {index + 1}
-                  {photo.startsWith("data:") ? (
-                    <span className="register-file__chosen">Imagem selecionada neste computador.</span>
+                  {isLocalFile(photo) ? (
+                    <span className="register-file__chosen">
+                      <MediaPreview value={photo} kind="image" alt={`Foto ${index + 1}`} />
+                    </span>
                   ) : (
                     <input
                       value={photo}
@@ -477,17 +525,6 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
                       inputMode="url"
                     />
                   )}
-                </label>
-                <label className="register-file">
-                  Arquivo
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(event) => {
-                      void storeImage(event.target.files?.[0], (image) => updatePhoto(index, image));
-                      event.target.value = "";
-                    }}
-                  />
                 </label>
                 <button
                   type="button"
@@ -508,53 +545,50 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
           <div className="register-extra__block">
             <div className="register-extra__heading">
               <h3>Vídeos</h3>
-              <button
-                type="button"
-                className="register-add"
-                onClick={() => setForm((current) => ({ ...current, videos: [...current.videos, ""] }))}
-              >
-                Adicionar vídeo
-              </button>
-            </div>
-            {form.videos.map((video, index) => (
-              <div className="register-repeat" key={`video-${index}`}>
-                <label>
-                  Vídeo {index + 1}
-                  {video.startsWith("data:") ? (
-                    <span className="register-file__chosen">Vídeo selecionado neste computador.</span>
-                  ) : (
-                    <input
-                      value={video}
-                      onChange={(event) =>
-                        setForm((current) => ({
-                          ...current,
-                          videos: current.videos.map((item, videoIndex) =>
-                            videoIndex === index ? event.target.value : item
-                          ),
-                        }))
-                      }
-                      placeholder="https://youtube.com/... ou link .mp4"
-                      inputMode="url"
-                    />
-                  )}
-                </label>
-                <label className="register-file">
-                  Arquivo
+              <div className="register-extra__tools">
+                <label className="register-upload">
+                  Escolher arquivos
                   <input
                     type="file"
                     accept="video/*"
+                    multiple
+                    disabled={saving}
                     onChange={(event) => {
-                      void storeVideo(event.target.files?.[0], (fileUrl) =>
+                      void storeMedia(event.target.files, "video", (files) =>
                         setForm((current) => ({
                           ...current,
-                          videos: current.videos.map((item, videoIndex) =>
-                            videoIndex === index ? fileUrl : item
-                          ),
+                          videos: [...current.videos.filter((video) => video.trim()), ...files],
                         }))
                       );
                       event.target.value = "";
                     }}
                   />
+                </label>
+                <button
+                  type="button"
+                  className="register-add"
+                  onClick={() => setForm((current) => ({ ...current, videos: [...current.videos, ""] }))}
+                >
+                  Adicionar link
+                </button>
+              </div>
+            </div>
+            {form.videos.map((video, index) => (
+              <div className="register-repeat register-repeat--media" key={`video-${index}`}>
+                <label>
+                  Vídeo {index + 1}
+                  {isLocalFile(video) ? (
+                    <span className="register-file__chosen">
+                      <MediaPreview value={video} kind="video" alt={`Vídeo ${index + 1}`} />
+                    </span>
+                  ) : (
+                    <input
+                      value={video}
+                      onChange={(event) => updateVideo(index, event.target.value)}
+                      placeholder="https://youtube.com/... ou link .mp4"
+                      inputMode="url"
+                    />
+                  )}
                 </label>
                 <button
                   type="button"
@@ -715,8 +749,8 @@ export const RegisterPanel: React.FC<RegisterPanelProps> = ({
               Cancelar edição
             </button>
           )}
-          <button type="submit" className="register-form__submit">
-            {editingId ? "Salvar alterações" : "Incluir no tabuleiro"}
+          <button type="submit" className="register-form__submit" disabled={saving}>
+            {saving ? "Guardando arquivos..." : editingId ? "Salvar alterações" : "Incluir no tabuleiro"}
           </button>
         </div>
       </form>

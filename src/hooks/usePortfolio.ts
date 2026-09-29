@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { BoardHouse } from "../types/portfolio";
+import { collectMediaRefs, isMediaRef, pruneMedia, resolveMediaUrl } from "../utils/mediaStore";
 
 const STORAGE_KEY = "portfolio-custom-houses";
 const HIDDEN_KEY = "portfolio-hidden-houses";
@@ -30,6 +31,38 @@ function readCustomHouses(): BoardHouse[] {
 
 function writeCustomHouses(houses: BoardHouse[]) {
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(houses));
+  void pruneMedia(collectMediaRefs(houses));
+}
+
+type MediaUrls = Record<string, string>;
+
+/**
+ * Troca referências `media:<uuid>` por URLs `blob:` já resolvidas.
+ * Referências ainda não carregadas ficam como estão para não perder o dado ao editar.
+ */
+function hydrateHouse(house: BoardHouse, mediaUrls: MediaUrls): BoardHouse {
+  const refs = collectMediaRefs([house]);
+  if (refs.size === 0) return house;
+
+  const swap = (value: string | undefined) =>
+    value && isMediaRef(value) ? mediaUrls[value] || value : value;
+  const swapList = (list: string[] | undefined) => list?.map((item) => swap(item) ?? item);
+
+  return {
+    ...house,
+    style: { ...house.style, icon: swap(house.style.icon) },
+    data: house.data
+      ? {
+          ...house.data,
+          flyerUrl: swap(house.data.flyerUrl),
+          eventPhotos: swapList(house.data.eventPhotos),
+          videos: swapList(house.data.videos),
+          socialLinks: house.data.socialLinks
+            ? { ...house.data.socialLinks, video: swap(house.data.socialLinks.video) }
+            : undefined,
+        }
+      : undefined,
+  };
 }
 
 function readHiddenIds(): string[] {
@@ -66,10 +99,42 @@ export const usePortfolio = (initialHouses: BoardHouse[]) => {
   );
   const [hiddenIds, setHiddenIds] = useState<string[]>(() => readHiddenIds());
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [mediaUrls, setMediaUrls] = useState<MediaUrls>({});
+
+  useEffect(() => {
+    void pruneMedia(collectMediaRefs(readCustomHouses()));
+  }, []);
+
+  useEffect(() => {
+    const missing = [...collectMediaRefs(customHouses)].filter((ref) => !(ref in mediaUrls));
+    if (missing.length === 0) return;
+    let cancelled = false;
+    void Promise.all(
+      missing.map(async (ref) => {
+        try {
+          return [ref, await resolveMediaUrl(ref)] as const;
+        } catch {
+          // Arquivo ausente: registra vazio para não tentar de novo a cada render.
+          return [ref, ""] as const;
+        }
+      })
+    ).then((entries) => {
+      if (cancelled) return;
+      setMediaUrls((current) => ({ ...current, ...Object.fromEntries(entries) }));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [customHouses, mediaUrls]);
+
+  const hydratedCustomHouses = useMemo(
+    () => customHouses.map((house) => hydrateHouse(house, mediaUrls)),
+    [customHouses, mediaUrls]
+  );
 
   const houses = useMemo(
-    () => mergeHouses(initialHouses, customHouses, hiddenIds),
-    [initialHouses, customHouses, hiddenIds]
+    () => mergeHouses(initialHouses, hydratedCustomHouses, hiddenIds),
+    [initialHouses, hydratedCustomHouses, hiddenIds]
   );
 
   const selectHouse = useCallback((house: BoardHouse) => {

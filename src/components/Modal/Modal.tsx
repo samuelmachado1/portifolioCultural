@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import type { BoardHouse } from '../../types/portfolio';
 import { activityLabel } from '../../utils/activities';
 import { houseImage } from '../../utils/groupByYear';
+import { isLocalMediaUrl } from '../../utils/mediaStore';
 import { ImageModal } from '../ImageModal/ImageModal';
 import './Modal.css';
 
@@ -156,10 +157,15 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                         preload="metadata"
                         playsInline
                         controlsList="nodownload"
+                        src={isLocalMediaUrl(data.socialLinks.video) ? data.socialLinks.video : undefined}
                       >
-                        <source src={data.socialLinks.video} type="video/mp4" />
-                        <source src={data.socialLinks.video} type="video/webm" />
-                        <source src={data.socialLinks.video} type="video/ogg" />
+                        {!isLocalMediaUrl(data.socialLinks.video) && (
+                          <>
+                            <source src={data.socialLinks.video} type="video/mp4" />
+                            <source src={data.socialLinks.video} type="video/webm" />
+                            <source src={data.socialLinks.video} type="video/ogg" />
+                          </>
+                        )}
                         Seu navegador não suporta o elemento de vídeo.
                       </video>
                     )}
@@ -182,9 +188,19 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, house, onClose }) => {
                           style={{ width: "100%", aspectRatio: "16/9", borderRadius: "8px" }}
                         />
                       ) : (
-                        <video controls className="modal-video" preload="metadata" playsInline>
-                          <source src={video} type="video/mp4" />
-                          <source src={video} type="video/webm" />
+                        <video
+                          controls
+                          className="modal-video"
+                          preload="metadata"
+                          playsInline
+                          src={isLocalMediaUrl(video) ? video : undefined}
+                        >
+                          {!isLocalMediaUrl(video) && (
+                            <>
+                              <source src={video} type="video/mp4" />
+                              <source src={video} type="video/webm" />
+                            </>
+                          )}
                         </video>
                       )}
                     </div>
