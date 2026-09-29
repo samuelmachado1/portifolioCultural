@@ -204,7 +204,101 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
 }
 
+/* Card "vivo": um por vez, seguindo o ciclo cronológico do tabuleiro. */
+.life-stop--live,
+.life-stop--live:hover,
+.life-stop--live:focus-visible {
+  border-color: color-mix(in srgb, var(--house-accent) 92%, var(--ice));
+  animation: life-stop-pulse 1.8s ease-in-out infinite;
+}
+
+.life-stop__frame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  pointer-events: none;
+  animation: life-frame-fade 700ms ease-out both;
+}
+
+.life-stop__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--asphalt) var(--frame-image) center / cover no-repeat;
+  animation: life-frame-drift var(--frame-ms, 3600ms) linear both;
+}
+
+.life-stop__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(22, 12, 6, 0.88) 0%, rgba(22, 12, 6, 0.18) 58%, rgba(22, 12, 6, 0.05) 100%);
+}
+
+@keyframes life-frame-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes life-frame-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes life-stop-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--house-accent) 45%, transparent),
+      0 8px 18px rgba(0, 0, 0, 0.28);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px color-mix(in srgb, var(--house-accent) 0%, transparent),
+      0 12px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.life-stop--black.life-stop--live {
+  border-color: rgba(242, 242, 242, 0.75);
+  animation-name: life-stop-pulse-black;
+}
+
+@keyframes life-stop-pulse-black {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(242, 242, 242, 0.4),
+      0 8px 18px rgba(0, 0, 0, 0.28);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(242, 242, 242, 0),
+      0 12px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .life-stop--live,
+  .life-stop__frame,
+  .life-stop__frame::before {
+    animation: none;
+  }
+}
+
 .life-stop__title {
+  position: relative;
+  z-index: 1;
   font-size: 0.74rem;
   font-weight: 700;
   line-height: 1.15;
